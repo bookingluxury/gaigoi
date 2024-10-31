@@ -240,8 +240,13 @@
                 align-items: center;
                 margin: 20px 0;
             }
+                .logo-container img {
+            width: 80%; /* Đặt chiều rộng logo phù hợp */
+            max-width: 400px; /* Giới hạn chiều rộng tối đa của logo */
+            height: auto; /* Đảm bảo chiều cao tự động điều chỉnh */
+            }
             .header img {
-              width: 380px;
+              width: 350px;
                 height: 145px;
                 border-radius: #ff2c61
             }
@@ -254,19 +259,23 @@
             .button {
                 background-color: #000000;
                 color: #ffffff;
-                font-size: 15px;
-                padding: 7px 12px;
-                margin: -30px 2px 5px 2px;
+                font-size: 12px;
+                padding: 5px 8px;
+                margin: -20px 2px 5px 2px;
                 border-radius: 5px;
                 cursor: pointer;
                 border: 1px solid #ff2c61;
                 transition: background-color 0.3s ease;
                 position: relative;
-    top: -20px;
+                font-weight: 700; /* Tăng độ đậm chữ */
+                box-shadow: 0 4px 8px #ff2c61 /* Hiệu ứng đổ bóng */
             }
             .button:hover {
-                background-color: #ff2c61;
+                background-color: #00aeff;
             }
+    top: -20px;
+           
+            
             .statistics-widget {
                 margin-top: 20px;
                 color: #fff;
@@ -278,6 +287,14 @@
             .statistics-widget li {
                 margin: 5px 0;
             }
+            .button img {
+            width: 30px; /* Đặt kích thước cho icon */
+            height: 30px; /* Đặt kích thước cho icon */
+            margin-right: 3px; /* Khoảng cách giữa icon và chữ */
+        }
+        .booking-input {
+            margin-top: 20px;
+        }
         </style>
     </head>
     <body>
@@ -289,87 +306,52 @@
                 </div>
             </div>
     
-            <button class="button" onclick="redirectToProfile()">Hồ sơ (ไฟล์)</button>
+            <button class="button" onclick="redirectToProfile()">
+                <img src="https://i.ibb.co/XyJ7DWF/pngtree-man-wearing-sunglasses-for-the-logo-of-the-game-image-2578704-fotor-202410317423.png" alt="Icon Hồ sơ"> <!-- Đường dẫn đến tệp icon hồ sơ -->
+                Hồ sơ
+            </button>
     
-            <script>
-                function redirectToProfile() {
-                    window.location.href = "https://gaigoitocdo.github.io/profile/";
-                }
-            </script>
-        </div>
-    </body>
-    </html>
-    
+            <!-- Nút nhập mã đặt lịch -->
+            <div class="booking-input">
+                <button id="bookingButton" class="button" onclick="promptBookingCode()">
+                    <img src="https://i.ibb.co/rk2ZdDF/vip-icon-blue-4288642-fotor-2024103173810.png" alt="Icon Nhập mã"> <!-- Đường dẫn đến tệp icon nhập mã -->
+                    Mã đặt lịch
+                </button>
             </div>
         </div>
-        
+    
         <script>
-          // Chuyển đổi giữa form đăng ký và đăng nhập
-          function toggleForms() {
-            const registerForm = document.getElementById("registerForm");
-            const loginForm = document.getElementById("loginForm");
-            registerForm.style.display = registerForm.style.display === "none" ? "block" : "none";
-            loginForm.style.display = loginForm.style.display === "none" ? "block" : "none";
-        }
-
-        // Xử lý đăng ký người dùng
-        function register() {
-            const username = document.getElementById("registerUsername").value;
-            const password = document.getElementById("registerPassword").value;
-
-            if (username && password) {
-                const user = { username: username, password: password };
-                localStorage.setItem("user", JSON.stringify(user));
-                alert("Đăng ký thành công!");
-                toggleForms(); // Chuyển sang form đăng nhập
-            } else {
-                alert("Vui lòng nhập đầy đủ thông tin.");
+            let isCodeValid = false; // Biến để kiểm tra mã hợp lệ
+    
+            function redirectToProfile() {
+                if (isCodeValid) {
+                    window.location.href = "https://gaigoitocdo.github.io/profile/";
+                } else {
+                    alert("Vui lòng nhập mã đặt lịch hợp lệ trước!");
+                }
             }
-        }
-
-        // Xử lý đăng nhập người dùng
-        function login() {
-            const username = document.getElementById("loginUsername").value;
-            const password = document.getElementById("loginPassword").value;
-            const storedUser = JSON.parse(localStorage.getItem("user"));
-
-            if (storedUser && storedUser.username === username && storedUser.password === password) {
-                alert("Đăng nhập thành công!");
-                displayUserInfo();
-            } else {
-                alert("Tên tài khoản hoặc mật khẩu không đúng.");
+    
+            function promptBookingCode() {
+                const code = prompt("Vui lòng nhập mã đặt lịch:");
+                // Thay "yourValidCode" bằng mã hợp lệ mà bạn muốn kiểm tra
+                const validCode = "999999"; // Thay thế với mã bạn muốn
+    
+                if (code === validCode) {
+                    isCodeValid = true; // Cập nhật biến kiểm tra mã hợp lệ
+                    alert("Mã hợp lệ - Bạn có thể sử dụng dịch vụ ");
+                    document.getElementById("bookingButton").innerText = "Luxury Girl Booking"; // Thay đổi tên nút
+                } else {
+                    alert("Mã không chính xác! Vui lòng thử lại.");
+                }
             }
-        }
-
-        // Hiển thị thông tin tài khoản người dùng
-        function displayUserInfo() {
-            const storedUser = JSON.parse(localStorage.getItem("user"));
-            if (storedUser) {
-                document.getElementById("displayUsername").textContent = storedUser.username;
-                document.getElementById("registerForm").style.display = "none";
-                document.getElementById("loginForm").style.display = "none";
-                document.getElementById("accountInfo").style.display = "block";
-            }
-        }
-
-        // Xử lý đăng xuất người dùng
-        function logout() {
-            localStorage.removeItem("user");
-            alert("Bạn đã đăng xuất!");
-            document.getElementById("accountInfo").style.display = "none";
-            document.getElementById("loginForm").style.display = "block";
-        }
-
-        // Kiểm tra trạng thái đăng nhập khi tải trang
-        document.addEventListener("DOMContentLoaded", function() {
-            const storedUser = JSON.parse(localStorage.getItem("user"));
-            if (storedUser) {
-                displayUserInfo();
-            }
-        });
-    </script>
-</body>
-</html>
+        </script>
+       
+    
+    </body>
+    </html>
+        </script>
+    </body>
+    </html>
 <style>
     .register-btn {
         padding: 5px 10px;
@@ -502,10 +484,9 @@
   <button class="phim-btn" onclick="window.open('https://quatvn.fit/onlyfans-vietnam/', '_blank')">Phim 18+ Việt Nam</button>
   <button class="phim-btn" onclick="window.open('https://quatvn.fit/cn/', '_blank')">Phim 18+ Trung</button>
   <button class="phim-btn" onclick="window.open('https://quatvn.fit/us/', '_blank')">Phim 18+ U.S</button>
-  <button class="phim-btn" onclick="window.open('https://link_to_other_videos', '_blank')">Phim 18+ Khác</button>
   <button class="phim-btn" onclick="window.open('https://quatvn.fit/kr/', '_blank')">Phim 18+ Hàn</button>
   <button class="phim-btn" onclick="window.open('https://quatvn.fit/jp/', '_blank')">Phim 18+ Nhật Bản (JAV)</button>
-  <button class="phim-btn" onclick="window.open('')">Gái Việt Du học sinh (Member Vip 💎)</button>
+  <button class="phim-btn" onclick="window.">Gái Việt Du học sinh (Member Vip 💎)</button>
   <button class="phim-btn" onclick="window.open('https://quatvn.fit/onlyfans-thailand/', '_blank')">Phim 18+ Khác</button>
 </div>
 
@@ -599,7 +580,7 @@
 <!-- Hỗ trợ nhanh -->
 <div id="support-section" class="content">
   <h2>Hỗ trợ nhanh</h2>
-  <p>Để nhận được hỗ trợ nhanh hơn anh yêu liên hệ qua Telegram nhé:</p>
+  <p>Để nhận được hỗ trợ nhanh hơn anh liên hệ qua Telegram nhé:</p>
   <a href="https://t.me/vipdiamondclb" target="_blank" class="support-button">
       <i class="fab fa-telegram-plane"></i> Hỗ trợ viên 1
   </a>
@@ -1426,6 +1407,10 @@
       </div>
       <div class="region-btn" onclick="showDetails('QuynhAnh')">
           <i class="fas fa-female"></i> Quỳnh Anh
+        </div>
+        <div class="region-btn" onclick="showDetails('HaHuyen')">
+            <i class="fas fa-female"></i> Hà Huyền 
+        </div>
       </div>
   </div>
 </div>
@@ -3110,22 +3095,22 @@ font-weight: bold;
     <!-- Hình ảnh -->
     <div id="images-QuynhAnh" style="display: none">
         <h4>Hình ảnh</h4>
-<img src="https://i.ibb.co/GQGdgJG/309989643-629711185484700-800178790464316697-n.jpg" alt="Image 2" class="info-image" style="height: 330px;">
-<img src="https://i.ibb.co/dPnYMh1/336259995-154577060807678-8601816291592842410-n.jpg" alt="Image 3" class="info-image" style="height: 330px;">
-<img src="https://i.ibb.co/g9LN60B/337389624-587013110135564-3829004120735026130-n.jpg" alt="Image 4" class="info-image" style="height: 330px;">
-<img src="https://i.ibb.co/SJQ3Xvb/340931419-776721337030997-2865551987934903214-n.jpg" alt="Image 5" class="info-image" style="height: 330px;">
-<img src="https://i.ibb.co/TwrRDvJ/367410131-816286566827160-6359684262952889763-n.jpg" alt="Image 6" class="info-image" style="height: 330px;">
-<img src="https://i.ibb.co/GFQLDpt/383214997-837770018012148-1280788975135102072-n.jpg" alt="Image 7" class="info-image" style="height: 330px;">
-<img src="https://i.ibb.co/chp1p1M/384235372-839434814512335-2260972901569626098-n.jpg" alt="Image 8" class="info-image" style="height: 330px;">
-<img src="https://i.ibb.co/vY5S755/387729334-845115860610897-2354261134729548408-n.jpg" alt="Image 9" class="info-image" style="height: 330px;">
-<img src="https://i.ibb.co/23w03dm/405306079-871290721326744-7522073540435670885-n.jpg" alt="Image 10" class="info-image" style="height: 330px;">
-<img src="https://i.ibb.co/k44z6CY/425557415-911630753959407-8000729636212690204-n.jpg" alt="Image 11" class="info-image" style="height: 330px;">
-<img src="https://i.ibb.co/GsnXh7q/441602376-970638008058681-8481165972533691356-n.jpg" alt="Image 12" class="info-image" style="height: 330px;">
-<img src="https://i.ibb.co/RTBynfD/453871078-1015904680198680-8883037550595303607-n.jpg" alt="Image 13" class="info-image" style="height: 330px;">
-<img src="https://i.ibb.co/b7c1GK9/454503517-1020509216404893-1431358853470073923-n.jpg" alt="Image 14" class="info-image" style="height: 330px;">
-<img src="https://i.ibb.co/W0V2JG4/456315582-1027932035662611-7804666417740511200-n.jpg" alt="Image 15" class="info-image" style="height: 330px;">
-<img src="https://i.ibb.co/7R83yWc/463120465-1066533151802499-8148182830936919702-n.jpg" alt="Image 16" class="info-image" style="height: 330px;">
-<img src="https://i.ibb.co/5LD9hBX/464630662-1074503204338827-362002487356146181-n.jpg" alt="Image 17" class="info-image" style="height: 330px;">
+        <img src="https://i.ibb.co/GQGdgJG/309989643-629711185484700-800178790464316697-n.jpg" alt="Image 2" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/dPnYMh1/336259995-154577060807678-8601816291592842410-n.jpg" alt="Image 3" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/g9LN60B/337389624-587013110135564-3829004120735026130-n.jpg" alt="Image 4" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/SJQ3Xvb/340931419-776721337030997-2865551987934903214-n.jpg" alt="Image 5" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/TwrRDvJ/367410131-816286566827160-6359684262952889763-n.jpg" alt="Image 6" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/GFQLDpt/383214997-837770018012148-1280788975135102072-n.jpg" alt="Image 7" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/chp1p1M/384235372-839434814512335-2260972901569626098-n.jpg" alt="Image 8" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/vY5S755/387729334-845115860610897-2354261134729548408-n.jpg" alt="Image 9" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/23w03dm/405306079-871290721326744-7522073540435670885-n.jpg" alt="Image 10" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/k44z6CY/425557415-911630753959407-8000729636212690204-n.jpg" alt="Image 11" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/GsnXh7q/441602376-970638008058681-8481165972533691356-n.jpg" alt="Image 12" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/RTBynfD/453871078-1015904680198680-8883037550595303607-n.jpg" alt="Image 13" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/b7c1GK9/454503517-1020509216404893-1431358853470073923-n.jpg" alt="Image 14" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/W0V2JG4/456315582-1027932035662611-7804666417740511200-n.jpg" alt="Image 15" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/7R83yWc/463120465-1066533151802499-8148182830936919702-n.jpg" alt="Image 16" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/5LD9hBX/464630662-1074503204338827-362002487356146181-n.jpg" alt="Image 17" class="info-image" style="height: 270px;">
 
     </div>
 
@@ -3145,6 +3130,151 @@ font-weight: bold;
         </p>
     </div>
 </div>
+
+
+<!-- Chi tiết Hà Huyền -->
+<div id="detail-HaHuyen" class="detail-info">
+    <h3>Hà Huyền</h3>
+    <div class="button-container">
+        <button class="info-button" onclick="toggleContent('HaHuyen', 'info')">
+            <i class="fas fa-info-circle"></i> Info
+        </button>
+        <button class="info-button" onclick="toggleContent('HaHuyen', 'images')">
+            <i class="fas fa-images"></i> Hình ảnh
+        </button>
+        <button onclick="openBookingModal('HaHuyen')">Đặt lịch</button>
+    </div>
+
+    <!-- Thông tin chi tiết -->
+    <div id="info-HaHuyen" style="display: none">
+        <h4>Thông tin</h4>
+        <div class="info-content">
+            <img src="https://i.ibb.co/S5cZB7m/419418603-1508797216580744-6598850606428340490-n.jpg" alt="Image 11" class="info-image" style="height: 270px;">
+            <div class="info-text">
+                <p><i class="fas fa-money-bill-wave"></i> <strong>Giá tiền:</strong> 2.100 Bath/2 lần quan hệ (65 phút)</p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Vị trí:</strong> <span class="location-info" id="location-range-HaHuyen">Đang tải...</span></p>
+
+                <style>
+                .location-info {
+                    font-size: 17px;
+                    color: #00ff00; /* Màu xanh lá */
+                    font-weight: bold;
+                }
+                </style>
+
+                <script>
+                function updateLocationRange(memberId) {
+                    let currentValue = 5.5;  // Giá trị ban đầu
+                    let direction = "up";    // Hướng ban đầu là tăng
+                    const step = 0.1;        // Bước nhảy mỗi lần tăng/giảm
+                    const min = 0.3;         // Giá trị nhỏ nhất
+                    const max = 9.5;         // Giá trị lớn nhất
+
+                    const lastValue = localStorage.getItem(`lastValue_${memberId}`);
+                    if (lastValue) {
+                        currentValue = parseFloat(lastValue);
+                    }
+
+                    const locationElement = document.getElementById(`location-range-${memberId}`);
+                    locationElement.textContent = "Đang tải...";
+
+                    function adjustRange() {
+                        if (!locationElement) return;
+
+                        if (direction === "up") {
+                            currentValue += step;
+                            if (currentValue >= max || currentValue >= 7.7) {
+                                direction = "down";
+                            }
+                        } 
+                        else if (direction === "down") {
+                            currentValue -= step;
+                            if (currentValue <= min || currentValue <= 3.2) {
+                                direction = "up";
+                            }
+                        }
+
+                        locationElement.textContent = `Trong phạm vi ${currentValue.toFixed(1)} km`;
+                        localStorage.setItem(`lastValue_${memberId}`, currentValue.toFixed(1));
+                    }
+
+                    setInterval(adjustRange, 20000);
+                    adjustRange();
+                }
+
+                document.addEventListener("DOMContentLoaded", function () {
+                    updateLocationRange("HaHuyen");
+                });
+                </script>
+
+                <button onclick="showInputBox('HaHuyen', 'phone')">SDT</button>
+                <button onclick="showInputBox('HaHuyen', 'address')">Địa chỉ</button>
+                <button onclick="showInputBox('HaHuyen', 'telegram')">Telegram</button>
+                <p><i class="fas fa-clock"></i> <strong>Thời gian gia nhập:</strong> 12/07/2024 11:00</p>
+                <i class="fas fa-user"></i> Hoạt động: <span class="active-status">Đang hoạt động</span>
+            </div>
+        </div>
+
+        <h4>Giới thiệu</h4>
+        <p>
+            Cô ấy sở hữu một nụ cười ngọt ngào cùng ánh mắt lôi cuốn, khiến bất cứ ai cũng dễ dàng bị mê hoặc. Hà Huyền không chỉ biết cách làm hài lòng mọi yêu cầu của bạn, mà còn mang đến những trải nghiệm thú vị, mới mẻ và đầy mê hoặc. Nếu bạn đang ở Thái Lan và muốn có một buổi tối đáng nhớ với những cảm xúc đê mê, Hà Huyền chính là sự lựa chọn hoàn hảo. Hà Huyền sẽ mang đến cho bạn cảm giác thăng hoa, quyến rũ trong từng khoảnh khắc
+        </p>
+        <p><i class="fas fa-birthday-cake"></i> <strong>Năm sinh:</strong> 2003</p>
+        <p><i class="fas fa-ruler-vertical"></i> <strong>Cao (cm):</strong> 162</p>
+        <p><i class="fas fa-weight-hanging"></i> <strong>Nặng (kg):</strong> 49</p>
+        <p><i class="fas fa-tape"></i> <strong>Vòng 1 (cm):</strong> 85</p>
+        <p><i class="fas fa-tape"></i> <strong>Vòng 2 (cm):</strong> 62</p>
+        <p><i class="fas fa-tape"></i> <strong>Vòng 3 (cm):</strong> 90</p>
+        <p><i class="fas fa-smile"></i> <strong>Khuôn mặt:</strong> Dịu dàng, thân thiện và rất dễ gần</p>
+        <p><i class="fas fa-concierge-bell"></i> <strong>Service:</strong> Hôn môi, Hôn vú, BJ, HJ, Massage thư giãn, Qua đêm</p>
+        <p><i class="fas fa-eye"></i> <strong>Nhận dạng:</strong> Nét đẹp tự nhiên, thân hình quyến rũ và trẻ trung</p>
+        <p><i class="fas fa-clock"></i> <strong>Hoạt động:</strong> Luôn sẵn sàng phục vụ</p>
+    </div>
+
+    <div id="review-container-HaHuyen" class="review-section">
+        <h4>Đánh giá của bạn cho Hà Huyền</h4>
+        <div class="stars">
+            <span class="star" onclick="rateStar('HaHuyen', 1)">&#9733;</span>
+            <span class="star" onclick="rateStar('HaHuyen', 2)">&#9733;</span>
+            <span class="star" onclick="rateStar('HaHuyen', 3)">&#9733;</span>
+            <span class="star" onclick="rateStar('HaHuyen', 4)">&#9733;</span>
+            <span class="star" onclick="rateStar('HaHuyen', 5)">&#9733;</span>
+        </div>
+        <p id="rating-result-HaHuyen">Bạn chưa đánh giá</p>
+    </div>
+
+    <!-- Hình ảnh -->
+    <div id="images-HaHuyen" style="display: none">
+        <h4>Hình ảnh</h4>
+        <img src="https://i.ibb.co/8X5ZpbB/408725612-1489117888548677-7938195270057156128-n.jpg" alt="Image 1" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/8cRzwDV/383756409-1450607245733075-4818141408238196370-n.jpg" alt="Image 2" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/v3N3FMT/353017933-1399626904164443-3384725205729918730-n.jpg" alt="Image 3" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/QHWWJTN/316169388-1274408853352916-7077694155830683169-n.jpg" alt="Image 4" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/qWQyC06/275138413-1100935457366924-6396910769917078980-n.jpg" alt="Image 5" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/4gTJxwt/292884473-1178618856265250-175000647134861741-n.jpg" alt="Image 6" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/sgzNtNf/303105942-1215513462575789-707884256299403241-n.jpg" alt="Image 7" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/z2rms6r/395638247-1467304944063305-5512392484449680736-n.jpg" alt="Image 8" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/D879vKQ/405127006-1479894232804376-7434074654868707497-n.jpg" alt="Image 9" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/ZRjvVd4/432771239-1544995982960867-630242919755697340-n.jpg" alt="Image 10" class="info-image" style="height: 270px;">
+        <img src="https://i.ibb.co/S5cZB7m/419418603-1508797216580744-6598850606428340490-n.jpg" alt="Image 11" class="info-image" style="height: 270px;">        <!-- Các hình ảnh khác -->
+    </div>
+
+    <!-- Số lượt book -->
+    <div id="bookings-HaHuyen" style="display: none">
+        <h4>Đặt lịch</h4>
+        <p><i class="fas fa-calendar-alt"></i> <strong>Vui lòng đăng nhập để đặt lịch</strong></p>
+    </div>
+
+    <!-- Giới thiệu -->
+    <div id="bio-HaHuyen" style="display: none">
+        <h4>Giới thiệu</h4>
+        <p>
+            Hà Huyền luôn tạo ra những trải nghiệm đáng nhớ với sự chuyên nghiệp và tận tâm. Cô ấy là một trong những gương mặt nổi bật tại Diamond Club.
+        </p>
+    </div>
+</div>
+
+
 
     <script>
         const menuItems = document.querySelectorAll(".menu-item");
@@ -4315,7 +4445,7 @@ updateClock();
 
      <style>  
 .copyright-section {
-  width: 700px;
+  width: 380px;
   border: 1px solid #C0C0C0;
     background-color: #111; /* Màu nền tối */
     color: #ff2c61; /* Màu chữ sáng hơn để tạo sự tương phản */
@@ -4333,56 +4463,151 @@ updateClock();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thông báo tự động</title>
+    <title>Thông báo lung linh</title>
     <style>
-      .notification {
+        @keyframes glow {
+            0% { box-shadow: 0 0 3px #ff2c61, 0 0 6px #ff2c61; }
+            50% { box-shadow: 0 0 10px #ff2c61, 0 0 12px #ff2c61; }
+            100% { box-shadow: 0 0 3px #ff2c61, 0 0 6px #ff2c61; }
+        }
+
+        .notification {
             position: fixed;
-            top: 20px;
+            top: 10px; /* Cố định gần phần trên cùng */
             left: 50%;
             transform: translateX(-50%);
-            background-color: #000000;
-            color: white;
-            padding: 50px 10px;
-            border-radius: 5px;
-            padding: 10px;
-            width: 250px; /* Chiều rộng của khung thông báo */
-            height: 110px; /* Tự động thay đổi chiều cao tùy vào nội dung */
+            background-color: rgba(0, 0, 0, 0.8); /* Nền trong suốt nhẹ */
+            color: #ffebf0; /* Màu chữ sáng để dễ đọc */
+            padding: 4px 10px; /* Giảm padding để thông báo thấp hơn */
+            border-radius: 15px;
+            width: 350px; /* Chiều rộng dài hơn */
             z-index: 1000;
             display: none;
-            font-family: 'Roboto', sans-serif; /* Sử dụng font Roboto */
-            font-size: 10px; /* Cỡ chữ 16px */
-            font-weight: 500; /* Độ đậm của chữ */
-            border: 1px solid #C0C0C0;
-         
+            font-family: 'Roboto', sans-serif;
+            font-size: 12px; /* Kích thước chữ nhỏ hơn */
+            font-weight: 600;
+            border: 1px solid #ff2c61;
+            text-align: center;
+            animation: glow 1.5s infinite alternate;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .notification.show {
+            display: block;
+            opacity: 1;
+        }
+
+        .notification.hide {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
     </style>
 </head>
 <body>
 
-    <div id="notification" class="notification">
-        <p id="notification-content">Nội dung mặc định</p>
-    </div>
+<div id="notification" class="notification">
+    <p id="notification-content">Nội dung mặc định</p>
+</div>
 
-    <script>
-        window.addEventListener('load', function() {
-            var notification = document.getElementById('notification');
-            var notificationContent = document.getElementById('notification-content');
+<script>
+    const notifications = [
+    "KH QuốcAnh66 ở khu vực Surat Thani (สุราษฎร์ธานี) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH Anhnam23 ở khu vực Bangkok (กรุงเทพมหานคร) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH HuyKhoa88 tại khu vực Bangkok (กรุงเทพมหานคร) lần đầu tiên gia nhập cộng đồng chúng tôi. Nhanh chóng chọn cho mình một bé nhé!",
+"KH BaoNgoc23 tại khu vực Pattaya (พัทยา) đã tham gia cộng đồng của chúng tôi. Nhanh chóng chọn cho mình một bé phù hợp nhé!",
+"Chúc mừng KH NamTrung45 tại khu vực Chiang Mai (เชียงใหม่) đã trở thành Member VIP 💎! Chúng tôi rất vui khi có bạn đồng hành.",
+"KH KhaiMinh89 ở khu vực Chiang Mai (เชียงใหม่) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH 42742891 ở khu vực Nonthaburi (นนทบุรี) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH TuanAn95 ở khu vực Ratchaburi (ราชบุรี) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH HuuPhuc101 ở khu vực Samut Prakan (สมุทรปราการ) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH 314659 ở khu vực Udon Thani (อุดรธานี) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH HoangSon11 ở khu vực Lamphun (ลำพูน) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH BaoKhanh62 ở khu vực Rayong (ระยอง) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH HoaiBac ở khu vực Nan (น่าน) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH MinhHieu75 ở khu vực Pattani (ปัตตานี) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH DuyTan23 tại khu vực Chonburi (ชลบุรี) đã trở thành Member VIP 💎 Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
+"KH BaoKiet22 tại khu vực Surat Thani (สุราษฎร์ธานี) đã trở thành Member VIP 💎 Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
+"KH ThanhPhong202 tại khu vực Udon Thani (อุดรธานี) đã trở thành Member VIP 💎 Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
+"KH 1938427 ở khu vực Phang Nga (พังงา) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH HoangLong999 tại khu vực Rayong (ระยอง) đã trở thành Member VIP 💎 Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
+"KH TruongSon55 tại khu vực Hat Yai (หาดใหญ่) đã tham gia cộng đồng lần đầu tiên. Chọn cho mình một bé để khám phá nhé!",
+"KH QuangHuy99 tại khu vực Chiang Rai (เชียงราย) vừa gia nhập cộng đồng của chúng tôi. Hãy nhanh tay chọn một bé phù hợp nhé!",
+"KH ThanhNam19 tại khu vực Pathum Thani (ปทุมธานี) mới gia nhập. Đừng quên chọn một bé để trải nghiệm dịch vụ đặc biệt của chúng tôi!",
+"KH DuyTan89 ở khu vực Khon Kaen (ขอนแก่น) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH 102938 tại khu vực Trang (ตรัง) đã trở thành Member VIP 💎 Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
+"KH NamKiet45 ở khu vực Krabi (กระบี่) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH TuanMinh777 tại khu vực Chonburi (ชลบุรี) lần đầu gia nhập. Hãy chọn một bé yêu thích để có trải nghiệm tuyệt vời!",
+"KH VietHoa55 tại khu vực Samut Sakhon (สมุทรสาคร) đã trở thành Member VIP 💎 Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
+"KH NamThanh321 ở khu vực Udon Thani (อุดรธานี) đã đặt lịch thành công! Cảm ơn bạn đã chọn Luxury Girl Booking! ❤️",
+"KH 789412 tại khu vực Chiang Mai (เชียงใหม่) đã trở thành Member VIP 💎 Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
+"KH QuangMinh45 tại khu vực Nakhon Pathom (นครปฐม) đã gia nhập cộng đồng! Hãy chọn ngay một bé để trải nghiệm nào!",
+"KH TruongAn tại khu vực Phuket (ภูเก็ต) đã gia nhập. Đừng bỏ lỡ cơ hội chọn một bé ngay hôm nay!",
+"KH Phuong89 tại khu vực Trat (ตราด) vừa gia nhập. Hãy bắt đầu bằng cách chọn một bé để trải nghiệm dịch vụ của chúng tôi!",
+"KH 607283 ở khu vực Phetchaburi (เพชรบุรี) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH QuocNam202 tại khu vực Samut Prakan (สมุทรปราการ) đã trở thành Member VIP 💎! Hãy tận hưởng các ưu đãi dành riêng cho VIP.",
+"KH 5698732 ở khu vực Trang (ตรัง) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH Bao123 tại khu vực Songkhla (สงขลา) đã trở thành Member VIP 💎 Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
+"KH 546372 ở khu vực Chanthaburi (จันทบุรี) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH Tuan1234 ở khu vực Trat (ตราด) đã đặt lịch thành công! Cảm ơn bạn đã đồng hành cùng Luxury Girl Booking ❤️",
+"KH 378942 ở khu vực Chachoengsao (ฉะเชิงเทรา) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH ThanhMinh19 tại khu vực Pathum Thani (ปทุมธานี) mới gia nhập. Đừng quên chọn một bé để trải nghiệm dịch vụ đặc biệt của chúng tôi!",
+"KH HoangLong_92 tại khu vực Surat Thani (สุราษฎร์ธานี) vừa tham gia cộng đồng Luxury Girl Booking. Đừng bỏ lỡ cơ hội chọn một bé ngay hôm nay!",
+"KH 712348 ở khu vực Mae Hong Son (แม่ฮ่องสอน) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH ThanhHung ở khu vực Songkhla (สงขลา) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH HieuLam@303 đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
+"KH QuocAnh! Đã đặt lịch thành công! Cảm ơn anh đã chọn Luxury Girl Booking.",
+"KH DuyThuan_303 vừa trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
+"KH BinhMinh24 ở khu vực Phuket (ภูเก็ต) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH 8362749 tại khu vực Nakhon Pathom (นครปฐม) đã trở thành Member VIP 💎 Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
+"KH ThaiSon ở khu vực Chiang Rai (เชียงราย) đã gia nhập cộng đồng. Hãy chọn một bé yêu thích để bắt đầu trải nghiệm nào!",
+"KH DucHuy91 ở khu vực Surat Thani (สุราษฎร์ธานี) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH TrungQuoc_22 tại khu vực Chonburi (ชลบุรี) đã trở thành Member VIP 💎 Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
+"KH 935261 ở khu vực Trang (ตรัง) đã gia nhập cộng đồng. Đừng ngại chọn một bé để khám phá ngay hôm nay!",
+"KH TienManh15 ở khu vực Bangkok (กรุงเทพมหานคร) lần đầu tiên gia nhập cộng đồng. Hãy chọn ngay một bé cho mình nhé!",
+"KH KhoaLam tại khu vực Rayong (ระยอง) đã trở thành Member VIP 💎! Xin chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
+"KH TruongSon81 ở khu vực Nonthaburi (นนทบุรี) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH 765432 tại khu vực Samut Prakan (สมุทรปราการ) đã gia nhập cộng đồng. Hãy chọn một bé và tận hưởng dịch vụ đặc biệt!",
+"KH HieuKhoa09 ở khu vực Udon Thani (อุดรธานี) vừa tham gia cộng đồng. Hãy nhanh chóng chọn một bé yêu thích nhé!",
+"KH BaoLong_23 tại khu vực Pattaya (พัทยา) đã trở thành Member VIP 💎 Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
+"KH AnhDuc tại khu vực Chiang Mai (เชียงใหม่) vừa tham gia cộng đồng. Chọn ngay một bé phù hợp để trải nghiệm!",
+"KH PhatTai202 tại khu vực Hat Yai (หาดใหญ่) đã gia nhập cộng đồng Luxury Girl Booking. Chọn ngay một bé để bắt đầu hành trình!",
+"KH HoangMinh92 ở khu vực Lamphun (ลำพูน) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️",
+"KH QuocHung88 ở khu vực Nakhon Ratchasima (นครราชสีมา) đã gia nhập cộng đồng. Hãy nhanh chóng chọn một bé để trải nghiệm!",
+"KH NamKiet77 tại khu vực Lampang (ลำปาง) đã trở thành Member VIP 💎! Chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
+"KH 287456 tại khu vực Trat (ตราด) vừa gia nhập. Hãy bắt đầu hành trình với một bé ngay hôm nay!",
+"KH BaoTung_45 tại khu vực Khon Kaen (ขอนแก่น) đã trở thành Member VIP 💎! Xin chúc mừng anh đã gia nhập cộng đồng của chúng tôi!",
+"KH MinhTuan11 ở khu vực Prachuap Khiri Khan (ประจวบคีรีขันธ์) đã đặt lịch thành công! Hệ thống Luxury Girl Booking xin chân thành cảm ơn. ❤️"
 
-            // Đảm bảo rằng nội dung được cập nhật đúng cách
-            notificationContent.innerHTML = "Anh yêu muốn tìm một bé ưng ý kéo ngay xuống mục gần tôi để nhanh tay đặt lịch nhé 💎 ";
+    ];
 
-            // Hiển thị thông báo
-            notification.style.display = 'block';
+    function showNotification() {
+        const notification = document.getElementById('notification');
+        const notificationContent = document.getElementById('notification-content');
 
-            // Ẩn thông báo sau 5 giây
-            setTimeout(function() {
-                notification.style.display = 'none';
-            }, 4000);
-        });
-    </script>
+        const randomIndex = Math.floor(Math.random() * notifications.length);
+        notificationContent.textContent = notifications[randomIndex];
+
+        notification.classList.add('show');
+        notification.classList.remove('hide');
+
+        setTimeout(() => {
+            notification.classList.add('hide');
+            notification.classList.remove('show');
+        }, 4000);
+    }
+
+    window.addEventListener('load', () => {
+        showNotification();
+        setInterval(showNotification, 10000);
+    });
+</script>
 
 </body>
 </html>
+
+
+
+
 
 </style>
 </head>
