@@ -130,9 +130,8 @@
             flex-wrap: wrap;
         }
         .region-btn {
-            background-color: #000000 /* Màu nền nút vùng */
-            color: #ffb6c1;
-            font-size: 12px;
+            background-color: #1A242F; /* Màu nền nút vùng */
+            color: #ffffff;
             margin: 5px;
             border-radius: 5px;
             cursor: pointer;
@@ -140,8 +139,8 @@
             width: 100px;
             text-align: center;
             font-weight: 700; /* Chữ đậm nhưng không quá nặng */
-            border: 1px solid #BCC6CC /* Viền bạc ánh đen */
- 
+            border: 1px solid #ff2c61;/* Viền bạc ánh đen */
+            font-size: 12px;
         }
         .region-btn:hover {
             background-color: #ff2c61; /* Màu nền nút vùng khi hover */
@@ -164,7 +163,7 @@
     border-radius: 5px;
     margin: 1px;
     cursor: pointer;
-    font-size: 12px; /* Điều chỉnh kích thước chữ */
+    font-size: 1px; /* Điều chỉnh kích thước chữ */
     width: 110px; /* Điều chỉnh chiều rộng của nút */
     height: 30px; /* Điều chỉnh chiều cao của nút */
     transition: background-color 0.3s ease;
@@ -302,21 +301,73 @@
         <div class="container">
             <div class="header">
                 <h1>Chào mừng bạn đến với LUXURY GIRL BOOKING 🎀</h1>
-                <div class="logo-container">
-                    <img src="https://i.ibb.co/hCt4hGt/Untitled-design-8-removebg-preview.png" alt="Logo lớn">
+                <div class="banner-container">
+                    <marquee behavior="scroll" direction="left" scrollamount="5">
+                        <img src="https://i.ibb.co/Tkxd6RF/taoanhdep-lam-net-anh-92190.jpg" alt="Banner Image" class="banner-image">
+        <img src="https://i.ibb.co/wMmzZPj/taoanhdep-lam-net-anh-99531.jpg" alt="Banner Image" class="banner-image">
+                        <img src="https://i.ibb.co/LCX2dKV/photo-2024-10-29-23-43-13.jpg" alt="Banner Image" class="banner-image">
+                        <img src="https://i.ibb.co/H7YvZVJ/photo-2024-10-29-23-42-21-3.jpg" alt="Banner Image" class="banner-image"><!-- Thêm các hình ảnh khác ở đây -->
+                        <img src="https://i.ibb.co/d6D4CMS/photo-2024-10-29-23-42-21.jpg" alt="Banner Image" class="banner-image"><!-- Thêm các hình ảnh khác ở đây -->
+                        <img src="https://i.ibb.co/j5qhDBS/photo-2024-10-29-23-42-12.jpg" alt="Banner Image" class="banner-image"><!-- Thêm các hình ảnh khác ở đây -->
+                    </marquee>
                 </div>
-            </div>
+                
+                <style>
+                .banner-container {
+    overflow: hidden;
+    background-color: #100c0c /* Màu nền cho banner */
+    padding: 10px; /* Khoảng cách bên trong */
+    position: relative; /* Để định vị banner */
+}
+
+.banner {
+    display: flex;
+    animation: scroll 5s linear forwards; /* Lướt một lần */
+}
+
+.banner-image {
+    height: 150px; /* Điều chỉnh chiều cao cho hình ảnh trong banner */
+    margin-right: 20px; /* Khoảng cách giữa các hình ảnh */
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(100%); /* Bắt đầu từ bên phải */
+    }
+    to {
+        transform: translateX(-100%); /* Kết thúc ở bên trái */
+    }
+}
+                </style>
+                <script>
+        // Đợi khi trang được tải
+        window.onload = function() {
+            const banner = document.querySelector('.banner');
+            
+            // Lặp lại quá trình cuộn
+            function scrollBanner() {
+                // Đặt animation lại
+                banner.style.animation = 'none'; // Dừng animation
+                setTimeout(() => {
+                    banner.style.animation = ''; // Khởi động lại animation
+                    banner.style.animation = 'scroll 5s linear forwards'; // Lướt một lần nữa
+                }, 1000); // Thời gian dừng trước khi lướt lại (1 giây)
+            }
         
+            // Khi animation kết thúc
+            banner.addEventListener('animationend', scrollBanner);
+        };
+          </script>
             <button class="button" onclick="redirectToProfile()">
                 <img src="https://i.ibb.co/XyJ7DWF/pngtree-man-wearing-sunglasses-for-the-logo-of-the-game-image-2578704-fotor-202410317423.png" alt="Icon Hồ sơ">
-                Info
+                Info 💎 
             </button>
         
             <!-- Nút nhập mã đặt lịch -->
             <div class="booking-input">
                 <button id="bookingButton" class="button" onclick="promptBookingCode()">
                     <img src="https://i.ibb.co/S5yxhD4/taoanhdep-lam-net-anh-72305-removebg-preview.png" alt="Logo" class="button-logo" id="buttonLogo">
-                    <span id="buttonText">Pass</span>
+                    <span id="buttonText">Booking Code</span>
                 </button>
             </div>
         
@@ -335,31 +386,27 @@
         
         <style>
             /* CSS cho các nút và container */
-            .button {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Đưa logo và text ra hai đầu */
-    width: 110px; /* Đặt chiều rộng cho nút */
-    padding: 5px 10px;
-    background-color: #000000;
-    color: #f5f100;
-    border: 1px solid #ffffff;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: bold;
+            .button-container {
+    display: flex; /* Sử dụng Flexbox để sắp xếp các nút nằm ngang */
+    justify-content: center; /* Căn giữa các nút */
+    margin-top: 20px; /* Khoảng cách giữa banner và nút */
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #3a3a3a; /* Màu xám đậm */
+    color: #ffffff; /* Màu chữ sáng */
+    border: 1px solid #ffffff; /* Viền trắng */
+    border-radius: 5px;
+    margin: 0 10px; /* Khoảng cách giữa các nút */
     cursor: pointer;
-    transition: all 0.3s ease;
-    margin-right: 15px;
+    transition: background-color 0.3s ease;
 }
-.button-container {
-    display: flex;
-    gap: 15px; /* Khoảng cách giữa các nút */
-    
-}
+
 .button:hover {
-    background-color: #1A242F;
-    color: #FFFFFF;
-            }
+    background-color: #6a6a6a; /* Màu sáng hơn khi hover */
+    color: #f8f8f8; /* Màu chữ sáng hơn */
+}
             
             
             /* CSS cho thông báo chuyên nghiệp */
@@ -476,15 +523,15 @@
         </style>
 
         <script>
-  let isCodeValid = false; 
+              let isCodeValid = false; 
 
-    function redirectToProfile() {
-        if (isCodeValid) {
-            window.location.href = "https://gaigoitocdo.github.io/profile/";
-        } else {
-            alert("Vui lòng nhập mã đặt lịch hợp lệ trước!");
-        }
+function redirectToProfile() {
+    if (isCodeValid) {
+        window.location.href = "https://gaigoitocdo.github.io/profile/";
+    } else {
+        alert("Vui lòng nhập mã đặt lịch hợp lệ trước!");
     }
+}
         function promptBookingCode() {
     const code = prompt("Vui lòng nhập mã đặt lịch:");
     const validCode = "999999"; // Mã hợp lệ của bạn
