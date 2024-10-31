@@ -476,6 +476,15 @@
         </style>
 
         <script>
+  let isCodeValid = false; 
+
+    function redirectToProfile() {
+        if (isCodeValid) {
+            window.location.href = "https://gaigoitocdo.github.io/profile/";
+        } else {
+            alert("Vui lòng nhập mã đặt lịch hợp lệ trước!");
+        }
+    }
         function promptBookingCode() {
     const code = prompt("Vui lòng nhập mã đặt lịch:");
     const validCode = "999999"; // Mã hợp lệ của bạn
