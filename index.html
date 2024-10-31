@@ -257,6 +257,7 @@
                 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             }
             .button {
+                justify-content: space-between; /* Đưa logo và text ra hai đầu */
                 background-color: #000000;
                 color: #ffffff;
                 font-size: 12px;
@@ -268,7 +269,7 @@
                 transition: background-color 0.3s ease;
                 position: relative;
                 font-weight: 700; /* Tăng độ đậm chữ */
-                box-shadow: 0 4px 8px #ff2c61 /* Hiệu ứng đổ bóng */
+                box-shadow: 0 4px 8px #000000 /* Hiệu ứng đổ bóng */
             }
             .button:hover {
                 background-color: #00aeff;
@@ -305,47 +306,208 @@
                     <img src="https://i.ibb.co/hCt4hGt/Untitled-design-8-removebg-preview.png" alt="Logo lớn">
                 </div>
             </div>
-    
+        
             <button class="button" onclick="redirectToProfile()">
-                <img src="https://i.ibb.co/XyJ7DWF/pngtree-man-wearing-sunglasses-for-the-logo-of-the-game-image-2578704-fotor-202410317423.png" alt="Icon Hồ sơ"> <!-- Đường dẫn đến tệp icon hồ sơ -->
+                <img src="https://i.ibb.co/XyJ7DWF/pngtree-man-wearing-sunglasses-for-the-logo-of-the-game-image-2578704-fotor-202410317423.png" alt="Icon Hồ sơ">
                 Hồ sơ
             </button>
-    
+        
             <!-- Nút nhập mã đặt lịch -->
             <div class="booking-input">
                 <button id="bookingButton" class="button" onclick="promptBookingCode()">
-                    <img src="https://i.ibb.co/rk2ZdDF/vip-icon-blue-4288642-fotor-2024103173810.png" alt="Icon Nhập mã"> <!-- Đường dẫn đến tệp icon nhập mã -->
-                    Mã đặt lịch
+                    <img src="https://i.ibb.co/S5yxhD4/taoanhdep-lam-net-anh-72305-removebg-preview.png" alt="Logo" class="button-logo" id="buttonLogo">
+                    <span id="buttonText">Mã đặt lịch</span>
                 </button>
             </div>
+        
+            <!-- Thông báo dấu tích xanh khi nhập đúng mã -->
+            <div id="vip3Notification" class="center-notification success-notification">
+                <img src="https://i.ibb.co/ct1mmj2/Pngtree-green-check-mark-icon-15571790.png" alt="Dấu tích xanh" style="width: 30px; margin-right: 10px;">
+                <span>Chúc mừng! Bạn đã nâng cấp lên VIP 3 🥇🥇🥇</span>
+            </div>
+            
+            <!-- Thông báo lỗi nếu nhập mã sai -->
+            <div id="errorTick" class="center-notification error-notification">
+                <img src="https://i.ibb.co/CK0cywP/png-clipart-computer-icons-check-mark-cross-x-miscellaneous-trademark.png" alt="Dấu tích đỏ" style="width: 30px; margin-right: 10px;">
+                <span>Mã không chính xác! Vui lòng thử lại.</span>
+            </div>
         </div>
+        
+        <style>
+            /* CSS cho các nút và container */
+            .button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Đưa logo và text ra hai đầu */
+    width: 110px; /* Đặt chiều rộng cho nút */
+    padding: 5px 10px;
+    background-color: #000000;
+    color: #f5f100;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+}
+.button-container {
+    display: flex;
+    gap: 15px; /* Khoảng cách giữa các nút */
     
+}
+.button:hover {
+    background-color: #1A242F;
+    color: #FFFFFF;
+            }
+            
+            
+            /* CSS cho thông báo chuyên nghiệp */
+            .notification {
+                display: none;
+                padding: 10px;
+                margin-top: 20px;
+                border-radius: 5px;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                font-size: 18px;
+                transition: all 0.5s ease;
+            }
+        
+            .success-notification {
+                background-color: #d4edda;
+                color: #155724;
+            }
+        
+            .error-notification {
+                background-color: #f8d7da;
+                color: #721c24;
+            }
+        
+            .notification img {
+                width: 24px;
+                margin-right: 10px;
+            }
+        
+   /* Nút đặc biệt cho việc đặt lịch */
+.booking-button {
+    padding: 10px 10px;
+    background-color: #4a4a4a; /* Màu xám đậm sang trọng */
+    color: #ffffff; /* Màu chữ trắng */
+    border: 1px solid #6a6a6a; /* Viền xám nhạt */
+    border-radius: 10px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.booking-button:hover {
+    background-color: #6a6a6a; /* Sáng hơn khi hover */
+    color: #ffffff; /* Màu chữ không đổi */
+}  
+
+   .button-icon {
+    width: 40px; /* Đặt chiều rộng logo */
+    height: 40px; /* Đặt chiều cao logo */
+    margin-right: 10px; /* Khoảng cách giữa logo và text */
+}
+        
+            .booking-button img {
+                margin-right: 12px;
+            }
+
+            .success-notification {
+    background-color: #e0ffe0;
+    color: #2e7d32;
+    border-left: 5px solid #66bb6a;
+    border: 1px solid #2e7d32; /* Viền bạc ánh đen */
+    
+}
+
+.error-notification {
+    background-color: #ffebee;
+    color: #c62828;
+    border-left: 5px solid #ef5350;
+}
+/* CSS căn giữa thông báo */
+.center-notification {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 30px; /* Tăng khoảng cách trong khung */
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 18px; /* Kích thước chữ nổi bật */
+    background: linear-gradient(135deg, #1a3c34, #2e7d32); /* Hiệu ứng gradient */
+    color: #ffffff; /* Màu chữ trắng nổi bật */
+    border: 3px solid #145d27; /* Viền đậm */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); /* Bóng đậm và lớn hơn */
+    z-index: 1000;
+    text-align: center;
+    max-width: 350px; /* Giới hạn chiều rộng */
+    width: auto;
+    animation: popIn 0.5s ease; /* Hiệu ứng xuất hiện */
+}
+
+/* Hiệu ứng phóng to nhẹ khi hiện */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.button-logo {
+    width: 32px; /* Điều chỉnh kích thước logo */
+    height: auto;
+    margin-right: 6px; /* Khoảng cách giữa logo và văn bản */
+    vertical-align: middle;
+}
+
+ 
+        </style>
+
         <script>
-            let isCodeValid = false; // Biến để kiểm tra mã hợp lệ
-    
-            function redirectToProfile() {
-                if (isCodeValid) {
-                    window.location.href = "https://gaigoitocdo.github.io/profile/";
-                } else {
-                    alert("Vui lòng nhập mã đặt lịch hợp lệ trước!");
-                }
-            }
-    
-            function promptBookingCode() {
-                const code = prompt("Vui lòng nhập mã đặt lịch:");
-                // Thay "yourValidCode" bằng mã hợp lệ mà bạn muốn kiểm tra
-                const validCode = "999999"; // Thay thế với mã bạn muốn
-    
-                if (code === validCode) {
-                    isCodeValid = true; // Cập nhật biến kiểm tra mã hợp lệ
-                    alert("Mã hợp lệ - Bạn có thể sử dụng dịch vụ ");
-                    document.getElementById("bookingButton").innerText = "Luxury Girl Booking"; // Thay đổi tên nút
-                } else {
-                    alert("Mã không chính xác! Vui lòng thử lại.");
-                }
-            }
+        function promptBookingCode() {
+    const code = prompt("Vui lòng nhập mã đặt lịch:");
+    const validCode = "999999"; // Mã hợp lệ của bạn
+
+    if (code === validCode) {
+        isCodeValid = true;
+        showVip3Notification();
+        document.getElementById("buttonText").innerText = "VIP3 💎"; // Thay đổi văn bản
+        document.getElementById("buttonLogo").src = "https://i.ibb.co/pXP714d/vip-emblem-transparent-background-357958-3454-removebg-preview.png"; // Đường dẫn đến logo VIP 3
+    } else {
+        showErrorNotification();
+    }
+}
+
+function showVip3Notification() {
+    const notification = document.getElementById("vip3Notification");
+    notification.style.display = "block";
+
+    setTimeout(() => {
+        notification.style.display = "none";
+    }, 3000); // Tự động ẩn sau 3 giây
+}
+
+function showErrorNotification() {
+    const errorTick = document.getElementById("errorTick");
+    errorTick.style.display = "block";
+
+    setTimeout(() => {
+        errorTick.style.display = "none";
+    }, 3000); // Tự động ẩn sau 3 giây
+}
         </script>
-       
     
     </body>
     </html>
@@ -461,7 +623,7 @@
     <i class="fas fa-map-marker-alt"></i> Khu vực
   </div>
   <div class="menu-item" data-target="my-region-section">
-    <i class="fas fa-location-arrow"></i> Gần tôi
+    <i class="fas fa-location-arrow"></i> Gần bạn
   </div>
   <div class="menu-item" data-target="chat-sex-section">
     <i class="fas fa-comments"></i> Chat sex
@@ -581,7 +743,7 @@
 <div id="support-section" class="content">
   <h2>Hỗ trợ nhanh</h2>
   <p>Để nhận được hỗ trợ nhanh hơn anh liên hệ qua Telegram nhé:</p>
-  <a href="https://t.me/vipdiamondclb" target="_blank" class="support-button">
+  <a href="https://t.me/luxurygirlbooking" target="_blank" class="support-button">
       <i class="fab fa-telegram-plane"></i> Hỗ trợ viên 1
   </a>
   <a href="https://t.me/tvvthaoha" target="_blank" class="support-button">
@@ -602,7 +764,7 @@
       </div>
       <input type="text" id="nickname" placeholder="Nhập tên Member của bạn..." style="width: 100%; margin-top: 10px; padding: 5px;" />
       <input type="text" id="chat-input" placeholder="Nhập tin nhắn muốn gửi..." style="width: 100%; margin-top: 10px; padding: 5px;" />
-      <button id="send-btn" style="width: 100%; padding: 10px; background-color: #00c753; color: white; border: none; margin-top: 10px; cursor: pointer;">Gửi</button>
+      <button id="send-btn" style="width: 100%; padding: 10px; background-color: #ff0040; color: white; border: none; margin-top: 10px; cursor: pointer;">Gửi</button>
   </div>
 </div>
 
@@ -666,7 +828,7 @@
     
     <!-- Các phần nội dung hiển thị khi bấm vào nút -->
     <div id="upcoming" class="image-content" style="display:none;">
-        <p>💎 VIP3 mới có thể xem đầy đủ nội dung này !</p>
+        <p>Bạn chưa đủ điều kiện để truy cập vào các dịch vụ đặc biệt của hệ thống 💎</p>
         <img src="https://i.ibb.co/RcJCBVD/photo-3-2024-10-23-11-52-30.jpg" alt="Hàng Sắp Lên Sóng" style="width:150px; height:auto; margin:10px;">
     </div>
 
@@ -1150,7 +1312,7 @@
     </div>
 
     <div id="asian-girls" class="image-content" style="display:none;">
-        <p>💎 VIP3 mới có thể xem đầy đủ nội dung này !</p>
+        <p>Bạn chưa đủ điều kiện để truy cập vào các dịch vụ đặc biệt của hệ thống 💎</p>
          <img src="https://i.ibb.co/7XC0YLX/photo-2022-10-08-18-52-42.jpg" alt="Image 1" style="width:150px; height:auto; margin:10px;">
 <img src="https://i.ibb.co/VNmggsG/photo-2022-10-08-18-52-46.jpg" alt="Image 2" style="width:150px; height:auto; margin:10px;">
 <img src="https://i.ibb.co/6nkzCXY/photo-2022-10-08-18-52-45.jpg" alt="Image 3" style="width:150px; height:auto; margin:10px;">
@@ -1272,7 +1434,7 @@
     </div>
 
     <div id="stolen-photos" class="image-content" style="display:none;">
-        <p>💎 VIP3 mới có thể xem đầy đủ nội dung này !</p>
+        <p>Bạn chưa đủ điều kiện để truy cập vào các dịch vụ đặc biệt của hệ thống 💎</p>
     </div>
 
 </div>
@@ -1367,7 +1529,7 @@
 <script>
   // Hàm hiển thị thông báo khi người dùng bấm vào một khu vực
   function showAlert(region) {
-      alert(`💎 VIP3 mới có thể xem đầy đủ nội dung này ! `);
+      alert(`Bạn chưa đủ điều kiện để truy cập vào các dịch vụ đặc biệt của hệ thống 💎 `);
   }
 
   function toggleContent(region, type) {
@@ -1411,6 +1573,9 @@
         <div class="region-btn" onclick="showDetails('HaHuyen')">
             <i class="fas fa-female"></i> Hà Huyền 
         </div>
+        <div class="region-btn" onclick="showDetails('Chang')">
+            <i class="fas fa-female"></i> Chang 
+        </div>
       </div>
   </div>
 </div>
@@ -1453,7 +1618,7 @@
 </div>
 
 <script>
-    const correctBookingCode = "183923";
+    const correctBookingCode = "999999";
 
     // Mở modal nhập thông tin đặt lịch
     function openBookingModal(character) {
@@ -1577,7 +1742,7 @@
         <div class="info-content">
             <img src="https://i.imgur.com/yOyhhhF.jpeg" alt="JULY Image" class="info-image" style="height: 330px;">
             <div class="info-text">
-                <p><i class="fas fa-money-bill-wave"></i> <strong>Giá tiền:</strong> 1.936 THB/2 lần quan hệ (60 phút)</p>
+                <p><i class="fas fa-money-bill-wave"></i> <strong>Giá tiền:</strong> 1.936 Baht/2 lần quan hệ (80 phút)</p>
                 <div id="contact-info" class="hidden-info">
                  
                           <p><i class="fas fa-map-marker-alt"></i> <strong>Vị trí:</strong> <span class="location-info" id="location-range">Đang tải...</span></p>
@@ -1795,7 +1960,7 @@ border: 1px solid #ffb6c1;
                   <div class="info-content">
                     <img src="https://i.ibb.co/8rrgt7x/photo-2024-09-05-04-55-42-7.jpg" alt="Image New" class="info-image" style="height: 330px;">
                       <div class="info-text">
-                          <p><i class="fas fa-money-bill-wave"></i> <strong>Giá tiền:</strong> 1.882 THB/2 lần quan hệ (60 phút)</p>
+                          <p><i class="fas fa-money-bill-wave"></i> <strong>Giá tiền:</strong> 1.882 Baht/2 lần quan hệ (65 phút)</p>
                           <p><i class="fas fa-map-marker-alt"></i> <strong>Vị trí:</strong> <span class="location-info" id="location-range-YUMI">Đang tải...</span></p>
                           
                           <style>
@@ -2790,7 +2955,7 @@ font-weight: bold;
         <div class="info-content">
             <img src="https://i.ibb.co/Dfc46yb/photo-2024-09-05-18-55-27.jpg" alt="Image New 67" class="info-image" style="height: 330px;">
             <div class="info-text">
-                <p><i class="fas fa-money-bill-wave"></i> <strong>Giá tiền:</strong> 2.035 Baht /2 lần quan hệ (60 phút)</p>
+                <p><i class="fas fa-money-bill-wave"></i> <strong>Giá tiền:</strong> 2.035 Baht /2 lần quan hệ (70 phút)</p>
                 <p><i class="fas fa-map-marker-alt"></i> <strong>Vị trí:</strong> <span class="location-info" id="location-range-LUCY">Đang tải...</span></p>
                           
                 <style>
@@ -2988,7 +3153,7 @@ font-weight: bold;
         <div class="info-content">
             <img src="https://i.ibb.co/tCFwN7b/299479993-589308889524930-7995157958939731064-n.jpg" alt="Image 1" class="info-image" style="height: 330px;">
             <div class="info-text">
-                <p><i class="fas fa-money-bill-wave"></i> <strong>Giá tiền:</strong> 1.845 Baht/2 lần quan hệ (60 phút)</p>
+                <p><i class="fas fa-money-bill-wave"></i> <strong>Giá tiền:</strong> 1.845 Baht/2 lần quan hệ (75 phút)</p>
                 <p><i class="fas fa-map-marker-alt"></i> <strong>Vị trí:</strong> <span class="location-info" id="location-range-QuynhAnh">Đang tải...</span></p>
 
                 <style>
@@ -3151,7 +3316,7 @@ font-weight: bold;
         <div class="info-content">
             <img src="https://i.ibb.co/S5cZB7m/419418603-1508797216580744-6598850606428340490-n.jpg" alt="Image 11" class="info-image" style="height: 270px;">
             <div class="info-text">
-                <p><i class="fas fa-money-bill-wave"></i> <strong>Giá tiền:</strong> 2.100 Bath/2 lần quan hệ (65 phút)</p>
+                <p><i class="fas fa-money-bill-wave"></i> <strong>Giá tiền:</strong> 2.100 Baht/2 lần quan hệ (65 phút)</p>
                 <p><i class="fas fa-map-marker-alt"></i> <strong>Vị trí:</strong> <span class="location-info" id="location-range-HaHuyen">Đang tải...</span></p>
 
                 <style>
@@ -3210,7 +3375,7 @@ font-weight: bold;
                 <button onclick="showInputBox('HaHuyen', 'phone')">SDT</button>
                 <button onclick="showInputBox('HaHuyen', 'address')">Địa chỉ</button>
                 <button onclick="showInputBox('HaHuyen', 'telegram')">Telegram</button>
-                <p><i class="fas fa-clock"></i> <strong>Thời gian gia nhập:</strong> 12/07/2024 11:00</p>
+                <p><i class="fas fa-clock"></i> <strong>Thời gian gia nhập:</strong> 16/07/2024 11:32</p>
                 <i class="fas fa-user"></i> Hoạt động: <span class="active-status">Đang hoạt động</span>
             </div>
         </div>
@@ -3270,6 +3435,153 @@ font-weight: bold;
         <h4>Giới thiệu</h4>
         <p>
             Hà Huyền luôn tạo ra những trải nghiệm đáng nhớ với sự chuyên nghiệp và tận tâm. Cô ấy là một trong những gương mặt nổi bật tại Diamond Club.
+        </p>
+    </div>
+</div>
+
+
+<div id="detail-Chang" class="detail-info">
+    <h3>Chang</h3>
+    <div class="button-container">
+        <button class="info-button" onclick="toggleContent('Chang', 'info')">
+            <i class="fas fa-info-circle"></i> Info
+        </button>
+        <button class="info-button" onclick="toggleContent('Chang', 'images')">
+            <i class="fas fa-images"></i> Hình ảnh
+        </button>
+        <button onclick="openBookingModal('Chang')">Đặt lịch</button>
+    </div>
+
+    <!-- Thông tin chi tiết -->
+    <div id="info-Chang" style="display: none">
+        <h4>Thông tin</h4>
+        <div class="info-content">
+            <a href="https://ibb.co/khjQRP5"><img src="https://i.ibb.co/khjQRP5/465168800-1097488541723717-3663567964369007810-n.jpg" alt="Image 8" style="height: 250px; width: auto;"></a>
+            <div class="info-text">
+                <p><i class="fas fa-money-bill-wave"></i> <strong>Giá tiền:</strong> 2.500 Baht/2 lần quan hệ (70 phút)</p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Vị trí:</strong> <span class="location-info" id="location-range-Chang">Đang tải...</span></p>
+
+                <style>
+                .location-info {
+                    font-size: 17px;
+                    color: #00ff00; /* Màu xanh lá */
+                    font-weight: bold;
+                }
+                </style>
+
+                <script>
+                function updateLocationRange(memberId) {
+                    let currentValue = 5.5;  // Giá trị ban đầu
+                    let direction = "up";    // Hướng ban đầu là tăng
+                    const step = 0.1;        // Bước nhảy mỗi lần tăng/giảm
+                    const min = 0.3;         // Giá trị nhỏ nhất
+                    const max = 9.5;         // Giá trị lớn nhất
+
+                    const lastValue = localStorage.getItem(`lastValue_${memberId}`);
+                    if (lastValue) {
+                        currentValue = parseFloat(lastValue);
+                    }
+
+                    const locationElement = document.getElementById(`location-range-${memberId}`);
+                    locationElement.textContent = "Đang tải...";
+
+                    function adjustRange() {
+                        if (!locationElement) return;
+
+                        if (direction === "up") {
+                            currentValue += step;
+                            if (currentValue >= max || currentValue >= 7.7) {
+                                direction = "down";
+                            }
+                        } 
+                        else if (direction === "down") {
+                            currentValue -= step;
+                            if (currentValue <= min || currentValue <= 3.2) {
+                                direction = "up";
+                            }
+                        }
+
+                        locationElement.textContent = `Trong phạm vi ${currentValue.toFixed(1)} km`;
+                        localStorage.setItem(`lastValue_${memberId}`, currentValue.toFixed(1));
+                    }
+
+                    setInterval(adjustRange, 20000);
+                    adjustRange();
+                }
+
+                document.addEventListener("DOMContentLoaded", function () {
+                    updateLocationRange("Chang");
+                });
+                </script>
+
+                <button onclick="showInputBox('Chang', 'phone')">SDT</button>
+                <button onclick="showInputBox('Chang', 'address')">Địa chỉ</button>
+                <button onclick="showInputBox('Chang', 'telegram')">Telegram</button>
+                <p><i class="fas fa-clock"></i> <strong>Thời gian gia nhập:</strong> 13/08/2024 15:16</p>
+                <i class="fas fa-user"></i> Hoạt động: <span class="active-status">Đang hoạt động</span>
+            </div>
+        </div>
+
+        <h4>Giới thiệu</h4>
+        <p>
+            Cô ấy sở hữu một nụ cười ngọt ngào cùng ánh mắt lôi cuốn, khiến bất cứ ai cũng dễ dàng bị mê hoặc. Chang không chỉ biết cách làm hài lòng mọi yêu cầu của bạn, mà còn mang đến những trải nghiệm thú vị, mới mẻ và đầy mê hoặc. Nếu bạn đang ở Thái Lan và muốn có một buổi tối đáng nhớ với những cảm xúc đê mê, Chang chính là sự lựa chọn hoàn hảo.
+        </p>
+        <p><i class="fas fa-birthday-cake"></i> <strong>Năm sinh:</strong> 2000</p>
+        <p><i class="fas fa-ruler-vertical"></i> <strong>Cao (cm):</strong> 165</p>
+        <p><i class="fas fa-weight-hanging"></i> <strong>Nặng (kg):</strong> 49</p>
+        <p><i class="fas fa-tape"></i> <strong>Vòng 1 (cm):</strong> 85</p>
+        <p><i class="fas fa-tape"></i> <strong>Vòng 2 (cm):</strong> 60</p>
+        <p><i class="fas fa-tape"></i> <strong>Vòng 3 (cm):</strong> 90</p>
+        <p><i class="fas fa-smile"></i> <strong>Khuôn mặt:</strong> Dịu dàng, thân thiện và rất dễ gần</p>
+        <p><i class="fas fa-concierge-bell"></i> <strong>Service:</strong> Hôn môi, Hôn vú, BJ, HJ, Massage thư giãn,Tiếp rượu, Qua đêm, Book Tour thương lượng</p>
+        <p><i class="fas fa-eye"></i> <strong>Nhận dạng:</strong> Nét đẹp tự nhiên, thân hình quyến rũ và trẻ trung</p>
+        <p><i class="fas fa-clock"></i> <strong>Hoạt động:</strong> Luôn sẵn sàng phục vụ</p>
+    </div>
+
+    <div id="review-container-Chang" class="review-section">
+        <h4>Đánh giá của bạn cho Chang</h4>
+        <div class="stars">
+            <span class="star" onclick="rateStar('Chang', 1)">&#9733;</span>
+            <span class="star" onclick="rateStar('Chang', 2)">&#9733;</span>
+            <span class="star" onclick="rateStar('Chang', 3)">&#9733;</span>
+            <span class="star" onclick="rateStar('Chang', 4)">&#9733;</span>
+            <span class="star" onclick="rateStar('Chang', 5)">&#9733;</span>
+        </div>
+        <p id="rating-result-Chang">Bạn chưa đánh giá</p>
+    </div>
+
+    <!-- Hình ảnh -->
+    <div id="images-Chang" style="display: none">
+        <h4>Hình ảnh</h4>
+        <a href="https://ibb.co/KjTFxXs"><img src="https://i.ibb.co/KjTFxXs/430029198-946267713512468-5042154628741578756-n.jpg" alt="Image 1" style="height: 250px; width: auto;"></a>
+        <a href="https://ibb.co/CMzrMHz"><img src="https://i.ibb.co/CMzrMHz/378854303-855617289244178-5284751463597591029-n.jpg" alt="Image 2" style="height: 250px; width: auto;"></a>
+        <a href="https://ibb.co/DCXrwLx"><img src="https://i.ibb.co/DCXrwLx/435893748-973112090828030-3658708461828827600-n.jpg" alt="Image 3" style="height: 250px; width: auto;"></a>
+        <a href="https://ibb.co/HxCvHSL"><img src="https://i.ibb.co/HxCvHSL/448578095-1008821667257072-2805937849532685211-n.jpg" alt="Image 4" style="height: 250px; width: auto;"></a>
+        <a href="https://ibb.co/mcnLQcm"><img src="https://i.ibb.co/mcnLQcm/453099935-1034995834639655-2625415353164096910-n.jpg" alt="Image 5" style="height: 250px; width: auto;"></a>
+        <a href="https://ibb.co/c6LntKm"><img src="https://i.ibb.co/c6LntKm/461048233-1070808574391714-6457504351249761695-n.jpg" alt="Image 6" style="height: 250px; width: auto;"></a>
+        <a href="https://ibb.co/3dCf0NY"><img src="https://i.ibb.co/3dCf0NY/461315968-1072265027579402-2095170161509221025-n.jpg" alt="Image 7" style="height: 250px; width: auto;"></a>
+        <a href="https://ibb.co/R99XhXm"><img src="https://i.ibb.co/R99XhXm/465055380-1097488548390383-6204572662205406771-n.jpg" alt="Image 9" style="height: 250px; width: auto;"></a>
+        <a href="https://ibb.co/sHY4sWp"><img src="https://i.ibb.co/sHY4sWp/465004871-1097488598390378-4886516484980949515-n.jpg" alt="Image 10" style="height: 250px; width: auto;"></a>
+        <a href="https://ibb.co/CvWcC5v"><img src="https://i.ibb.co/CvWcC5v/378778004-855617305910843-333745182071302791-n.jpg" alt="Image 11" style="height: 250px; width: auto;"></a>
+        <a href="https://ibb.co/Qjn0ZYv"><img src="https://i.ibb.co/Qjn0ZYv/452104232-1029202725218966-2860286147676872065-n.jpg" alt="Image 12" style="height: 250px; width: auto;"></a>
+        <a href="https://ibb.co/S3ZZRm8"><img src="https://i.ibb.co/S3ZZRm8/452866837-1031653198307252-4040690016312092931-n.jpg" alt="Image 13" style="height: 250px; width: auto;"></a>
+        <a href="https://ibb.co/sJDf3BT"><img src="https://i.ibb.co/sJDf3BT/453433956-1034997097972862-5183529550957858747-n.jpg" alt="Image 14" style="height: 250px; width: auto;"></a>
+        <a href="https://ibb.co/MBCVy8F"><img src="https://i.ibb.co/MBCVy8F/454575777-1041074547365117-1895654296518936209-n.jpg" alt="Image 15" style="height: 250px; width: auto;"></a>
+        <a href="https://ibb.co/W6y4q0g"><img src="https://i.ibb.co/W6y4q0g/461048236-1070808604391711-8132402547166610401-n.jpg" alt="Image 16" style="height: 250px; width: auto;"></a>
+        <!-- Thêm các hình ảnh khác tương tự -->
+    </div>
+
+    <!-- Số lượt book -->
+    <div id="bookings-Chang" style="display: none">
+        <h4>Đặt lịch</h4>
+        <p><i class="fas fa-calendar-alt"></i> <strong>Vui lòng đăng nhập để đặt lịch</strong></p>
+    </div>
+
+    <!-- Giới thiệu -->
+    <div id="bio-Chang" style="display: none">
+        <h4>Giới thiệu</h4>
+        <p>
+            Chang luôn tạo ra những trải nghiệm đáng nhớ với sự chuyên nghiệp và tận tâm. Cô ấy là một trong những gương mặt nổi bật tại Diamond Club.
         </p>
     </div>
 </div>
@@ -3684,85 +3996,83 @@ border-radius: 5px; /* Bo góc ảnh */
 <!-- Mục Được Yêu Thích Nhất  -->
 <div class="container">
     <div id="hoa-khoi-section">
-        <h2>Được Yêu Thích Nhất 💋</h2>
+        <h2>DỊCH VỤ ĐẶC BIỆT 💋</h2>
         <div class="slider">
             <div class="slider-images-wrapper">
             <div class="slider-images">
-                <img src="https://i.ibb.co/HT7XRt6/photo-6-2024-10-23-11-52-30.jpg" alt="Image 1" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/ZgMh5Rz/photo-15-2024-10-23-11-52-15.jpg" alt="Image 2" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/hWFT7BW/photo-19-2024-10-23-11-22-02.jpg" alt="Image 3" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/FDfxQHd/photo-22-2024-10-23-11-51-38.jpg" alt="Image 4" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/g7GNv7g/photo-2024-08-20-14-51-53.jpg" alt="Image 5" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/r7SNbfP/photo-32-2024-10-23-11-52-30.jpg" alt="Image 6" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/WPSLQyZ/photo-43-2024-10-23-11-52-15.jpg" alt="Image 7" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/26KKrtZ/photo-50-2024-10-23-11-51-38.jpg" alt="Image 8" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/L6G6g5k/photo-80-2024-10-23-11-22-02.jpg" alt="Image 9" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/LSGs6cV/photo-83-2024-10-23-11-52-15.jpg" alt="Image 10" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/WvLsK1R/photo-96-2024-10-23-11-52-15.jpg" alt="Image 11" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/mRf4Tps/photo-98-2024-10-23-11-52-15.jpg" alt="Image 12" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/1KCVprp/photo-2024-10-17-23-30-54.jpg" alt="Image 13" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/yVwR18k/photo-2024-10-17-23-32-44.jpg" alt="Image 14" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/TBKGpDc/photo-2024-07-26-18-41-01.jpg" alt="Image 15" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/VYSyXSj/photo-2024-09-05-18-37-46.jpg" alt="Image 17" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/QXDZgJ1/reup-be-ana-pga-chuan-mat-xinh-body-dep-vu-to-dam-tiep-cac-boss-3113753-original.jpg" alt="Image 18" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/vhc79wJ/taoanhdep-lam-net-anh-22071.jpg" alt="Image 19" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/rQpDrXj/taoanhdep-lam-net-anh-84350.jpg" alt="Image 20" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/NncCRYJ/photo-9-2024-10-23-11-52-15.jpg" alt="Image 21" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/B4SWLf2/photo-4-2024-10-23-11-52-15.jpg" alt="Image 22" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/3TBjJrS/photo-3-2024-10-23-11-52-15.jpg" alt="Image 23" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/mNNL9h6/photo-8-2024-10-23-11-51-38.jpg" alt="Image 24" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/5RBJHX0/photo-2024-09-05-18-25-49.jpg" alt="Image 25" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/c10Lbzk/photo-2024-09-05-18-37-42-2.jpg" alt="Image 26" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/q7kXCmx/photo-2024-09-05-18-37-43.jpg" alt="Image 27" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/HrWycSc/photo-2024-09-05-18-35-45-4.jpg" alt="Image 28" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/xXN7XND/photo-2024-09-05-18-37-46.jpg" alt="Image 29" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/wRg0Fxr/photo-2024-09-05-18-37-54.jpg" alt="Image 30" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/hVvFThy/photo-2024-07-08-15-35-10.jpg" alt="Image 31" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/XVFxydz/photo-2024-07-08-18-29-39.jpg" alt="Image 32" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/C1vzDrm/photo-2024-07-13-20-02-05.jpg" alt="Image 33" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/P4N1RxC/photo-2024-07-16-19-46-04.jpg" alt="Image 34" class="info-image" style="height: 270px;">
-                <img src="https://i.ibb.co/cbFvT6w/photo-2024-07-17-21-33-48.jpg" alt="Image 35" class="info-image" style="height: 270px;">
+                <a href="https://ibb.co/HT7XRt6"><img src="https://i.ibb.co/HT7XRt6/photo-6-2024-10-23-11-52-30.jpg" alt="Image 1" border="0"></a>
+                <a href="https://ibb.co/ZgMh5Rz"><img src="https://i.ibb.co/ZgMh5Rz/photo-15-2024-10-23-11-52-15.jpg" alt="Image 2" border="0"></a>
+                <a href="https://ibb.co/hWFT7BW"><img src="https://i.ibb.co/hWFT7BW/photo-19-2024-10-23-11-22-02.jpg" alt="Image 3" border="0"></a>
+                <a href="https://ibb.co/LY0k0J5"><img src="https://i.ibb.co/LY0k0J5/Untitled-design-24.png" alt="Image 4" border="0"></a>
+                <a href="https://ibb.co/FDfxQHd"><img src="https://i.ibb.co/FDfxQHd/photo-22-2024-10-23-11-51-38.jpg" alt="Image 5" border="0"></a>
+                <a href="https://ibb.co/g7GNv7g"><img src="https://i.ibb.co/g7GNv7g/photo-2024-08-20-14-51-53.jpg" alt="Image 6" border="0"></a>
+                <a href="https://ibb.co/r7SNbfP"><img src="https://i.ibb.co/r7SNbfP/photo-32-2024-10-23-11-52-30.jpg" alt="Image 7" border="0"></a>
+                <a href="https://ibb.co/WPSLQyZ"><img src="https://i.ibb.co/WPSLQyZ/photo-43-2024-10-23-11-52-15.jpg" alt="Image 8" border="0"></a>
+                <a href="https://ibb.co/p0N3Vsb"><img src="https://i.ibb.co/p0N3Vsb/Untitled-design-21.png" alt="Image 9" border="0"></a>
+                <a href="https://ibb.co/26KKrtZ"><img src="https://i.ibb.co/26KKrtZ/photo-50-2024-10-23-11-51-38.jpg" alt="Image 10" border="0"></a>
+                <a href="https://ibb.co/L6G6g5k"><img src="https://i.ibb.co/L6G6g5k/photo-80-2024-10-23-11-22-02.jpg" alt="Image 11" border="0"></a>
+                <a href="https://ibb.co/LSGs6cV"><img src="https://i.ibb.co/LSGs6cV/photo-83-2024-10-23-11-52-15.jpg" alt="Image 12" border="0"></a>
+                <a href="https://ibb.co/B6Sqp1L"><img src="https://i.ibb.co/B6Sqp1L/Untitled-design-18.png" alt="Image 13" border="0"></a>
+                <a href="https://ibb.co/WvLsK1R"><img src="https://i.ibb.co/WvLsK1R/photo-96-2024-10-23-11-52-15.jpg" alt="Image 14" border="0"></a>
+                <a href="https://ibb.co/mRf4Tps"><img src="https://i.ibb.co/mRf4Tps/photo-98-2024-10-23-11-52-15.jpg" alt="Image 15" border="0"></a>
+                <a href="https://ibb.co/1KCVprp"><img src="https://i.ibb.co/1KCVprp/photo-2024-10-17-23-30-54.jpg" alt="Image 16" border="0"></a>
+                <a href="https://ibb.co/pJGtHmG"><img src="https://i.ibb.co/pJGtHmG/Untitled-design-22.png" alt="Image 17" border="0"></a>
+                <a href="https://ibb.co/yVwR18k"><img src="https://i.ibb.co/yVwR18k/photo-2024-10-17-23-32-44.jpg" alt="Image 18" border="0"></a>
+                <a href="https://ibb.co/TBKGpDc"><img src="https://i.ibb.co/TBKGpDc/photo-2024-07-26-18-41-01.jpg" alt="Image 19" border="0"></a>
+                <a href="https://ibb.co/VYSyXSj"><img src="https://i.ibb.co/VYSyXSj/photo-2024-09-05-18-37-46.jpg" alt="Image 20" border="0"></a>
+                <a href="https://ibb.co/S6vzCrT"><img src="https://i.ibb.co/S6vzCrT/Untitled-design-23.png" alt="Image 21" border="0"></a>
+                <a href="https://ibb.co/QXDZgJ1"><img src="https://i.ibb.co/QXDZgJ1/reup-be-ana-pga-chuan-mat-xinh-body-dep-vu-to-dam-tiep-cac-boss-3113753-original.jpg" alt="Image 22" border="0"></a>
+                <a href="https://ibb.co/vhc79wJ"><img src="https://i.ibb.co/vhc79wJ/taoanhdep-lam-net-anh-22071.jpg" alt="Image 23" border="0"></a>
+                <a href="https://ibb.co/rQpDrXj"><img src="https://i.ibb.co/rQpDrXj/taoanhdep-lam-net-anh-84350.jpg" alt="Image 24" border="0"></a>
+                <a href="https://ibb.co/NncCRYJ"><img src="https://i.ibb.co/NncCRYJ/photo-9-2024-10-23-11-52-15.jpg" alt="Image 25" border="0"></a>
+                <a href="https://ibb.co/B4SWLf2"><img src="https://i.ibb.co/B4SWLf2/photo-4-2024-10-23-11-52-15.jpg" alt="Image 26" border="0"></a>
+                <a href="https://ibb.co/HhwjSFp"><img src="https://i.ibb.co/HhwjSFp/Untitled-design-26.png" alt="Image 27" border="0"></a>
+                <a href="https://ibb.co/3TBjJrS"><img src="https://i.ibb.co/3TBjJrS/photo-3-2024-10-23-11-52-15.jpg" alt="Image 28" border="0"></a>
+                <a href="https://ibb.co/mNNL9h6"><img src="https://i.ibb.co/mNNL9h6/photo-8-2024-10-23-11-51-38.jpg" alt="Image 29" border="0"></a>
+                <a href="https://ibb.co/5RBJHX0"><img src="https://i.ibb.co/5RBJHX0/photo-2024-09-05-18-25-49.jpg" alt="Image 30" border="0"></a>
+                
+
+                <!-- Tiếp tục với các hình ảnh khác theo cùng cách này -->
+                
                 
 <!-- Thêm các ảnh khác vào đây -->
 
 
 
   <!-- Lặp lại bộ hình ảnh 1 để tạo hiệu ứng cuộn liên tục -->
-  <img src="https://i.ibb.co/mDgpphk/photo-2024-07-17-22-06-53.jpg" alt="Image 36" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/fxYN92r/photo-2024-07-26-20-22-05.jpg" alt="Image 37" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/hfPm5kQ/photo-2024-07-27-19-41-23.jpg" alt="Image 38" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/6gJpcCv/photo-2024-08-01-19-45-35.jpg" alt="Image 39" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/xMgVzrm/photo-2024-08-02-21-35-06.jpg" alt="Image 40" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/7SyF1KP/photo-2024-08-11-13-02-15.jpg" alt="Image 41" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/7NP8yrr/photo-2024-08-11-20-22-43.jpg" alt="Image 42" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/6FSKKz0/photo-2024-08-12-13-41-26.jpg" alt="Image 43" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/1RfR70n/photo-2024-08-14-21-11-07.jpg" alt="Image 44" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/5n5Fvcv/photo-2024-08-14-22-24-10.jpg" alt="Image 45" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/P91y2Dp/photo-2024-08-15-12-49-14.jpg" alt="Image 46" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/rpSrxZv/photo-2024-08-18-18-37-18.jpg" alt="Image 47" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/bN1JjqW/photo-2024-08-19-22-58-05.jpg" alt="Image 48" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/g7GNv7g/photo-2024-08-20-14-51-53.jpg" alt="Image 49" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/2qwCJnX/photo-2024-08-23-13-26-54.jpg" alt="Image 50" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/n7cmdBv/photo-2024-08-28-15-21-12.jpg" alt="Image 51" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/m86KxLK/photo-2024-08-29-21-21-48.jpg" alt="Image 52" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/F0LX904/photo-2024-09-02-21-10-06.jpg" alt="Image 53" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/DDfzdWD/photo-2024-09-09-13-05-48.jpg" alt="Image 54" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/nQBW2Nc/photo-2024-09-09-13-05-50.jpg" alt="Image 55" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/2Z6T8pw/photo-2024-09-09-20-28-17.jpg" alt="Image 56" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/Yh4GSS9/photo-2024-09-11-17-36-56.jpg" alt="Image 57" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/X3Vw2Dx/photo-2024-09-11-19-40-50.jpg" alt="Image 58" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/BNJtPRk/photo-2024-09-12-18-59-24.jpg" alt="Image 59" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/S5cZB7m/419418603-1508797216580744-6598850606428340490-n.jpg" alt="Image 60" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/bHLbVdD/455691559-122111257202434651-6263614150393024155-n.jpg" alt="Image 61" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/qYSb9Mm/photo-2024-06-24-20-18-13.jpg" alt="Image 62" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/zsGMw70/review-of-hay-tim-em-dam-for-reup-be-ana-pga-chuan-mat-xinh-body-dep-vu-to-dam-tiep-cac-boss-3134082.jpg" alt="Image 64" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/y0ghTLq/reup-trieu-uyen-cuc-pham-sieu-non-to-nong-bong-ngot-ngao-dang-yeu-3218910-original.jpg" alt="Image 65" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/ZHt0m10/reup-trieu-uyen-cuc-pham-sieu-non-to-nong-bong-ngot-ngao-dang-yeu-2970339-original.jpg" alt="Image 66" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/x1fnZ28/reup-trieu-uyen-cuc-pham-sieu-non-to-nong-bong-ngot-ngao-dang-yeu-2961977-original.jpg" alt="Image 67" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/cNswv30/review-of-luke-for-sieu-pham-mia-thien-than-2k4-moi-lon-tieu-muoi-douyin-hong-hao-3258387-original.jpg" alt="Image 68" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/tBvCVwX/photo-2024-09-05-18-55-28-2.jpg" alt="Image 69" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/wJcM7dm/photo-2024-08-19-21-10-58.jpg" alt="Image 70" class="info-image" style="height: 270px;">
-  <img src="https://i.ibb.co/TmHHqC7/photo-2024-09-09-13-05-49.jpg" alt="Image 72" class="info-image" style="height: 270px;">
+  <a href="https://ibb.co/HT7XRt6"><img src="https://i.ibb.co/HT7XRt6/photo-6-2024-10-23-11-52-30.jpg" alt="Image 1" border="0"></a>
+<a href="https://ibb.co/hWFT7BW"><img src="https://i.ibb.co/hWFT7BW/photo-19-2024-10-23-11-22-02.jpg" alt="Image 3" border="0"></a>
+<a href="https://ibb.co/LY0k0J5"><img src="https://i.ibb.co/LY0k0J5/Untitled-design-24.png" alt="Image 4" border="0"></a>
+<a href="https://ibb.co/FDfxQHd"><img src="https://i.ibb.co/FDfxQHd/photo-22-2024-10-23-11-51-38.jpg" alt="Image 5" border="0"></a>
+<a href="https://ibb.co/g7GNv7g"><img src="https://i.ibb.co/g7GNv7g/photo-2024-08-20-14-51-53.jpg" alt="Image 6" border="0"></a>
+<a href="https://ibb.co/r7SNbfP"><img src="https://i.ibb.co/r7SNbfP/photo-32-2024-10-23-11-52-30.jpg" alt="Image 7" border="0"></a>
+<a href="https://ibb.co/WPSLQyZ"><img src="https://i.ibb.co/WPSLQyZ/photo-43-2024-10-23-11-52-15.jpg" alt="Image 8" border="0"></a>
+<a href="https://ibb.co/p0N3Vsb"><img src="https://i.ibb.co/p0N3Vsb/Untitled-design-21.png" alt="Image 9" border="0"></a>
+<a href="https://ibb.co/26KKrtZ"><img src="https://i.ibb.co/26KKrtZ/photo-50-2024-10-23-11-51-38.jpg" alt="Image 10" border="0"></a>
+<a href="https://ibb.co/L6G6g5k"><img src="https://i.ibb.co/L6G6g5k/photo-80-2024-10-23-11-22-02.jpg" alt="Image 11" border="0"></a>
+<a href="https://ibb.co/LSGs6cV"><img src="https://i.ibb.co/LSGs6cV/photo-83-2024-10-23-11-52-15.jpg" alt="Image 12" border="0"></a>
+<a href="https://ibb.co/B6Sqp1L"><img src="https://i.ibb.co/B6Sqp1L/Untitled-design-18.png" alt="Image 13" border="0"></a>
+<a href="https://ibb.co/WvLsK1R"><img src="https://i.ibb.co/WvLsK1R/photo-96-2024-10-23-11-52-15.jpg" alt="Image 14" border="0"></a>
+<a href="https://ibb.co/mRf4Tps"><img src="https://i.ibb.co/mRf4Tps/photo-98-2024-10-23-11-52-15.jpg" alt="Image 15" border="0"></a>
+<a href="https://ibb.co/1KCVprp"><img src="https://i.ibb.co/1KCVprp/photo-2024-10-17-23-30-54.jpg" alt="Image 16" border="0"></a>
+<a href="https://ibb.co/pJGtHmG"><img src="https://i.ibb.co/pJGtHmG/Untitled-design-22.png" alt="Image 17" border="0"></a>
+<a href="https://ibb.co/yVwR18k"><img src="https://i.ibb.co/yVwR18k/photo-2024-10-17-23-32-44.jpg" alt="Image 18" border="0"></a>
+<a href="https://ibb.co/TBKGpDc"><img src="https://i.ibb.co/TBKGpDc/photo-2024-07-26-18-41-01.jpg" alt="Image 19" border="0"></a>
+<a href="https://ibb.co/VYSyXSj"><img src="https://i.ibb.co/VYSyXSj/photo-2024-09-05-18-37-46.jpg" alt="Image 20" border="0"></a>
+<a href="https://ibb.co/S6vzCrT"><img src="https://i.ibb.co/S6vzCrT/Untitled-design-23.png" alt="Image 21" border="0"></a>
+<a href="https://ibb.co/QXDZgJ1"><img src="https://i.ibb.co/QXDZgJ1/reup-be-ana-pga-chuan-mat-xinh-body-dep-vu-to-dam-tiep-cac-boss-3113753-original.jpg" alt="Image 22" border="0"></a>
+<a href="https://ibb.co/vhc79wJ"><img src="https://i.ibb.co/vhc79wJ/taoanhdep-lam-net-anh-22071.jpg" alt="Image 23" border="0"></a>
+<a href="https://ibb.co/rQpDrXj"><img src="https://i.ibb.co/rQpDrXj/taoanhdep-lam-net-anh-84350.jpg" alt="Image 24" border="0"></a>
+<a href="https://ibb.co/NncCRYJ"><img src="https://i.ibb.co/NncCRYJ/photo-9-2024-10-23-11-52-15.jpg" alt="Image 25" border="0"></a>
+<a href="https://ibb.co/B4SWLf2"><img src="https://i.ibb.co/B4SWLf2/photo-4-2024-10-23-11-52-15.jpg" alt="Image 26" border="0"></a>
+<a href="https://ibb.co/HhwjSFp"><img src="https://i.ibb.co/HhwjSFp/Untitled-design-26.png" alt="Image 27" border="0"></a>
+<a href="https://ibb.co/3TBjJrS"><img src="https://i.ibb.co/3TBjJrS/photo-3-2024-10-23-11-52-15.jpg" alt="Image 28" border="0"></a>
+<a href="https://ibb.co/mNNL9h6"><img src="https://i.ibb.co/mNNL9h6/photo-8-2024-10-23-11-51-38.jpg" alt="Image 29" border="0"></a>
+<a href="https://ibb.co/5RBJHX0"><img src="https://i.ibb.co/5RBJHX0/photo-2024-09-05-18-25-49.jpg" alt="Image 30" border="0"></a>
+
+    <!-- Thêm tất cả các hình ảnh còn lại theo cùng cách này -->
+</div>
+
 </div>
 </div>
 </div>
@@ -4270,7 +4580,7 @@ body {
     <input type="text" id="user-input" placeholder="Nhập đối tác muốn chat..." />
     <button id="user-submit-btn">Nhấp</button>
     <p style="color: #ffffff; text-align: center; padding: 10px; background-color: #000000; border-radius: 5px;">
-        Chat sex với các đối tác của Web. Member có thể tham gia chat sex trực tiếp với các bé Du học sinh,hoặc room mình mong muốn nhé...
+        Chat sex với các đối tác của Web. Member có thể tham gia chat sex trực tiếp với các bé của hệ thống,hoặc đối tác của hệ thống mình mong muốn...
     </p>
         <!-- Nút ba gạch -->
         <button id="menu-btn" class="menu-icon">
@@ -4295,8 +4605,8 @@ body {
     
     <!-- Thông báo khi không phải là VIP -->
     <div id="vip-message">
-      Anh yêu ơi mình trở thành Member Vip để chat sex với mấy em nha <br>
-      Anh liên hệ hỗ trợ hoặc có thể tạm thời vào nhóm chat trên Telegram để giao lưu 💎 :
+      Bạn chưa đủ điều kiện để truy cập vào các dịch vụ đặc biệt của hệ thống <br>
+      Liên hệ hỗ trợ hoặc có thể tạm thời vào nhóm chat trên Telegram để giao lưu 💎 :
       <a href="https://t.me/+NKc2wvZ_c4hhM2E9" id="telegram-link" target="_blank">Tham gia nhóm chat</a>
     </div>
   </div>
