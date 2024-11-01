@@ -56,10 +56,8 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Đổ bóng cho tiêu đề */
     vertical-align: middle; /* Căn chỉnh logo và tiêu đề theo chiều dọc */
 }
-        
-
-
-        h1 {
+     
+h1 {
           <h1 style="display: inline-block;">Chào mừng đến với LUXURY GIRL BOOKING 🎀</h1>
           <img src="https://i.imgur.com/mjq8Nzg.png" alt="Logo" style="width: 100px; height: auto;">
           font-size: 42px;
@@ -130,17 +128,16 @@
             flex-wrap: wrap;
         }
         .region-btn {
-            background-color: #000000 /* Màu nền nút vùng */
-            color: #ffb6c1;
-            font-size: 12px;
+            background-color: #1A242F; /* Màu nền nút vùng */
+            color: #ffffff;
             margin: 5px;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
-            width: 100px;
+            width: 150px;
             text-align: center;
-            font-weight: 700; /* Chữ đậm nhưng không quá nặng */
-            border: 1px solid #BCC6CC /* Viền bạc ánh đen */
+            font-weight: 500; /* Chữ đậm nhưng không quá nặng */
+            border: 1px solid #ff2c61;/* Viền bạc ánh đen */
  
         }
         .region-btn:hover {
@@ -169,7 +166,7 @@
     height: 30px; /* Điều chỉnh chiều cao của nút */
     transition: background-color 0.3s ease;
 
-    border: 1px solid #BCC6CC /* Viền bạc ánh đen */
+    border: 1px solid #ff2c61; /* Viền bạc ánh đen */
   }
 .info-button:hover {
     background-color: #ff2c61;
@@ -185,7 +182,7 @@
     border: none;
      margin-top: -50px;
     border-radius: 5px;
-    border: 1px solid #BCC6CC /* Viền bạc ánh đen */
+    border: 1px solid #ff2c61; /* Viền bạc ánh đen */
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s ease;
 }
@@ -257,23 +254,22 @@
                 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             }
             .button {
-                justify-content: space-between; /* Đưa logo và text ra hai đầu */
-                background-color: #000000;
-                color: #ffffff;
-                font-size: 12px;
-                padding: 5px 8px;
-                margin: -20px 2px 5px 2px;
-                border-radius: 5px;
-                cursor: pointer;
-                border: 1px solid #ff2c61;
-                transition: background-color 0.3s ease;
-                position: relative;
-                font-weight: 500; /* Tăng độ đậm chữ */
-                box-shadow: 0 4px 8px #000000 /* Hiệu ứng đổ bóng */
-            }
-            .button:hover {
-                background-color: #00aeff;
-            }
+            background-color: #ffffff;
+            color: #ffffff;
+            font-size: 15px; /* Kích thước chữ của nút */
+            padding: 5px 10px; /* Kích thước padding của nút */
+            margin: 0 0px; /* Khoảng cách giữa các nút */
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid #ff2c61;
+            transition: background-color 0.3s ease;
+            position: relative;
+            font-weight: 600; /* Tăng độ đậm chữ */
+            box-shadow: 0 4px 8px #000000; /* Hiệu ứng đổ bóng */
+        }
+        .button:hover {
+            background-color: #00aeff; /* Màu nền khi hover */
+        }
     top: -20px;
            
             
@@ -373,7 +369,27 @@
                 max-width: 350px; /* Giới hạn chiều rộng */
                 width: auto;
                 animation: popIn 0.5s ease; /* Hiệu ứng xuất hiện */
+
             }
+            .success-notification {
+    display: flex; /* Sử dụng flexbox để căn chỉnh các phần tử bên trong */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    background-color: #e0ffe0; /* Màu nền cho thông báo thành công */
+    color: #2e7d32; /* Màu chữ */
+    border-left: 5px solid #66bb6a; /* Viền bên trái */
+    border: 1px solid #2e7d32; /* Viền cho khung */
+    padding: 10px; /* Khoảng cách bên trong khung */
+    border-radius: 8px; /* Bo góc */
+    margin-top: 20px; /* Khoảng cách với các phần tử khác */
+    font-weight: bold; /* Độ đậm chữ */
+    font-size: 18px; /* Kích thước chữ */
+}
+
+.success-notification img {
+    width: 30px; /* Kích thước cho dấu tích */
+    height: 30px; /* Kích thước cho dấu tích */
+    margin-right: 10px; /* Khoảng cách giữa dấu tích và chữ */
+}
         .banner-container {
             overflow: hidden;
             background-color: #100c0c; /* Màu nền cho banner */
@@ -438,7 +454,7 @@
 
 .button-logo {
     width: 22px; /* Điều chỉnh kích thước logo */
-    height: auto;
+    height: 22PX;
     margin-right: 6px; /* Khoảng cách giữa logo và văn bản */
     vertical-align: middle;
 }
@@ -465,7 +481,7 @@ function redirectToProfile() {
         isCodeValid = true;
         showVip3Notification();
         document.getElementById("buttonText").innerText = "VIP3 💎"; // Thay đổi văn bản
-        document.getElementById("buttonLogo").src = "https://i.ibb.co/pXP714d/vip-emblem-transparent-background-357958-3454-removebg-preview.png"; // Đường dẫn đến logo VIP 3
+        document.getElementById("buttonLogo").src = "https://i.ibb.co/gTKckKr/vip-emblem-transparent-background-357958-3454.jpg"; // Đường dẫn đến logo VIP 3
     } else {
         showErrorNotification();
     }
@@ -1474,34 +1490,34 @@ function showErrorNotification() {
   <h2>Thành phố lớn</h2>
   <div class="region-list">
     <div class="region-btn" onclick="showAlert('Bangkok')">
-      <i class="fas fa-map-marker-alt"></i> Bangkok (กรุงเทพมหานคร)
+      <i class="fas fa-map-marker-alt"></i> Bangkok 
     </div>
     <div class="region-btn" onclick="showAlert('Chiang Mai')">
-      <i class="fas fa-map-marker-alt"></i> Chiang Mai (เชียงใหม่)
+      <i class="fas fa-map-marker-alt"></i> Chiang Mai 
     </div>
     <div class="region-btn" onclick="showAlert('IPhuket')">
-      <i class="fas fa-map-marker-alt"></i> Phuket (ภูเก็ต)
+      <i class="fas fa-map-marker-alt"></i> Phuket 
     </div>
     <div class="region-btn" onclick="showAlert('Pattaya')">
-      <i class="fas fa-map-marker-alt"></i> Pattaya (พัทยา)
+      <i class="fas fa-map-marker-alt"></i> Pattaya 
     </div>
     <div class="region-btn" onclick="showAlert('Hat Yai')">
-      <i class="fas fa-map-marker-alt"></i> Hat Yai (หาดใหญ่)
+      <i class="fas fa-map-marker-alt"></i> Hat Yai 
     </div>
     <div class="region-btn" onclick="showAlert('Nakhon Ratchasima')">
-      <i class="fas fa-map-marker-alt"></i> NK (นครราชสีมา)
+      <i class="fas fa-map-marker-alt"></i> NK Ratchasima
     </div>
     <div class="region-btn" onclick="showAlert('Udon Thani')">
-      <i class="fas fa-map-marker-alt"></i> Udon Thani (อุดรธานี)
+      <i class="fas fa-map-marker-alt"></i> Udon Thani
     </div>
     <div class="region-btn" onclick="showAlert('Khon Kaen')">
-      <i class="fas fa-map-marker-alt"></i> Khon Kaen (ขอนแก่น)
+      <i class="fas fa-map-marker-alt"></i> Khon Kaen 
        </div>
       <div class="region-btn" onclick="showAlert('Surat Thani')">
-      <i class="fas fa-map-marker-alt"></i> Surat Thani (สุราษฎร์ธานี)
+      <i class="fas fa-map-marker-alt"></i> Surat Thani 
        </div>
       <div class="region-btn" onclick="showAlert('Khu vực khác')">
-      <i class="fas fa-map-marker-alt"></i> Khác (เมืองอื่นๆบ้าง)
+      <i class="fas fa-map-marker-alt"></i> Khu vực khác
   </div>
     </div>
   </div>
@@ -1549,7 +1565,7 @@ function showErrorNotification() {
           <i class="fas fa-female"></i> Lucy
       </div>
       <div class="region-btn" onclick="showDetails('QuynhAnh')">
-          <i class="fas fa-female"></i> Quỳnh Anh
+          <i class="fas fa-female"></i> Q.Anh
         </div>
         <div class="region-btn" onclick="showDetails('HaHuyen')">
             <i class="fas fa-female"></i> Hà Huyền 
