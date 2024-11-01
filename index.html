@@ -130,8 +130,9 @@
             flex-wrap: wrap;
         }
         .region-btn {
-            background-color: #1A242F; /* Màu nền nút vùng */
-            color: #ffffff;
+            background-color: #000000 /* Màu nền nút vùng */
+            color: #ffb6c1;
+            font-size: 12px;
             margin: 5px;
             border-radius: 5px;
             cursor: pointer;
@@ -139,8 +140,8 @@
             width: 100px;
             text-align: center;
             font-weight: 700; /* Chữ đậm nhưng không quá nặng */
-            border: 1px solid #ff2c61;/* Viền bạc ánh đen */
-            font-size: 12px;
+            border: 1px solid #BCC6CC /* Viền bạc ánh đen */
+ 
         }
         .region-btn:hover {
             background-color: #ff2c61; /* Màu nền nút vùng khi hover */
@@ -163,7 +164,7 @@
     border-radius: 5px;
     margin: 1px;
     cursor: pointer;
-    font-size: 1px; /* Điều chỉnh kích thước chữ */
+    font-size: 12px; /* Điều chỉnh kích thước chữ */
     width: 110px; /* Điều chỉnh chiều rộng của nút */
     height: 30px; /* Điều chỉnh chiều cao của nút */
     transition: background-color 0.3s ease;
@@ -302,67 +303,22 @@
             <div class="header">
                 <h1>Chào mừng bạn đến với LUXURY GIRL BOOKING 🎀</h1>
                 <div class="banner-container">
-                    <marquee behavior="scroll" direction="left" scrollamount="5">
-                        <img src="https://i.ibb.co/Tkxd6RF/taoanhdep-lam-net-anh-92190.jpg" alt="Banner Image" class="banner-image">
-        <img src="https://i.ibb.co/wMmzZPj/taoanhdep-lam-net-anh-99531.jpg" alt="Banner Image" class="banner-image">
-                        <img src="https://i.ibb.co/LCX2dKV/photo-2024-10-29-23-43-13.jpg" alt="Banner Image" class="banner-image">
-                        <img src="https://i.ibb.co/H7YvZVJ/photo-2024-10-29-23-42-21-3.jpg" alt="Banner Image" class="banner-image"><!-- Thêm các hình ảnh khác ở đây -->
-                        <img src="https://i.ibb.co/d6D4CMS/photo-2024-10-29-23-42-21.jpg" alt="Banner Image" class="banner-image"><!-- Thêm các hình ảnh khác ở đây -->
-                        <img src="https://i.ibb.co/j5qhDBS/photo-2024-10-29-23-42-12.jpg" alt="Banner Image" class="banner-image"><!-- Thêm các hình ảnh khác ở đây -->
-                    </marquee>
+                <div class="banner">
+                    <img src="https://i.ibb.co/Tkxd6RF/taoanhdep-lam-net-anh-92190.jpg" alt="Banner Image" class="banner-image">
+                    <img src="https://i.ibb.co/wMmzZPj/taoanhdep-lam-net-anh-99531.jpg" alt="Banner Image" class="banner-image">
+                    <img src="https://i.ibb.co/LCX2dKV/photo-2024-10-29-23-43-13.jpg" alt="Banner Image" class="banner-image">
+                    <img src="https://i.ibb.co/H7YvZVJ/photo-2024-10-29-23-42-21-3.jpg" alt="Banner Image" class="banner-image">
+                    <img src="https://i.ibb.co/d6D4CMS/photo-2024-10-29-23-42-21.jpg" alt="Banner Image" class="banner-image">
                 </div>
-                
-                <style>
-                .banner-container {
-    overflow: hidden;
-    background-color: #100c0c /* Màu nền cho banner */
-    padding: 10px; /* Khoảng cách bên trong */
-    position: relative; /* Để định vị banner */
-}
-
-.banner {
-    display: flex;
-    animation: scroll 5s linear forwards; /* Lướt một lần */
-}
-
-.banner-image {
-    height: 150px; /* Điều chỉnh chiều cao cho hình ảnh trong banner */
-    margin-right: 20px; /* Khoảng cách giữa các hình ảnh */
-}
-
-@keyframes scroll {
-    from {
-        transform: translateX(100%); /* Bắt đầu từ bên phải */
-    }
-    to {
-        transform: translateX(-100%); /* Kết thúc ở bên trái */
-    }
-}
-                </style>
-                <script>
-        // Đợi khi trang được tải
-        window.onload = function() {
-            const banner = document.querySelector('.banner');
-            
-            // Lặp lại quá trình cuộn
-            function scrollBanner() {
-                // Đặt animation lại
-                banner.style.animation = 'none'; // Dừng animation
-                setTimeout(() => {
-                    banner.style.animation = ''; // Khởi động lại animation
-                    banner.style.animation = 'scroll 5s linear forwards'; // Lướt một lần nữa
-                }, 1000); // Thời gian dừng trước khi lướt lại (1 giây)
-            }
         
-            // Khi animation kết thúc
-            banner.addEventListener('animationend', scrollBanner);
-        };
-          </script>
+            
+        
+            <div class="button-container">
             <button class="button" onclick="redirectToProfile()">
                 <img src="https://i.ibb.co/XyJ7DWF/pngtree-man-wearing-sunglasses-for-the-logo-of-the-game-image-2578704-fotor-202410317423.png" alt="Icon Hồ sơ">
                 Info 💎 
             </button>
-        
+        </div>
             <!-- Nút nhập mã đặt lịch -->
             <div class="booking-input">
                 <button id="bookingButton" class="button" onclick="promptBookingCode()">
@@ -373,7 +329,7 @@
         
             <!-- Thông báo dấu tích xanh khi nhập đúng mã -->
             <div id="vip3Notification" class="center-notification success-notification">
-                <img src="https://i.ibb.co/ct1mmj2/Pngtree-green-check-mark-icon-15571790.png" alt="Dấu tích xanh" style="width: 30px; margin-right: 10px;">
+                <img src="https://i.ibb.co/gTKckKr/vip-emblem-transparent-background-357958-3454.jpg" alt="Dấu tích xanh" style="width: 30px; margin-right: 10px;">
                 <span>Chúc mừng! Bạn đã được cấp quyền truy cập đặt biệt trên hệ thống 🥇🥇🥇</span>
             </div>
             
@@ -385,59 +341,61 @@
         </div>
         
         <style>
-            /* CSS cho các nút và container */
-            .button-container {
-    display: flex; /* Sử dụng Flexbox để sắp xếp các nút nằm ngang */
-    justify-content: center; /* Căn giữa các nút */
-    margin-top: 20px; /* Khoảng cách giữa banner và nút */
-}
-
-.button {
-    padding: 10px 20px;
-    background-color: #3a3a3a; /* Màu xám đậm */
+   .button {
+    padding: 5px 10px;
+    background-color: #000000; /* Màu xám đậm */
     color: #ffffff; /* Màu chữ sáng */
     border: 1px solid #ffffff; /* Viền trắng */
     border-radius: 5px;
-    margin: 0 10px; /* Khoảng cách giữa các nút */
+    margin: 0 0px; /* Khoảng cách giữa các nút */
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.button:hover {
-    background-color: #6a6a6a; /* Màu sáng hơn khi hover */
-    color: #f8f8f8; /* Màu chữ sáng hơn */
-}
-            
-            
-            /* CSS cho thông báo chuyên nghiệp */
-            .notification {
+        }
+        .button:hover {
+            background-color: #ff2c61; /* Màu nền khi hover */
+        }
+        .center-notification {
                 display: none;
-                padding: 10px;
-                margin-top: 20px;
-                border-radius: 5px;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 10px 10px; /* Tăng khoảng cách trong khung */
+                border-radius: 12px;
                 font-weight: bold;
-                display: flex;
-                align-items: center;
-                font-size: 18px;
-                transition: all 0.5s ease;
+                font-size: 18px; /* Kích thước chữ nổi bật */
+                background: linear-gradient(135deg, #1a3c34, #2e7d32); /* Hiệu ứng gradient */
+                color: #ffffff; /* Màu chữ trắng nổi bật */
+                border: 3px solid #145d27; /* Viền đậm */
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); /* Bóng đậm và lớn hơn */
+                z-index: 1000;
+                text-align: center;
+                max-width: 350px; /* Giới hạn chiều rộng */
+                width: auto;
+                animation: popIn 0.5s ease; /* Hiệu ứng xuất hiện */
             }
+        .banner-container {
+            overflow: hidden;
+            background-color: #100c0c; /* Màu nền cho banner */
+            height: 300px; /* Đặt chiều cao cụ thể cho banner */
+        }
+        .banner {
+            display: flex;
+            animation: scroll 30s linear infinite; /* Lướt liên tục */
+        }
+        .banner-image {
+            height: 300px; /* Điều chỉnh chiều cao cho hình ảnh trong banner */
+            width: auto; /* Giữ tỷ lệ khung hình */
+            margin-right: 10px; /* Khoảng cách giữa các hình ảnh */
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); } /* Cuộn đến hết bộ ảnh */
+        }         
         
-            .success-notification {
-                background-color: #d4edda;
-                color: #155724;
-            }
+           
         
-            .error-notification {
-                background-color: #f8d7da;
-                color: #721c24;
-            }
-        
-            .notification img {
-                width: 24px;
-                margin-right: 10px;
-            }
-        
-   /* Nút đặc biệt cho việc đặt lịch */
+  /* Nút đặc biệt cho việc đặt lịch */
 .booking-button {
     padding: 10px 10px;
     background-color: #4a4a4a; /* Màu xám đậm sang trọng */
@@ -451,7 +409,7 @@
     transition: all 0.3s ease;
 }
 .booking-button:hover {
-    background-color: #6a6a6a; /* Sáng hơn khi hover */
+    background-color: #2bff00; /* Sáng hơn khi hover */
     color: #ffffff; /* Màu chữ không đổi */
 }  
 
@@ -465,40 +423,6 @@
                 margin-right: 12px;
             }
 
-            .success-notification {
-    background-color: #e0ffe0;
-    color: #2e7d32;
-    border-left: 5px solid #66bb6a;
-    border: 1px solid #2e7d32; /* Viền bạc ánh đen */
-    
-}
-
-.error-notification {
-    background-color: #ffebee;
-    color: #c62828;
-    border-left: 5px solid #ef5350;
-}
-/* CSS căn giữa thông báo */
-.center-notification {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px 30px; /* Tăng khoảng cách trong khung */
-    border-radius: 12px;
-    font-weight: bold;
-    font-size: 18px; /* Kích thước chữ nổi bật */
-    background: linear-gradient(135deg, #1a3c34, #2e7d32); /* Hiệu ứng gradient */
-    color: #ffffff; /* Màu chữ trắng nổi bật */
-    border: 3px solid #145d27; /* Viền đậm */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); /* Bóng đậm và lớn hơn */
-    z-index: 1000;
-    text-align: center;
-    max-width: 350px; /* Giới hạn chiều rộng */
-    width: auto;
-    animation: popIn 0.5s ease; /* Hiệu ứng xuất hiện */
-}
 
 /* Hiệu ứng phóng to nhẹ khi hiện */
 @keyframes popIn {
@@ -513,11 +437,12 @@
 }
 
 .button-logo {
-    width: 32px; /* Điều chỉnh kích thước logo */
+    width: 22px; /* Điều chỉnh kích thước logo */
     height: auto;
     margin-right: 6px; /* Khoảng cách giữa logo và văn bản */
     vertical-align: middle;
 }
+
 
  
         </style>
