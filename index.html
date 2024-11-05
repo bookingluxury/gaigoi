@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Vị Trí Người Dùng</title>
     <script src="https://api.opencagedata.com/geocode/v1/json?key=f3c648fcae704efc9e84853afe53674c" async defer></script>
 </head>
@@ -81,58 +81,172 @@
             z-index: 9999; 
             display: none; /* Ẩn mặc định */
         }
+        /* CSS cho spinner và thông báo */
+.spinner-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #00f;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.info-message {
+    font-size: 14px;
+    margin-top: 10px;
+}
+.contact-button {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-button:hover {
+    text-decoration: underline;
+}
+.character {
+            margin-bottom: 20px;
+        }
+        .status-btn {
+            padding: 5px 10px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+  <div id="characters-container">
+    <!-- Nhân vật "July" -->
+    <div class="character" id="character-july">
+        <span>Tên nhân vật: July</span> 
+        <span id="status-july">Trạng thái: Chưa được đặt lịch</span> 
+        <span id="timer-july">Thời gian: 2 giờ</span>
+    </div>
 
-<div id="accessCodeModal" class="modal" style="display: flex;">
+    <!-- Bạn có thể thêm các nhân vật khác vào đây -->
+    <!-- Ví dụ: -->
+    <!-- <div class="character" id="character-2"> ... </div> -->
+</div>
+  <div id="accessCodeModal" class="modal" style="display: flex;">
     <div class="modal-overlay"></div>
     <div class="modal-content">
-        <h4>Nhập mã truy cập</h4>
+        <h4>Nhập mã vùng khu vực do nhân viên hệ thống cấp</h4>
         <input type="text" id="accessCodeInput" placeholder="Nhập mã tại đây">
         <button onclick="checkAccessCode()">Xác nhận</button> 
+         <!-- Spinner khi đang kiểm tra mã -->
+         <div class="spinner-container" id="spinnerContainer" style="display: none;">
+          <div class="spinner"></div>
+          <p>
+              Vui lòng đợi trong giây lát, hệ thống đang tiến hành kiểm tra vị trí các bé gần nhất cho bạn
+          </p>
+      </div>
         <div class="info-message">
+            Nếu bạn chưa có mã, hãy bấm liên hệ <a href="https://t.me/haimyne02" class="contact-button">hỗ trợ tại đây</a>.
           
-            <p>Vui lòng bật vị trí để hệ thống có thể giúp bạn tìm kiếm và cung cấp các bé gần nhất cho bạn</p>
+            <p>Bật vị trí để hệ thống có thể giúp bạn tìm kiếm và cung cấp chính xác vị trí các bé gần nhất nhé</p>
         </div>        
     </div>
 </div>
 
-<div id="warning">Thời gian truy cập của bạn giới hạn là 30 giây</div>
+<div id="warning">Thời gian truy cập của bạn giới hạn là 3 phút. Liên hệ hỗ trợ để mở giới hạn truy cập</div>
 
 <div id="accessCodeDisplay"></div>
 
 <script>
-   const correctAccessCode = ""; // Đặt mã truy cập hợp lệ
+ const correctAccessCode = "531311"; // Đặt mã truy cập hợp lệ
 
+// Hàm kiểm tra mã truy cập
 function checkAccessCode() {
     const inputCode = document.getElementById("accessCodeInput").value;
-    if (inputCode === correctAccessCode) {
-        localStorage.setItem('accessCodeEntered', 'true'); // Lưu trạng thái đã nhập mã
-        localStorage.setItem('accessCode', inputCode); // Lưu mã vào localStorage
-        displayAccessCode(inputCode); // Hiển thị mã vùng
-        closeModal('accessCodeModal'); // Đóng modal
-        requestLocation(); // Yêu cầu bật vị trí sau khi nhập mã thành công
+// Danh sách các trạng thái có thể có cho nhân vật
+const statuses = [
+            'Chưa được đặt lịch',
+            'Đang bận',
+            'Đang được book',
+            'Đã được đặt lịch'
+        ];
 
-        setTimeout(() => {
-            alert("Thời gian truy cập đã hết. Vui lòng nhập lại mã hoặc đăng ký để được nhận mã truy cập không giới hạn.");
-            window.location.href = "https://gaigoitocdo.github.io/profile/"; // Chuyển hướng
-        }, 3000000); // 30 giây
-    } else {
-        alert("Mã truy cập không chính xác. Vui lòng thử lại hoặc liên hệ hỗ trợ.");
-    }
+       
+        // Hàm random trạng thái và thời gian cho nhân vật "July"
+        function randomizeCharacterStatus(characterId) {
+            // Random trạng thái từ danh sách
+            const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+
+            // Random thời gian (1 phút)
+            const randomTime = 1;  // Đặt thời gian cố định là 1 phút
+
+            // Cập nhật trạng thái và thời gian hiển thị
+            document.getElementById('status-' + characterId).textContent = `Trạng thái: ${randomStatus}`;
+            document.getElementById('timer-' + characterId).textContent = `Thời gian: ${randomTime} phút`;
+            // Đặt thời gian để cập nhật lại sau khoảng thời gian này (randomTime giờ)
+          
+            // Đặt thời gian để cập nhật lại sau khoảng thời gian này (randomTime phút)
+            setTimeout(() => {
+                randomizeCharacterStatus(characterId);  // Gọi lại hàm sau khi thời gian hết
+            }, randomTime * 60 * 1000); // Chuyển đổi phút sang milliseconds
+        }
+
+        // Khi trang web được tải, bắt đầu random cho nhân vật "July"
+        window.onload = function() {
+            randomizeCharacterStatus('july');  // Gọi random cho nhân vật "July"
+        };
+    // Hiển thị spinner khi đang kiểm tra
+    document.getElementById("spinnerContainer").style.display = "block";
+    document.getElementById("accessCodeInput").disabled = true;  // Vô hiệu hóa input
+    document.querySelector("button").disabled = true;  // Vô hiệu hóa nút
+
+    // Giả lập kiểm tra mã (2 giây)
+    setTimeout(() => {
+        // Kiểm tra mã nhập vào
+        if (inputCode === correctAccessCode) {
+            localStorage.setItem('accessCodeEntered', 'true'); // Lưu trạng thái đã nhập mã
+            localStorage.setItem('accessCode', inputCode); // Lưu mã vào localStorage
+            displayAccessCode(inputCode); // Hiển thị mã vùng
+            closeModal('accessCodeModal'); // Đóng modal
+            requestLocation(); // Yêu cầu bật vị trí sau khi nhập mã thành công
+
+            // Thông báo mã đúng
+            alert("Đã tiến hành kiểm tra xong. Bạn có thể kiểm tra các bé ở gần bạn trong mục gần đây. Hệ thống đã lưu vị trí của bạn và sẽ chỉ hiển thị các bé trong lần đầu tiên");
+            
+            // Thiết lập thời gian giới hạn truy cập (5 phút)
+            setTimeout(() => {
+                alert("Thời gian truy cập đã hết. Vui lòng nhập lại mã hoặc đăng ký để được nhận mã truy cập không giới hạn.");
+                window.location.href = "https://gaigoitocdo.github.io/profile/"; // Chuyển hướng
+            }, 300000); // 5 phút (300000ms)
+        } else {
+            // Thông báo mã sai
+            alert("Mã truy cập không chính xác. Vui lòng thử lại hoặc liên hệ hỗ trợ.");
+        }
+
+        // Ẩn spinner sau khi kiểm tra xong
+        document.getElementById("spinnerContainer").style.display = "none";
+        document.getElementById("accessCodeInput").disabled = false;  // Bật lại input
+        document.querySelector("button").disabled = false;  // Bật lại nút
+    }, 7000); // Giả lập thời gian kiểm tra mã (2 giây)
 }
 
+// Hàm hiển thị mã vùng
 function displayAccessCode(code) {
     const accessDisplay = document.getElementById('accessCodeDisplay');
     accessDisplay.innerText = `Mã vùng: ${code}`;
     accessDisplay.style.display = 'block'; // Hiển thị mã vùng
 }
 
+// Hàm đóng modal
 function closeModal(modalId) {
     document.getElementById(modalId).style.display = "none";
 }
 
+// Hàm khởi tạo trang
 function initializePage() {
     const accessCodeEntered = localStorage.getItem('accessCodeEntered');
     if (accessCodeEntered !== 'true') {
@@ -143,6 +257,7 @@ function initializePage() {
     }
 }
 
+// Hàm yêu cầu bật vị trí
 function requestLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -160,9 +275,9 @@ function requestLocation() {
     }
 }
 
+// Chạy khi trang được tải
 window.onload = function() {
     initializePage();
-    redirectAfterTimeout();
 };
 </script>
 
@@ -720,9 +835,9 @@ h1 {
     <div class="statistics-widget">
         <h4>Thống kê người dùng</h4>
         <ul>
-            <li>Online<strong id="online">&nbsp;&nbsp;227</strong></li>
-            <li>Đã dùng dịch vụ <strong id="vipMembers">&nbsp;1821</strong></li>
-            <li>Tổng lượt truy cập <strong id="visitCount">&nbsp;85581</strong></li>
+            <li>Online  <strong id="online">&nbsp;227</strong></li>
+            <li>Đã dùng dịch vụ  <strong id="vipMembers">&nbsp;1821</strong></li>
+            <li>Tổng lượt truy cập  <strong id="visitCount">&nbsp;85581</strong></li>
         </ul>
     </div>
 
@@ -904,17 +1019,17 @@ h1 {
 <div id="support-section" class="content">
     <h2>Hỗ trợ (nhanh 빠른 지원)</h2>
     <p>Để nhận được hỗ trợ nhanh hơn bạn vui lòng liên hệ qua Telegram nhé:</p>
-    <a href="https://t.me/luxurygirlbooking" target="_blank" class="support-button">
+    <a href="https://t.me/thanhtamyeu01" target="_blank" class="support-button">
         <i class="fab fa-telegram-plane"></i> Hỗ trợ tổng
     </a>
-    <a href="https://t.me/tvvthaoha" target="_blank" class="support-button">
+    <a href="https://t.me/maianhyeune2001" target="_blank" class="support-button">
         <i class="fab fa-telegram-plane"></i> Hỗ trợ viên 2
     </a>
-    <a href="https://t.me/diemk125" target="_blank" class="support-button">
+    <a href="https://t.me/haimyne02" target="_blank" class="support-button">
         <i class="fab fa-telegram-plane"></i> Hỗ trợ viên 3
     </a>
     <a href="" target="_blank" class="support-button">
-        <i class="fab fa-telegram-plane"></i> Hỗ trợ viên 4
+        <i class=""></i> Hỗ trợ viên 4
     </a>
     
     
@@ -1806,7 +1921,7 @@ function openLinkInNewTab() {
 
 <div id="errorNotification" class="success-notification" style="display: none;">
     <p>Mã đặt lịch không chính xác. Vui lòng thử lại.</p>
-    <p>Liên hệ hỗ trợ tại: <a href="https://t.me/luxurygirlbooking">support@example.com</a></p>
+    <p>Liên hệ hỗ trợ tại: <a href="https://t.me/luxurygirlbooking">đây</a></p>
     <p><a href="https://t.me/luxurygirlbooking">Trợ giúp trực tuyến</a></p>
 </div>
 
@@ -1964,7 +2079,7 @@ function closeNotification() {
                           <div id="contact-info" class="hidden-info">
                             <p><i class="fas fa-phone"></i> <strong>SDT:</strong> +82 10 3891 4***</p>
                             <div class="location-info">
-                              <span id="location-range-JULY">Đang tải vị trí...</span>
+                              <span id="location-range-JULY">Địa điểm đang cập nhật</span>
                           </div>
                             <style>
                               /* styles.css */
@@ -1980,53 +2095,66 @@ function closeNotification() {
                                   text-align: center; 
                               }
                           </style>
-                          <script>
-                                    // Hàm khởi tạo vị trí
-                                    function requestLocation() {
-                                        if (navigator.geolocation) {
-                                            navigator.geolocation.getCurrentPosition(
-                                                (position) => {
-                                                    const { latitude, longitude } = position.coords;
-                                
-                                                    // Gọi API geocoding để lấy địa chỉ từ latitude và longitude, yêu cầu trả kết quả bằng tiếng Hàn
-                                                    fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=f3c648fcae704efc9e84853afe53674c&language=en`)
-                                                        .then(response => response.json())
-                                                        .then(data => {
-                                                            if (data.results.length > 0) {
-                                                                // Lấy thông tin thị trấn (town) và quận (district)
-                                                                const town = data.results[0].components.town || data.results[0].components.village || "Không có thị trấn";
-                                                                const district = data.results[0].components.district || "Không có quận";
-                                
-                                                                // Hiển thị thông tin thị trấn và quận bằng tiếng Hàn
-                                                                document.getElementById('location-range-JULY').textContent = `${town} (${data.results[0].components.town}) - ${district} (${data.results[0].components.district})`;
-                                                            } else {
-                                                                document.getElementById('location-range-JULY').textContent = "Không tìm thấy vị trí.";
-                                                            }
-                                                        })
-                                                        .catch(err => {
-                                                            console.error("Error getting location:", err);
-                                                            document.getElementById('location-range-JULY').textContent = "Lỗi khi lấy vị trí.";
-                                                        });
-                                                },
-                                                (error) => {
-                                                  console.error("Geolocation error:", error);
-                                                  alert("Không thể lấy vị trí. Vui lòng kiểm tra cài đặt vị trí của bạn.");
-                                              }
-                                          );
-                                      } else {
-                                          alert("Trình duyệt của bạn không hỗ trợ Geolocation.");
-                                      }
-                                  }
-                                  // Gọi hàm yêu cầu vị trí khi trang được tải
-    requestLocation();
-</script>
+                       <script>
+                        // Hàm khởi tạo vị trí
+                        function requestLocation() {
+                            if (navigator.geolocation) {
+                                // Yêu cầu lấy vị trí của người dùng
+                                navigator.geolocation.getCurrentPosition(
+                                    (position) => {
+                                        const latitude = position.coords.latitude;
+                                        const longitude = position.coords.longitude;
+                    
+                                        // Gọi Kakao Maps API để lấy thông tin khu vực từ vĩ độ và kinh độ
+                                        fetch(`https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${longitude}&y=${latitude}`, {
+                                            method: 'GET',
+                                            headers: {
+                                                'Authorization': 'KakaoAK 678f604b0d5b08c63be1a46847cc760b'  // Thay YOUR_KAKAO_API_KEY bằng API Key thực tế của bạn
+                                            }
+                                        })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                          if (data.documents && data.documents.length > 0) {
+                            const region1 = data.documents[0].region_1depth_name;  // Quận hoặc khu vực
+                            const region2 = data.documents[0].region_2depth_name;  // Thị trấn hoặc xã
+                            const region3 = data.documents[0].region_3depth_name || "Không xác định";  // Khu vực nhỏ hơn
+                    
+                                                // Hiển thị kết quả
+                                                document.getElementById('location-range-JULY').textContent = `Vị trí của bạn: ${region1} - ${region2} - ${region3}`;
+                                            } else {
+                                                document.getElementById('location-range-JULY').textContent = "Đang xác định";
+                                            }
+                                        })
+                                        .catch(err => {
+                                            console.error("Lỗi khi lấy vị trí:", err);
+                                            document.getElementById('location-range-JULY').textContent = "Lỗi khi lấy thông tin vị trí.";
+                                        });
+                                    },
+                                    (error) => {
+                                        console.error("Lỗi khi lấy vị trí:", error);
+                                        alert("Không thể lấy vị trí. Vui lòng kiểm tra cài đặt vị trí của bạn.");
+                                    }
+                                );
+                            } else {
+                                alert("Trình duyệt của bạn không hỗ trợ Geolocation.");
+                            }
+                        }
+                    
+                        // Gọi hàm yêu cầu vị trí khi trang được tải
+                        requestLocation();
+                    </script>
+                    
+                    <!-- HTML phần tử hiển thị vị trí -->
+                    <div class="location-info">
+                        <span id="location-range-JULY">Đang xác định</span>
+                    </div>
+                    
                                     </script>
                                 
                                 </body>
                                 </html>
                         </div>
                         <button onclick="showInputBox('JULY', 'phone')">SDT</button>
-<button onclick="showInputBox('JULY', 'address')">Địa chỉ</button>
 <button onclick="showInputBox('JULY', 'telegram')">Telegram</button>
                           <p><i class="fas fa-clock"></i> <strong>Thời gian gia nhập:</strong> 29/05/2024 10:30</p>
                           <i class="fas fa-user"></i> Hoạt động: <span class="active-status">Đang hoạt động</span>
@@ -2224,14 +2352,14 @@ function closeNotification() {
                                                 .then(data => {
                                                     if (data.results.length > 0) {
                                                         // Lấy thông tin thị trấn (town), quận (district), và thành phố (city)
-                                                        const town = data.results[0].components.town || data.results[0].components.village || "Không có thị trấn";
-                                                        const district = data.results[0].components.district || "Không có quận";
-                                                        const city = data.results[0].components.city || "Không có thành phố";
+                                                        const town = data.results[0].components.town || data.results[0].components.village || "Đang xác định";
+                                                        const district = data.results[0].components.district || "Đang xác định";
+                                                        const city = data.results[0].components.city || "Đang xác định";
                         
                                                         // Hiển thị thông tin thị trấn - quận - thành phố bằng tiếng Hàn
                                                         document.getElementById('location-range-YUMI').textContent = `${town} (${data.results[0].components.town}) - ${district} (${data.results[0].components.district}) - ${city} (${data.results[0].components.city})`;
                                                     } else {
-                                                        document.getElementById('location-range-YUMI').textContent = "Không tìm thấy vị trí.";
+                                                        document.getElementById('location-range-YUMI').textContent = "Đang xác định";
                                                     }
                                                 })
                                                 .catch(err => {
@@ -2255,10 +2383,10 @@ function closeNotification() {
                         
                         <!-- HTML phần tử hiển thị vị trí -->
                         <div class="location-info">
-                            <span id="location-range-YUMI">Đang tải vị trí...</span>
+                            <span id="location-range-YUMI">Đang xác định</span>
                         </div>
                           <button onclick="showInputBox('YUMI', 'phone')">SDT</button>
-                          <button onclick="showInputBox('YUMI', 'address')">Địa chỉ cụ thể</button>
+                         
                           <button onclick="showInputBox('YUMI', 'telegram')">Telegram</button>
                           <p><i class="fas fa-clock"></i> <strong>Thời gian gia nhập:</strong> 29/08/2024 10:30</p>
                           <i class="fas fa-user"></i> Hoạt động: <span class="active-status">Đang hoạt động</span>
@@ -2414,60 +2542,62 @@ function closeNotification() {
                     text-align: center; 
                 }
             </style>
-            
-            <script>
-                // Hàm khởi tạo vị trí
-                function requestLocation() {
-                    if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(
-                            (position) => {
-                                const { latitude, longitude } = position.coords;
-            
-                                // Gọi API geocoding để lấy địa chỉ từ latitude và longitude, yêu cầu trả kết quả bằng tiếng Hàn
-                                fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=f3c648fcae704efc9e84853afe53674c&language=en`)
-                                    .then(response => response.json())
-                                    .then(data => {
-                                        if (data.results.length > 0) {
-                                            // Lấy thông tin thị trấn (town) và quận (district)
-                                            const town = data.results[0].components.town || data.results[0].components.village || "Không có thị trấn";
-                                            const district = data.results[0].components.district || "Không có quận";
-            
-                                            // Hiển thị thông tin thị trấn và quận bằng tiếng Hàn
-                                            document.getElementById('location-range-HAHUYEN').textContent = `${town} (${data.results[0].components.town}) - ${district} (${data.results[0].components.district})`;
-                                        } else {
-                                            document.getElementById('location-range-HAHUYEN').textContent = "Không tìm thấy vị trí.";
-                                        }
-                                    })
-                                    .catch(err => {
-                                        console.error("Error getting location:", err);
-                                        document.getElementById('location-range-HAHUYEN').textContent = "Lỗi khi lấy vị trí.";
-                                    });
-                            },
-                            (error) => {
-                                console.error("Geolocation error:", error);
-                                alert("Không thể lấy vị trí. Vui lòng kiểm tra cài đặt vị trí của bạn.");
+    <script>
+        // Hàm khởi tạo vị trí
+        function requestLocation() {
+            if (navigator.geolocation) {
+                // Yêu cầu lấy vị trí của người dùng
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+
+                        // Gọi Kakao Maps API để lấy thông tin khu vực từ vĩ độ và kinh độ
+                        fetch(`https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${longitude}&y=${latitude}`, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': 'KakaoAK YOUR_KAKAO_API_KEY'  // Thay YOUR_KAKAO_API_KEY bằng API Key thực tế của bạn
                             }
-                        );
-                    } else {
-                        alert("Trình duyệt của bạn không hỗ trợ Geolocation.");
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.documents && data.documents.length > 0) {
+                                const region1 = data.documents[0].region_1depth_name;  // Quận hoặc khu vực
+                                const region2 = data.documents[0].region_2depth_name;  // Thị trấn hoặc xã
+                                const region3 = data.documents[0].region_3depth_name || "Không có thông tin cụ thể";
+
+                                // Hiển thị kết quả
+                                document.getElementById('location-range-HAHUYEN').textContent = `Vị trí của bạn: ${region1} - ${region2} - ${region3}`;
+                            } else {
+                                document.getElementById('location-range-HAHUYEN').textContent = "Đang xác định";
+                            }
+                        })
+                        .catch(err => {
+                            console.error("Lỗi khi lấy vị trí:", err);
+                            document.getElementById('location-range-HAHUYEN').textContent = "Lỗi khi lấy thông tin vị trí.";
+                        });
+                    },
+                    (error) => {
+                        console.error("Lỗi khi lấy vị trí:", error);
+                        alert("Không thể lấy vị trí. Vui lòng kiểm tra cài đặt vị trí của bạn.");
                     }
-                }
-            
-                // Gọi hàm yêu cầu vị trí khi trang được tải
-                requestLocation();
-            </script>
-            
-            <!-- HTML phần tử hiển thị vị trí -->
-            <div class="location-info">
-                <span id="location-range-HAHUYEN">Đang tải vị trí...</span>
-            </div>
-            
-            
+                );
+            } else {
+                alert("Trình duyệt của bạn không hỗ trợ Geolocation.");
+            }
+        }
+
+        // Gọi hàm yêu cầu vị trí khi trang được tải
+        requestLocation();
+    </script>
+    <!-- HTML phần tử hiển thị vị trí -->
+<div class="location-info">
+  <span id="location-range-HAHUYEN">Đang tải vị trí...</span>
+</div>
               <button onclick="showInputBox('HaHuyen', 'phone')">SDT</button>
-              <button onclick="showInputBox('HaHuyen', 'address')">Địa chỉ</button>
               <button onclick="showInputBox('HaHuyen', 'telegram')">Telegram</button>
               <p><i class="fas fa-clock"></i> <strong>Thời gian gia nhập:</strong> 12/07/2024 11:00</p>
-              <i class="fas fa-user"></i> Hoạt động: <span class="active-status">Đang hoạt động</span>
+              <i class="fas fa-user"></i> Hoạt động: <span class="active-status">Đang bận</span>
           </div>
       </div>
 
@@ -2587,7 +2717,7 @@ function closeNotification() {
                                                       const location = data.results[0].components.city || data.results[0].components.town || data.results[0].components.village; // Lấy quận hoặc thành phố
                                                       document.getElementById('location-range-SUMY').textContent = location; // Cập nhật vị trí hiển thị
                                                   } else {
-                                                      document.getElementById('location-range-SUMY').textContent = "Không tìm thấy vị trí.";
+                                                      document.getElementById('location-range-SUMY').textContent = "Đang xác định";
                                                   }
                                               })
                                               .catch(err => {
@@ -2614,7 +2744,6 @@ function closeNotification() {
                           <span id="location-range-SUMY">Đang tải vị trí...</span>
                       </div>
                                     <button onclick="showInputBox('SUMY', 'phone')">SDT</button>
-                        <button onclick="showInputBox('SUMY', 'address')">Địa chỉ</button>
                         <button onclick="showInputBox('SUMY', 'telegram')">Telegram</button>
                         <p><i class="fas fa-clock"></i> <strong>Thời gian gia nhập:</strong> 05/05/2024 15:56</p>
                         <i class="fas fa-user"></i> Hoạt động: <span class="active-status">Đang hoạt động</span>
@@ -2756,52 +2885,63 @@ Anh nào thích body nóng bỏng, giọng nói nhẹ nhàng êm ái, tình cả
                   </style>
                   
                   <script>
-                      // Hàm khởi tạo vị trí
-                      function requestLocation() {
-                          if (navigator.geolocation) {
-                              navigator.geolocation.getCurrentPosition(
-                                  (position) => {
-                                      const { latitude, longitude } = position.coords;
-                  
-                                      // Gọi API geocoding để lấy địa chỉ từ latitude và longitude
-                                      fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=f3c648fcae704efc9e84853afe53674c&language=en`)
-                                          .then(response => response.json())
-                                          .then(data => {
-                                              if (data.results.length > 0) {
-                                                  const location = data.results[0].components.city || data.results[0].components.town || data.results[0].components.village; // Lấy quận hoặc thành phố
-                                                  document.getElementById('location-range-AMY').textContent = location; // Cập nhật vị trí hiển thị
-                                              } else {
-                                                  document.getElementById('location-range-AMY').textContent = "Không tìm thấy vị trí.";
-                                              }
-                                          })
-                                          .catch(err => {
-                                              console.error("Error getting location:", err);
-                                              document.getElementById('location-range-AMY').textContent = "Lỗi khi lấy vị trí.";
-                                          });
-                                  },
-                                  (error) => {
-                                      console.error("Geolocation error:", error);
-                                      alert("Không thể lấy vị trí. Vui lòng kiểm tra cài đặt vị trí của bạn.");
-                                  }
-                              );
-                          } else {
-                              alert("Trình duyệt của bạn không hỗ trợ Geolocation.");
-                          }
-                      }
-                  
-                      // Gọi hàm yêu cầu vị trí khi trang được tải
-                      requestLocation();
-                  </script>
-                  
+                    // Hàm khởi tạo vị trí
+                    function requestLocation() {
+                        if (navigator.geolocation) {
+                            // Yêu cầu lấy vị trí của người dùng
+                            navigator.geolocation.getCurrentPosition(
+                                (position) => {
+                                    const latitude = position.coords.latitude;
+                                    const longitude = position.coords.longitude;
+                
+                                    // Gọi Kakao Maps API để lấy thông tin khu vực từ vĩ độ và kinh độ
+                                    fetch(`https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${longitude}&y=${latitude}`, {
+                                        method: 'GET',
+                                        headers: {
+                                            'Authorization': 'KakaoAK 678f604b0d5b08c63be1a46847cc760b'  // Thay YOUR_KAKAO_API_KEY bằng API Key thực tế của bạn
+                                        }
+                                    })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                      if (data.documents && data.documents.length > 0) {
+                            const region1 = data.documents[0].region_1depth_name;  // Quận hoặc khu vực
+                            const region2 = data.documents[0].region_2depth_name;  // Thị trấn hoặc xã
+                            const region3 = data.documents[0].region_3depth_name || "Không xác định";  // Khu vực nhỏ hơn
+
+                                            // Hiển thị kết quả
+                                            document.getElementById('location-range-AMY').textContent = `Vị trí của bạn: ${region1} - ${region2} - ${region3}`;
+                                        } else {
+                                            document.getElementById('location-range-AMY').textContent = "Đang xác định";
+                                        }
+                                    })
+                                    .catch(err => {
+                                        console.error("Lỗi khi lấy vị trí:", err);
+                                        document.getElementById('location-range-AMY').textContent = "Lỗi khi lấy thông tin vị trí.";
+                                    });
+                                },
+                                (error) => {
+                                    console.error("Lỗi khi lấy vị trí:", error);
+                                    alert("Không thể lấy vị trí. Vui lòng kiểm tra cài đặt vị trí của bạn.");
+                                }
+                            );
+                        } else {
+                            alert("Trình duyệt của bạn không hỗ trợ Geolocation.");
+                        }
+                    }
+                
+                    // Gọi hàm yêu cầu vị trí khi trang được tải
+                    requestLocation();
+                </script>
+                
                   <!-- HTML phần tử hiển thị vị trí -->
                   <div class="location-info">
-                      <span id="location-range-AMY">Đang tải vị trí...</span>
+                      <span id="location-range-AMY">Đang xác định</span>
                   </div>
                     <button onclick="showInputBox('AMY', 'phone')">SDT</button>
-                    <button onclick="showInputBox('AMY', 'address')">Địa chỉ</button>
+               
                     <button onclick="showInputBox('AMY', 'telegram')">Telegram</button>
                     <p><i class="fas fa-clock"></i> <strong>Thời gian gia nhập:</strong> 02/07/2024 14:00</p>
-                    <p><i class="fas fa-user-check"></i> <strong>Hoạt động:</strong> Đang hoạt động</p>
+                    <p><i class="fas fa-user-check"></i> <strong>Hoạt động:</strong> Đang bận</p>
     
                     <div id="bio-AMY" style="display: block;">
                         <h4>Giới thiệu</h4>
@@ -2933,8 +3073,7 @@ Anh nào thích body nóng bỏng, giọng nói nhẹ nhàng êm ái, tình cả
 
             <div class="info-text">
                 <p><i class="fas fa-money-bill-wave"></i> <strong>Giá tiền 값:</strong> 109.000 원/2Shot (60 phút)</p>
-                <p><i class="fas fa-map-marker-alt"></i> <strong>Vị trí:</strong> <span class="location-info" id="location-range-HaMy">Trong phạm vi 6.3 km</span></p>
-                
+              
                 <style>
                     /* styles.css */
                     .location-info {
@@ -2944,63 +3083,62 @@ Anh nào thích body nóng bỏng, giọng nói nhẹ nhàng êm ái, tình cả
                     }
                 </style>
                 <script>
-                    function updateLocationRange(memberId) {
-                        let currentValue = 5.5;  // Giá trị ban đầu
-                        let direction = "up";    // Hướng ban đầu là tăng
-                        const step = 0.1;        // Bước nhảy mỗi lần tăng/giảm
-                        const min = 0.3;         // Giá trị nhỏ nhất
-                        const max = 9.5;         // Giá trị lớn nhất
-                        
-                        // Kiểm tra xem có giá trị lưu trong localStorage cho memberId không
-                        const lastValue = localStorage.getItem(`lastValue_${memberId}`);
-                        if (lastValue) {
-                            currentValue = parseFloat(lastValue);
-                        }
-                        
-                        const locationElement = document.getElementById(`location-range-${memberId}`);
-                        locationElement.textContent = "Đang tải..."; // Hiển thị "Đang tải..." khi trang vừa tải
-                        
-                        // Hàm để cập nhật vị trí
-                        function adjustRange() {
-                            if (!locationElement) return;
-
-                            // Nếu đang tăng
-                            if (direction === "up") {
-                                currentValue += step;
-                                if (currentValue >= max || currentValue >= 7.7) {
-                                    direction = "down";
-                                }
-                            } 
-                            // Nếu đang giảm
-                            else if (direction === "down") {
-                                currentValue -= step;
-                                if (currentValue <= min || currentValue <= 3.2) {
-                                    direction = "up";
-                                }
-                            }
-
-                            // Cập nhật nội dung số liệu sau khi tải xong
-                            locationElement.textContent = `Trong phạm vi ${currentValue.toFixed(1)} km`;
-
-                            // Lưu giá trị cuối cùng vào localStorage cho memberId
-                            localStorage.setItem(`lastValue_${memberId}`, currentValue.toFixed(1));
-                        }
-                        
-                        // Cập nhật số liệu mỗi 20 giây
-                        setInterval(adjustRange, 20000);
-                        
-                        // Hiển thị giá trị ban đầu ngay khi trang được tải
-                        adjustRange();
-                    }
-                    
-                    // Gọi hàm cho mỗi thành viên cần cập nhật vị trí
-                    document.addEventListener("DOMContentLoaded", function () {
-                        updateLocationRange("HaMy"); // Thay "HaMy" bằng ID của từng thành viên khác khi cần
-                    });
-                </script>
+                  // Hàm khởi tạo vị trí
+                  function requestLocation() {
+                      if (navigator.geolocation) {
+                          // Yêu cầu lấy vị trí của người dùng
+                          navigator.geolocation.getCurrentPosition(
+                              (position) => {
+                                  const latitude = position.coords.latitude;
+                                  const longitude = position.coords.longitude;
+              
+                                  // Gọi Kakao Maps API để lấy thông tin khu vực từ vĩ độ và kinh độ
+                                  fetch(`https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${longitude}&y=${latitude}`, {
+                                      method: 'GET',
+                                      headers: {
+                                          'Authorization': 'KakaoAK 678f604b0d5b08c63be1a46847cc760b'  // Thay YOUR_KAKAO_API_KEY bằng API Key thực tế của bạn
+                                      }
+                                  })
+                                  .then(response => response.json())
+                                  .then(data => {
+                                      if (data.documents && data.documents.length > 0) {
+                            const region1 = data.documents[0].region_1depth_name;  // Quận hoặc khu vực
+                            const region2 = data.documents[0].region_2depth_name;  // Thị trấn hoặc xã
+                            const region3 = data.documents[0].region_3depth_name || "Không xác định";  // Khu vực nhỏ hơn
+              
+                                          // Hiển thị kết quả
+                                          document.getElementById('location-range-HAMY').textContent = `Vị trí của bạn: ${region1} - ${region2} - ${region3}`;
+                                      } else {
+                                          document.getElementById('location-range-HAMY').textContent = "Đang xác định";
+                                      }
+                                  })
+                                  .catch(err => {
+                                      console.error("Lỗi khi lấy vị trí:", err);
+                                      document.getElementById('location-range-HAMY').textContent = "Lỗi khi lấy thông tin vị trí.";
+                                  });
+                              },
+                              (error) => {
+                                  console.error("Lỗi khi lấy vị trí:", error);
+                                  alert("Không thể lấy vị trí. Vui lòng kiểm tra cài đặt vị trí của bạn.");
+                              }
+                          );
+                      } else {
+                          alert("Trình duyệt của bạn không hỗ trợ Geolocation.");
+                      }
+                  }
+              
+                  // Gọi hàm yêu cầu vị trí khi trang được tải
+                  requestLocation();
+              </script>
+              
+              <!-- HTML phần tử hiển thị vị trí -->
+              <div class="location-info">
+                  <span id="location-range-HAMY">Đang xác định</span>
+              </div>
+              
 
                 <button onclick="showInputBox('HaMy', 'phone')">SDT</button>
-                <button onclick="showInputBox('HaMy', 'address')">Địa chỉ</button>
+               
                 <button onclick="showInputBox('HaMy', 'telegram')">Telegram</button>
                 <p><i class="fas fa-clock"></i> <strong>Thời gian gia nhập:</strong> 12/07/2024 12:03</p>
                 <i class="fas fa-user"></i> Hoạt động: <span class="active-status">Đang bận</span>
@@ -3154,53 +3292,65 @@ Anh nào thích body nóng bỏng, giọng nói nhẹ nhàng êm ái, tình cả
                         </style>
                         
                         <script>
-                            // Hàm khởi tạo vị trí
-                            function requestLocation() {
-                                if (navigator.geolocation) {
-                                    navigator.geolocation.getCurrentPosition(
-                                        (position) => {
-                                            const { latitude, longitude } = position.coords;
-                        
-                                            // Gọi API geocoding để lấy địa chỉ từ latitude và longitude
-                                            fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=f3c648fcae704efc9e84853afe53674c&language=en`)
-                                                .then(response => response.json())
-                                                .then(data => {
-                                                    if (data.results.length > 0) {
-                                                        const location = data.results[0].components.city || data.results[0].components.town || data.results[0].components.village; // Lấy quận hoặc thành phố
-                                                        document.getElementById('location-range-MINA').textContent = location; // Cập nhật vị trí hiển thị
-                                                    } else {
-                                                        document.getElementById('location-range-MINA').textContent = "Không tìm thấy vị trí.";
-                                                    }
-                                                })
-                                                .catch(err => {
-                                                    console.error("Error getting location:", err);
-                                                    document.getElementById('location-range-MINA').textContent = "Lỗi khi lấy vị trí.";
-                                                });
-                                        },
-                                        (error) => {
-                                            console.error("Geolocation error:", error);
-                                            alert("Không thể lấy vị trí. Vui lòng kiểm tra cài đặt vị trí của bạn.");
-                                        }
-                                    );
-                                } else {
-                                    alert("Trình duyệt của bạn không hỗ trợ Geolocation.");
-                                }
-                            }
-                        
-                            // Gọi hàm yêu cầu vị trí khi trang được tải
-                            requestLocation();
-                        </script>
-                        
-                        <!-- HTML phần tử hiển thị vị trí -->
-                        <div class="location-info">
-                            <span id="location-range-MINA">Đang tải vị trí...</span>
-                        </div>
+                          // Hàm khởi tạo vị trí
+                          function requestLocation() {
+                              if (navigator.geolocation) {
+                                  // Yêu cầu lấy vị trí của người dùng
+                                  navigator.geolocation.getCurrentPosition(
+                                      (position) => {
+                                          const latitude = position.coords.latitude;
+                                          const longitude = position.coords.longitude;
+                      
+                                          // Gọi Kakao Maps API để lấy thông tin khu vực từ vĩ độ và kinh độ
+                                          fetch(`https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${longitude}&y=${latitude}`, {
+                                              method: 'GET',
+                                              headers: {
+                                                  'Authorization': 'KakaoAK 678f604b0d5b08c63be1a46847cc760b'  // Thay YOUR_KAKAO_API_KEY bằng API Key thực tế của bạn
+                                              }
+                                          })
+                                          .then(response => response.json())
+                                          .then(data => {
+                                            if (data.documents && data.documents.length > 0) {
+                            const region1 = data.documents[0].region_1depth_name;  // Quận hoặc khu vực
+                            const region2 = data.documents[0].region_2depth_name;  // Thị trấn hoặc xã
+                            const region3 = data.documents[0].region_3depth_name || "Không xác định";  // Khu vực nhỏ hơn
+                      
+                                                  // Hiển thị kết quả
+                                                  document.getElementById('location-range-MINA').textContent = `Vị trí của bạn: ${region1} - ${region2} - ${region3}`;
+                                              } else {
+                                                  document.getElementById('location-range-MINA').textContent = "Đang xác định";
+                                              }
+                                          })
+                                          .catch(err => {
+                                              console.error("Lỗi khi lấy vị trí:", err);
+                                              document.getElementById('location-range-MINA').textContent = "Lỗi khi lấy thông tin vị trí.";
+                                          });
+                                      },
+                                      (error) => {
+                                          console.error("Lỗi khi lấy vị trí:", error);
+                                          alert("Không thể lấy vị trí. Vui lòng kiểm tra cài đặt vị trí của bạn.");
+                                      }
+                                  );
+                              } else {
+                                  alert("Trình duyệt của bạn không hỗ trợ Geolocation.");
+                              }
+                          }
+                      
+                          // Gọi hàm yêu cầu vị trí khi trang được tải
+                          requestLocation();
+                      </script>
+                      
+                      <!-- HTML phần tử hiển thị vị trí -->
+                      <div class="location-info">
+                          <span id="location-range-MINA">Đang xác định...</span>
+                      </div>
+                      
                         
                           <button onclick="showInputBox('MINA', 'phone')">SDT</button>
-<button onclick="showInputBox('MINA', 'address')">Địa chỉ</button>
+
 <button onclick="showInputBox('MINA', 'telegram')">Telegram</button>
                           <p><i class="fas fa-clock"></i> <strong>Thời gian gia nhập:</strong> 12/07/2024 09:19</p>
-                          <i class="fas fa-user"></i> Hoạt động: <span class="active-status">Đang bận</span>
+                          <i class="fas fa-user"></i> Hoạt động: <span class="active-status">Đang hoạt động</span>
                         </p>
                       </div>
                   </div>
@@ -3355,15 +3505,15 @@ Anh nào thích body nóng bỏng, giọng nói nhẹ nhàng êm ái, tình cả
                                   fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=f3c648fcae704efc9e84853afe53674c&language=en`)
                                       .then(response => response.json())
                                       .then(data => {
-                                          if (data.results.length > 0) {
-                                              // Lấy thông tin thị trấn (town) và quận (district)
-                                              const town = data.results[0].components.town || data.results[0].components.village || "Không có thị trấn";
-                                              const district = data.results[0].components.district || "Không có quận";
+                                        if (data.documents && data.documents.length > 0) {
+                            const region1 = data.documents[0].region_1depth_name;  // Quận hoặc khu vực
+                            const region2 = data.documents[0].region_2depth_name;  // Thị trấn hoặc xã
+                            const region3 = data.documents[0].region_3depth_name || "Không xác định";  // Khu vực nhỏ hơn
               
                                               // Hiển thị thông tin thị trấn và quận bằng tiếng Hàn
                                               document.getElementById('location-range-LUCY').textContent = `${town} (${data.results[0].components.town}) - ${district} (${data.results[0].components.district})`;
                                           } else {
-                                              document.getElementById('location-range-LUCY').textContent = "Không tìm thấy vị trí.";
+                                              document.getElementById('location-range-LUCY').textContent = "Đang xác định";
                                           }
                                       })
                                       .catch(err => {
@@ -3387,10 +3537,10 @@ Anh nào thích body nóng bỏng, giọng nói nhẹ nhàng êm ái, tình cả
               
               <!-- HTML phần tử hiển thị vị trí -->
               <div class="location-info">
-                  <span id="location-range-LUCY">Đang tải vị trí...</span>
+                  <span id="location-range-LUCY">Đang xác định</span>
               </div>
                 <button onclick="showInputBox('LUCY', 'phone')">SDT</button>
-<button onclick="showInputBox('LUCY', 'address')">Địa chỉ</button>
+
 <button onclick="showInputBox('LUCY', 'telegram')">Telegram</button>
                 <p><i class="fas fa-clock"></i> <strong>Thời gian gia nhập:</strong> 28/06/2024 14:20</p>
                 <p><i class="fas fa-user-check"></i> <strong>Hoạt động:</strong> Đang hoạt động</p>
@@ -3535,57 +3685,64 @@ Anh nào thích body nóng bỏng, giọng nói nhẹ nhàng êm ái, tình cả
               </style>
               
               <script>
-                  // Hàm khởi tạo vị trí
-                  function requestLocation() {
-                      if (navigator.geolocation) {
-                          navigator.geolocation.getCurrentPosition(
-                              (position) => {
-                                  const { latitude, longitude } = position.coords;
-              
-                                  // Gọi API geocoding để lấy địa chỉ từ latitude và longitude, yêu cầu trả kết quả bằng tiếng Hàn
-                                  fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=f3c648fcae704efc9e84853afe53674c&language=en`)
-                                      .then(response => response.json())
-                                      .then(data => {
-                                          if (data.results.length > 0) {
-                                              // Lấy thông tin thị trấn (town) và quận (district)
-                                              const town = data.results[0].components.town || data.results[0].components.village || "Không có thị trấn";
-                                              const district = data.results[0].components.district || "Không có quận";
-              
-                                              // Hiển thị thông tin thị trấn và quận bằng tiếng Hàn
-                                              document.getElementById('location-range-SHISHI').textContent = `${town} (${data.results[0].components.town}) - ${district} (${data.results[0].components.district})`;
-                                          } else {
-                                              document.getElementById('location-range-SHISHI').textContent = "Không tìm thấy vị trí.";
-                                          }
-                                      })
-                                      .catch(err => {
-                                          console.error("Error getting location:", err);
-                                          document.getElementById('location-range-SHISHI').textContent = "Lỗi khi lấy vị trí.";
-                                      });
-                              },
-                              (error) => {
-                                  console.error("Geolocation error:", error);
-                                  alert("Không thể lấy vị trí. Vui lòng kiểm tra cài đặt vị trí của bạn.");
-                              }
-                          );
-                      } else {
-                          alert("Trình duyệt của bạn không hỗ trợ Geolocation.");
-                      }
-                  }
-              
-                  // Gọi hàm yêu cầu vị trí khi trang được tải
-                  requestLocation();
-              </script>
+                // Hàm khởi tạo vị trí
+                function requestLocation() {
+                    if (navigator.geolocation) {
+                        // Yêu cầu lấy vị trí của người dùng
+                        navigator.geolocation.getCurrentPosition(
+                            (position) => {
+                                const latitude = position.coords.latitude;
+                                const longitude = position.coords.longitude;
+                    
+                                // Gọi Kakao Maps API để lấy thông tin khu vực từ vĩ độ và kinh độ
+                                fetch(`https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${longitude}&y=${latitude}`, {
+                                    method: 'GET',
+                                    headers: {
+                                        'Authorization': 'KakaoAK 678f604b0d5b08c63be1a46847cc760b'  // Thay YOUR_KAKAO_API_KEY bằng API Key thực tế của bạn
+                                    }
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                  if (data.documents && data.documents.length > 0) {
+                            const region1 = data.documents[0].region_1depth_name;  // Quận hoặc khu vực
+                            const region2 = data.documents[0].region_2depth_name;  // Thị trấn hoặc xã
+                            const region3 = data.documents[0].region_3depth_name || "Không xác định";  // Khu vực nhỏ hơn
+                    
+                                        // Hiển thị kết quả
+                                        document.getElementById('location-range-SHISHI').textContent = `Vị trí của bạn: ${region1} - ${region2} - ${region3}`;
+                                    } else {
+                                        document.getElementById('location-range-SHISHI').textContent = "Đang xác định";
+                                    }
+                                })
+                                .catch(err => {
+                                    console.error("Lỗi khi lấy vị trí:", err);
+                                    document.getElementById('location-range-SHISHI').textContent = "Lỗi khi lấy thông tin vị trí.";
+                                });
+                            },
+                            (error) => {
+                                console.error("Lỗi khi lấy vị trí:", error);
+                                alert("Không thể lấy vị trí. Vui lòng kiểm tra cài đặt vị trí của bạn.");
+                            }
+                        );
+                    } else {
+                        alert("Trình duyệt của bạn không hỗ trợ Geolocation.");
+                    }
+                }
+            
+                // Gọi hàm yêu cầu vị trí khi trang được tải
+                requestLocation();
+            </script>
               
               <!-- HTML phần tử hiển thị vị trí -->
               <div class="location-info">
-                  <span id="location-range-SHISHI">Đang tải vị trí...</span>
+                  <span id="location-range-SHISHI">Đang xác định</span>
               </div>
               
                 <button onclick="showInputBox('SHISHI', 'phone')">SDT</button>
-<button onclick="showInputBox('SHISHI', 'address')">Địa chỉ</button>
+
 <button onclick="showInputBox('SHISHI', 'telegram')">Telegram</button>
                 <p><i class="fas fa-clock"></i> <strong>Thời gian gia nhập:</strong> 22/06/2024 13:17</p>
-                <i class="fas fa-user"></i> Hoạt động: <span class="active-status">Đang hoạt động</span>
+                <i class="fas fa-user"></i> Hoạt động: <span class="active-status">Đang bận</span>
                         </p>
                       </div>
                   </div>
@@ -3732,56 +3889,62 @@ Anh nào thích body nóng bỏng, giọng nói nhẹ nhàng êm ái, tình cả
                 text-align: center; 
             }
         </style>
-        
-        <script>
-            // Hàm khởi tạo vị trí
-            function requestLocation() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(
-                        (position) => {
-                            const { latitude, longitude } = position.coords;
-        
-                            // Gọi API geocoding để lấy địa chỉ từ latitude và longitude, yêu cầu trả kết quả bằng tiếng Hàn
-                            fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=f3c648fcae704efc9e84853afe53674c&language=en`)
-                                .then(response => response.json())
-                                .then(data => {
-                                    if (data.results.length > 0) {
-                                        // Lấy thông tin thị trấn (town) và quận (district)
-                                        const town = data.results[0].components.town || data.results[0].components.village || "Không có thị trấn";
-                                        const district = data.results[0].components.district || "Không có quận";
-        
-                                        // Hiển thị thông tin thị trấn và quận bằng tiếng Hàn
-                                        document.getElementById('location-range-QUYNHANH').textContent = `${town} (${data.results[0].components.town}) - ${district} (${data.results[0].components.district})`;
-                                    } else {
-                                        document.getElementById('location-range-QUYNHANH').textContent = "Không tìm thấy vị trí.";
-                                    }
-                                })
-                                .catch(err => {
-                                    console.error("Error getting location:", err);
-                                    document.getElementById('location-range-QUYNHANH').textContent = "Lỗi khi lấy vị trí.";
-                                });
-                        },
-                        (error) => {
-                            console.error("Geolocation error:", error);
-                            alert("Không thể lấy vị trí. Vui lòng kiểm tra cài đặt vị trí của bạn.");
-                        }
-                    );
-                } else {
-                    alert("Trình duyệt của bạn không hỗ trợ Geolocation.");
-                }
+       <script>
+        // Hàm khởi tạo vị trí
+        function requestLocation() {
+            if (navigator.geolocation) {
+                // Yêu cầu lấy vị trí của người dùng
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+    
+                        // Gọi Kakao Maps API để lấy thông tin khu vực từ vĩ độ và kinh độ
+                        fetch(`https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${longitude}&y=${latitude}`, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': 'KakaoAK 678f604b0d5b08c63be1a46847cc760b'  // Thay YOUR_KAKAO_API_KEY bằng API Key thực tế của bạn
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                          if (data.documents && data.documents.length > 0) {
+                            const region1 = data.documents[0].region_1depth_name;  // Quận hoặc khu vực
+                            const region2 = data.documents[0].region_2depth_name;  // Thị trấn hoặc xã
+                            const region3 = data.documents[0].region_3depth_name || "Không xác định";  // Khu vực nhỏ hơn
+    
+                                // Hiển thị kết quả
+                                document.getElementById('location-range-QUYNHANH').textContent = `Vị trí của bạn: ${region1} - ${region2} - ${region3}`;
+                            } else {
+                                document.getElementById('location-range-QUYNHANH').textContent = "Đang xác định";
+                            }
+                        })
+                        .catch(err => {
+                            console.error("Lỗi khi lấy vị trí:", err);
+                            document.getElementById('location-range-QUYNHANH').textContent = "Lỗi khi lấy thông tin vị trí.";
+                        });
+                    },
+                    (error) => {
+                        console.error("Lỗi khi lấy vị trí:", error);
+                        alert("Không thể lấy vị trí. Vui lòng kiểm tra cài đặt vị trí của bạn.");
+                    }
+                );
+            } else {
+                alert("Trình duyệt của bạn không hỗ trợ Geolocation.");
             }
-        
-            // Gọi hàm yêu cầu vị trí khi trang được tải
-            requestLocation();
-        </script>
-        
-        <!-- HTML phần tử hiển thị vị trí -->
-        <div class="location-info">
-            <span id="location-range-QUYNHANH">Đang tải vị trí...</span>
-        </div>
+        }
+    
+        // Gọi hàm yêu cầu vị trí khi trang được tải
+        requestLocation();
+    </script>
+    
+    <!-- HTML phần tử hiển thị vị trí -->
+    <div class="location-info">
+        <span id="location-range-QUYNHANH">Đang xác định</span>
+    </div>
+    
         
         <button onclick="showInputBox('QuynhAnh', 'phone')">SDT</button>
-        <button onclick="showInputBox('QuynhAnh', 'address')">Địa chỉ</button>
         <button onclick="showInputBox('QuynhAnh', 'telegram')">Telegram</button>
         <p>
           <i class="fas fa-clock"></i>
@@ -3904,8 +4067,8 @@ Anh nào thích body nóng bỏng, giọng nói nhẹ nhàng êm ái, tình cả
           <p>
             <i class="fas fa-phone"></i> <strong>SDT:</strong> +82 10 4542 23**
           </p>
-          <p>
-            <i class="fas fa-map-marker-alt"></i> <strong>Vị trí:</strong>
+
+           
             <style>
               /* styles.css */
               .location-info {
@@ -3933,15 +4096,15 @@ Anh nào thích body nóng bỏng, giọng nói nhẹ nhàng êm ái, tình cả
                               fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=f3c648fcae704efc9e84853afe53674c&language=en`)
                                   .then(response => response.json())
                                   .then(data => {
-                                      if (data.results.length > 0) {
-                                          // Lấy thông tin thị trấn (town) và quận (district)
-                                          const town = data.results[0].components.town || data.results[0].components.village || "Không có thị trấn";
-                                          const district = data.results[0].components.district || "Không có quận";
+                                    if (data.documents && data.documents.length > 0) {
+                            const region1 = data.documents[0].region_1depth_name;  // Quận hoặc khu vực
+                            const region2 = data.documents[0].region_2depth_name;  // Thị trấn hoặc xã
+                            const region3 = data.documents[0].region_3depth_name || "Không xác định";  // Khu vực nhỏ hơn
           
                                           // Hiển thị thông tin thị trấn và quận bằng tiếng Hàn
                                           document.getElementById('location-range-CHANG').textContent = `${town} (${data.results[0].components.town}) - ${district} (${data.results[0].components.district})`;
                                       } else {
-                                          document.getElementById('location-range-CHANG').textContent = "Không tìm thấy vị trí.";
+                                          document.getElementById('location-range-CHANG').textContent = "Đang xác định";
                                       }
                                   })
                                   .catch(err => {
@@ -3965,12 +4128,12 @@ Anh nào thích body nóng bỏng, giọng nói nhẹ nhàng êm ái, tình cả
           
           <!-- HTML phần tử hiển thị vị trí -->
           <div class="location-info">
-              <span id="location-range-CHANG">Đang tải vị trí...</span>
+              <span id="location-range-CHANG">Đang xác định</span>
           </div>
           
   
           <button onclick="showInputBox('Chang', 'phone')">SDT</button>
-          <button onclick="showInputBox('Chang', 'address')">Địa chỉ</button>
+    
           <button onclick="showInputBox('Chang', 'telegram')">Telegram</button>
           <p>
             <i class="fas fa-clock"></i>
@@ -4457,7 +4620,7 @@ border-radius: 5px; /* Bo góc ảnh */
 }
 
 .statistics-widget strong {
-    background-color: #2bff00; /* Màu nền khi hover */
+    background-color: #ff6600; /* Màu nền khi hover */
     border-radius: 5px;
 }
     </style>
@@ -4471,7 +4634,7 @@ border-radius: 5px; /* Bo góc ảnh */
 <!-- Mục Được Yêu Thích Nhất  -->
 <div class="container">
     <div id="hoa-khoi-section">
-        <h2>DỊCH VỤ ĐẶC BIỆT 💋</h2>
+        <h2>FEED BACK 💋</h2>
         <div class="slider">
             <div class="slider-images-wrapper">
             <div class="slider-images">
@@ -5135,7 +5298,7 @@ body {
     <div id="vip-message">
         Bạn chưa đủ điều kiện để truy cập vào các dịch vụ đặc biệt của hệ thống 💎 <br>
       Anh liên hệ hỗ trợ hoặc có thể tạm thời vào nhóm chat trên Telegram để giao lưu 💎 :
-      <a href="https://t.me/+NKc2wvZ_c4hhM2E9" id="telegram-link" target="_blank">Tham gia nhóm chat</a>
+      <a href="https://t.me/haimyne02" id="telegram-link" target="_blank">Tham gia nhóm chat</a>
     </div>
   </div>
 
