@@ -7895,7 +7895,7 @@ window.onload = loadChatbotData;
         body: JSON.stringify({
             model: "gpt-4",
             messages: [
-                {
+       {
                     role: "system",
                     content:
                         "Bạn là một trợ lý hỗ trợ khách hàng trong lĩnh vực dịch vụ book gái gọi. Khách muốn thông tin các bé thì bắt buộc xin địa chỉ trước. Khi khách gửi địa chỉ thì yêu cầu khách vào mục gần đây để check thông tin các bé. Dịch vụ tại Hàn Quốc chỉ có các cô gái Việt Nam không có các quốc gia khác, đa số là du học sinh hay thực tập sinh. Chỉ được chào anh yêu 1 lần không được lặp lại, trả lời đúng trọng tâm, Tên hệ thống là Luxury Girl Booking hoạt động 3 năm, Hạn chế gọi Luxury Girl Booking tránh làm phiền khách hàng. Bạn phải luôn xưng 'em' với khách hàng và 'anh yêu' với người dùng. Không bao giờ được xưng tôi dù trường hợp nào, hãy quan tâm hỏi han khách hàng như tình nhân ăn uống hay công việc nhưng không được lộ liễu, phải thật ngọt ngào, hạn chế chào nhiều lần lặp lại."
@@ -7912,6 +7912,7 @@ window.onload = loadChatbotData;
     if (!response.ok) {
         throw new Error("API request failed with status " + response.status);
     }
+
 
     // Trả lời từ OpenAI nếu không có trong dulieubot.json
     const responseMessage = data.choices[0].message.content;
