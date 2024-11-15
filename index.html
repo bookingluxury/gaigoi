@@ -89,58 +89,11 @@
     </style>
 </head>
 <body>
-   
 </script>
 </body>
 </html>
-<div id="accessCodeModal" class="modal" style="display: flex;">
-    <div class="modal-overlay"></div>
-    <div class="modal-content">
-<!-- Logo lớn -->
-<div class="logo-container">
-        <img src="https://i.ibb.co/q0cnWqD/photo-2024-10-15-22-09-13.jpg" alt="Logo" style="width: 90px; height: auto; margin-bottom: -30px;">
-        <img src="https://i.ibb.co/7WW4LrB/photo-2024-08-19-18-39-28-2.jpg" alt="Logo" style="width: 90px; height: auto; margin-bottom: -30px;">
-    </div>
 
-        <h4>Nhập mã vùng khu vực do LUXURY GIRL BOOKING  cấp vì lí do bảo mật và lợi ích của khách hàng </h4>
-        <div style="position: relative; width: 100%;">
-            <input type="password" id="accessCodeInput" placeholder="Nhập mã tại đây" style="width: calc(100% - 40px); padding: 10px; margin-bottom: 10px;  border-radius: 10px; /* Viền vàng kim */">
-           <span id="togglePassword" onclick="togglePasswordVisibility()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
-                👁️
-              
-            </span>
-        </div>
-        <button onclick="checkAccessCode()" style=" box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Hiệu ứng đổ bóng */ transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; background-color: #000000; /* Nền đen */ Viền vàng */ padding: 10px 20px;  border-radius: 5px;    
-         cursor: pointer;">
-            Xác nhận
-        </button>
-
-        <!-- Spinner khi đang kiểm tra mã -->
-        <div class="spinner-container" id="spinnerContainer" style="display: none;">
-            <div class="spinner"></div>
-            <p class="spinner-text">Vui lòng đợi, hệ thống đang kiểm tra và tìm kiếm các bé gần nhất cho bạn...</p>
-            <div class="progress-bar">
-                <div class="progress"></div>
-            </div>
-        </div>
-
-        <!-- Dấu tích xanh hiển thị khi mã được xác nhận -->
-        <div class="success-message" id="successMessage" style="display: none; margin-top: 10px;">
-            <span style="color: green; font-size: 24px;">&#10004;</span> Mã đã được xác nhận thành công!
-        </div>
-
-        <div class="info-message">
-            <img src="https://i.ibb.co/R38vw3M/pngegg.png" alt="Custom Logo" style="height: 20px; width: 20px; vertical-align: middle; margin-right: 5px;">
-  Bật vị trí để hệ thống có thể giúp bạn tìm kiếm và cung cấp chính xác vị trí các bé gần nhất nhé
-
-        </div>
-    </div>
-</div>
-
-<div id="accessCodeDisplay"></div>
     
-
-
 <style>
     .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; }
     .modal-content { background: #FFD700; border: 1px solid #DAA520; /* Viền vàng */ padding: 20px; border-radius: 8px; text-align: center; width: 300px; }
@@ -163,7 +116,7 @@
 </style>
 
 <script>
-const correctAccessCode = "355436"; // Đặt mã truy cập hợp lệ
+const correctAccessCode = "JDL438"; // Đặt mã truy cập hợp lệ
 
 // Hàm kiểm tra mã truy cập
 function checkAccessCode() {
@@ -285,7 +238,7 @@ body {
 }
         h2 {
         
-            padding: 10px 20px;
+            padding: 10px 15px;
           font-size: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Hiệu ứng đổ bóng */
     
@@ -374,18 +327,18 @@ body {
 h1 {
     display: inline-block;
     font-family: 'Poppins', sans-serif; /* Chọn font chữ */
-    font-size: 20px; /* Kích thước chữ */
+    font-size: 15px; /* Kích thước chữ */
     font-weight: bold; /* Chữ đậm */
     text-align: center; /* Căn giữa tiêu đề */
     color: #000000; /* Chữ đen */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Đổ bóng cho chữ */
     background: linear-gradient(45deg, #FF6FB1, #FF7F7F); /* Nền hồng gradient */
     border-radius: 10px; /* Bo góc nền */
-    padding: 20px; /* Khoảng cách giữa chữ và viền */
+    padding: 10px; /* Khoảng cách giữa chữ và viền */
   
     text-transform: uppercase;
     letter-spacing: 3px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
 /* Keyframes cho hiệu ứng nhấp nháy */
 @keyframes blink {
@@ -424,9 +377,11 @@ h1 {
             text-decoration: underline;
         }
         .menu {
+            padding: 20px; /* Khoảng cách giữa container và các nút */
+
             display: flex;
             justify-content: space-around;
-            
+            background: #000000;
             padding: 5px;
             border-radius: 5px;
             color: #000000; /* Chữ đen */
@@ -435,9 +390,11 @@ h1 {
           
         }
          .menu-item {
+            padding: 10px; /* Khoảng cách giữa container và các nút */
+
             color: #ffffff;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 13px;
             font-weight: 700;
             font-family: 'Poppins', sans-serif;
             border-radius: 5px;
@@ -487,7 +444,7 @@ h1 {
 }
 
 .info-button {
-    background-color: #000000;
+    background-color: #ffffff;
     color: #000000; /* Chữ đen */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Đổ bóng cho chữ */
     padding: 5px 10px; /* Điều chỉnh padding để thay đổi kích thước nút */
@@ -548,18 +505,9 @@ h1 {
     <title>Chào mừng đến với LUXURY GIRL 🎀</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            background: linear-gradient(45deg, #ff7eb9, #ff65a3); /* Nền hồng gradient */
-            color: #ffffff; /* Màu chữ tối để dễ đọc trên nền sáng */
-            margin: 0;
-            padding: -10px;
-            font-family: 'Poppins", sans-serif; /* Font chữ hiện đại */
-        }
-
    
-
+    <style>
+    
         .container {
             text-align: center;
             width: 60%;
@@ -692,18 +640,20 @@ h1 {
 
 
 .menu {
-     background-color: #000000; /* Màu nền nút cam đậm */
-        display: flex;
-        padding: 10px;
-        padding: 10px;
-        border-radius: 8px;
+    
+   
+    justify-content: space-around; /* Căn đều khoảng cách */
+    
+ 
+      
+        border-radius: 20px;
         color: #000000; /* Chữ đen */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Đổ bóng cho chữ */
     }
 
     .menu-item {
         cursor: pointer;
-        padding: 5px 10px;
+       
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Đổ bóng cho chữ */
 
     border-radius: 5px; /* Bo góc cho viền */
@@ -731,7 +681,7 @@ h1 {
         border-radius: 10px;
         
         text-align: center;
-        font-weight: bold;
+      
         transition: transform 0.3s ease, background-color 0.3s ease; /* Hiệu ứng chuyển động mượt mà */
     }
 
@@ -747,19 +697,55 @@ h1 {
         border-radius: 5px;
     }
     </style>
-     <script>
-    let currentIndex = 0;
-    const images = document.querySelectorAll('.banner-slide img');
-    const totalImages = images.length;
+    </head>
+  <body>
+   
+    <div id="accessCodeModal" class="modal" style="display: flex;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+    <!-- Logo lớn -->
+    <div class="logo-container">
+            <img src="https://i.ibb.co/q0cnWqD/photo-2024-10-15-22-09-13.jpg" alt="Logo" style="width: 90px; height: auto; margin-bottom: -30px;">
+            <img src="https://i.ibb.co/7WW4LrB/photo-2024-08-19-18-39-28-2.jpg" alt="Logo" style="width: 90px; height: auto; margin-bottom: -30px;">
+        </div>
     
-    function nextImage() {
-        currentIndex = (currentIndex + 1) % totalImages;
-        document.querySelector('.banner-slide').style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
+            <h4>Nhập mã truy cập do LUXURY GIRL BOOKING  cấp vì lí do bảo mật và lợi ích của khách hàng </h4>
+            <div style="position: relative; width: 100%;">
+                <input type="password" id="accessCodeInput" placeholder="Nhập mã tại đây" style="width: calc(100% - 40px); padding: 10px; margin-bottom: 10px;  border-radius: 10px; /* Viền vàng kim */">
+               <span id="togglePassword" onclick="togglePasswordVisibility()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                    👁️
+                  
+                </span>
+            </div>
+            <button onclick="checkAccessCode()" style=" box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Hiệu ứng đổ bóng */ transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; background-color: #000000; /* Nền đen */ Viền vàng */ padding: 10px 20px;  border-radius: 5px;    
+             cursor: pointer;">
+                Xác nhận
+            </button>
     
-    setInterval(nextImage, 3000); // Di chuyển mỗi 3 giây
-    </script>
-
+            <!-- Spinner khi đang kiểm tra mã -->
+            <div class="spinner-container" id="spinnerContainer" style="display: none;">
+                <div class="spinner"></div>
+                <p class="spinner-text">Vui lòng đợi, hệ thống đang kiểm tra và tìm kiếm các bé gần nhất cho bạn...</p>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+    
+            <!-- Dấu tích xanh hiển thị khi mã được xác nhận -->
+            <div class="success-message" id="successMessage" style="display: none; margin-top: 10px;">
+                <span style="color: green; font-size: 24px;">&#10004;</span> Mã đã được xác nhận thành công!
+            </div>
+    
+            <div class="info-message">
+                <img src="https://i.ibb.co/R38vw3M/pngegg.png" alt="Custom Logo" style="height: 20px; width: 20px; vertical-align: middle; margin-right: 5px;">
+      Bật vị trí để hệ thống có thể giúp bạn tìm kiếm và cung cấp chính xác vị trí các bé gần nhất nhé
+    
+            </div>
+        </div>
+    </div>
+    
+    <div id="accessCodeDisplay"></div>
+    
 </head>
 <body>
     <div class="container">
@@ -786,14 +772,7 @@ h1 {
 </style>
 </head>
 <body>
-    <div class="statistics-widget">
-        <h4>Thống kê người dùng</h4>
-        <ul>
-            <li>Online  <strong id="online">&nbsp;227</strong></li>
-            <li>Đã dùng dịch vụ  <strong id="vipMembers">&nbsp;1821</strong></li>
-            <li>Tổng lượt truy cập  <strong id="visitCount">&nbsp;85581</strong></li>
-        </ul>
-    </div>
+ 
 
 
     </style>
@@ -823,11 +802,15 @@ h1 {
         </script>
     </head>
 
-</head>
-<body>
-
-</body>
-</html>
+                    <div class="statistics-widget">
+                        <h4>Thống kê người dùng</h4>
+                        <ul>
+                            <li>Online  <strong id="online">&nbsp;227</strong></li>
+                            <li>Đã dùng dịch vụ  <strong id="vipMembers">&nbsp;1821</strong></li>
+                            <li>Tổng lượt truy cập  <strong id="visitCount">&nbsp;85581</strong></li>
+                        </ul>
+                        </div>
+              
 
        <!-- Breadcrumb -->
 <div class="breadcrumb">
@@ -835,7 +818,6 @@ h1 {
 </div>
 
 
-<!-- Menu -->
 <div class="menu">
     <div class="menu-item" data-target="region-section">
         <i class="fas fa-city"></i> Khu vực
@@ -845,6 +827,10 @@ h1 {
     </div>
     <div class="menu-item" onclick="togglePricingTable()">
         <i class="fas fa-dollar-sign"></i> Bảng giá
+    </div>
+    <!-- Nút Chat sẽ ở sau Bảng giá -->
+    <div class="menu-item" onclick="toggleChat()">
+        <i class="fas fa-comment-dots"></i> Chat Box
     </div>
     <div class="menu-item" data-target="image-section">
         <i class="fas fa-image"></i> Ảnh 18+
@@ -940,6 +926,8 @@ h1 {
         }
 </script>
 
+ 
+
 
  <!-- 4 nút phim 18+ hiển thị sau khi nhấn vào Phim 18+ -->
  <div id="submenu-phim-18" class="submenu" style="display:none;">
@@ -964,6 +952,1795 @@ h1 {
         }
     }
 </script>
+
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Chat Tự Động</title>
+    <style>
+        /* General Chat Container Styling */
+        #chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 550px;
+            border: 2px solid #0084ff;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        #chat-box {
+            flex: 1;
+            
+            padding: 10px;
+            overflow-y: auto;
+            background-color: #fafafa;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Message Styling */
+        .chat-message {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            max-width: 100%;
+        }
+
+        .chat-message.self {
+            justify-content: flex-end;
+        }
+
+        .avatar {
+            padding: -10px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            margin: 0 10px;
+            border: 2px solid #0099ff;
+        }
+
+        .message-bubble {
+            background-color: #e1f5fe;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            max-width: 250px;
+           
+        }
+
+        /* User messages on the right */
+        .self .message-bubble {
+            background-color: #007bff;
+            color: white;
+            text-align: right;
+        }
+
+        /* Character messages on the left */
+        .character-message {
+          
+            color: black;
+           
+            border-radius: 10px;
+        }
+
+        /* Username and Status */
+        .user-name {
+            font-weight: bold;
+            font-size: 14px;
+            color: #008cff;
+            padding: -10px;
+        }
+
+        .message-status {
+            font-size: 12px;
+            color: #0084ff;
+            position: absolute;
+            bottom: -15px;
+            right: 0;
+        }
+
+        /* Input Styling */
+        #chat-input {
+            width: 40%;
+            padding: 0px;
+            border-radius: 10px;
+            border: 1px solid #00aeff;
+            margin-top: 0px;
+        }
+
+        button {
+           
+   
+            color: rgb(255, 255, 255);
+          
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-left: 5px;
+        }
+
+        button:hover {
+            background-color: #000000;
+            color: rgb(255, 255, 255);
+        }
+        /* Tắt thu phóng cho input trên thiết bị di động */
+input[type="text"] {
+    font-size: 16px; /* Ít nhất 16px để tránh tự động phóng to */
+    touch-action: manipulation; /* Tắt thu phóng khi chạm */
+}
+
+
+    </style>
+</head>
+<body>
+  
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <div class="chat-controls">
+            <h2>Nhập tên và chọn avatar</h2>
+            <input type="text" id="user-name" placeholder="Tên của bạn" />
+            <input type="file" id="user-avatar" accept="image/*" onchange="loadAvatar(event)" />
+            <textarea id="chat-input" placeholder="Nhập tin nhắn..."></textarea>
+            <button onclick="sendTextMessage()">Gửi</button>
+            
+            <!-- Thêm input để gửi hình ảnh -->
+            <input type="file" id="image-upload" accept="image/*" style="display: none;" onchange="sendImageMessage(event)">
+            <button onclick="document.getElementById('image-upload').click()">📷</button>
+            
+            <!-- Thêm input để gửi video -->
+            <input type="file" id="video-upload" accept="video/*" style="display: none;" onchange="sendVideoMessage(event)">
+            <button onclick="document.getElementById('video-upload').click()">🎥</button>
+    
+            <button onclick="toggleChat()">Ẩn/Hiện Chat</button>
+            <button onclick="toggleDarkMode()">Chế độ tối</button>
+        </div>
+    </div>
+    <script>
+      let userName = "";
+let userAvatar = "";
+let recentMessages = [];
+const maxNoRepeat = 400;
+const characters = [
+        {
+            name: "Ạhhh",
+                avatar: "https://i.ibb.co/Wcfz0GB/343515938-244275581449331-9003722689350715063-n.jpg",
+                messages: [
+                "Tôi đánh giá cao e này",
+"E nào lộ clip xinh thế nhỉ",
+"Xinh như tiên nữ cũng bị đụ như người phàm cả",
+"Nay rôm rả quá mai nghỉ làm hả các bác",
+"https://i.ibb.co/Vv485HL/photo-20-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/6YsFD2S/photo-20-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/Y2H2hjc/photo-21-2024-10-23-11-22-02.jpg",
+"Làm gì nữa bác làm cả tuần rồi cho nghỉ 1 ngày còn xả tres chứ troi",
+"Mai tôi vẫn làm đây mấy og sướng quá",
+"Làm j nhiều vậy bác ơi kiếm tiền nuôi bác sĩ à",
+"Có hàng ngon không chia sẻ với ông",
+"Hàng ai nấy dùng chia sẻ chi gặp ông cũng thế",
+                ],
+            },
+            {
+                name: "Cuongyencl",
+                avatar: "https://i.ibb.co/wNmgWBF/465167896-122182676612159132-2007701611047559668-n.jpg",
+                messages: [
+                "Dit nhau suot k nghi ngoi ha may cha",
+"Tầm này chỉ có địt chứ lm gì nữa ông",
+"Hẹn ẻm giờ mới tới mấy ông ơi vào việc luôn chứ nóng lắm rồi",
+"https://i.ibb.co/nwRxCpD/photo-18-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/K07JMK8/photo-18-2024-10-23-11-52-30.jpg",
+"https://i.ibb.co/34bdKZQ/photo-19-2024-10-23-11-22-02.jpg",
+"Ngon lành vậy dáng đẹp đó",
+"Da trắng vú to lồn chắc đẹp nốt",
+                ],
+            },
+            {
+                name: "Chi Duong",
+                avatar: "https://i.ibb.co/CmcCtzt/433005087-1177556326740003-4441578403532921158-n.jpg",
+                messages: [
+                "Ông thử có ny thì biết nói mồm hay lam",
+"Ngày nào cung đit xem có chán ko",
+"https://i.ibb.co/h8tGGt9/photo-17-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/BwTPBQ1/photo-18-2024-10-23-11-51-38.jpg",
+"Đào cứ để tôi mấy bác khéo lo",
+"Tò mò thì lên lịch cho ah ah cho em biết nhé hấp dẫn lắm",
+"Cứ thế này mấy ông vơ hết hàng ngon còn đâu",
+                ],
+            },
+            {
+                name: "Bao Gia",
+                avatar: "https://i.ibb.co/zFXPLjM/65310101-541864686353769-4378968674397061120-n.jpg",
+                messages: [
+                "Mấy ông đi chơi về hết chưa nào",
+"Đã cái con cặc thật",
+"Mới tới đây chờ bé tới đụ thôi",
+"Chắc phải lên lịch gấp thôi chứ chiu ko được rồi",
+"https://i.ibb.co/Hrc6qgX/photo-21-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/mz6Rm3Y/photo-21-2024-10-23-11-52-30.jpg",
+"Nay ny bắt đi xem phim k đi đâu đc mấy ông ạ 😕",
+"Cái gì ăn nhiều chẳng ngán",
+"Ông nào có ny mới hiểu đc nhỉ 😂",
+                ],
+            },
+            {
+                name: "Quynho Nho",
+                avatar: "https://i.ibb.co/J22y6hn/444488207-872332088248034-5363803169786148493-n.jpg",
+                messages: [
+                "Suóng như vua bác nhỉ",
+"Má quần rách này mà vừa chơi vừa xé thì quá là đã",
+"Bú kiểu này chịu k nổi là phọt thôi",
+"https://i.ibb.co/XtT4qfm/photo-16-2024-10-23-11-52-30.jpg",
+"https://i.ibb.co/dp5Nr6k/photo-17-2024-10-23-11-22-02.jpg",
+"Con em nhiệt tình quá còn gì",
+"Nhìn mấy bác sướng nhỉ tôi còn đang bận chưa đi được",
+"Tôi thì đi rồi giờ ngủ giấc thôi",
+                ],
+            },
+            {
+                name: "Join Trần",
+                avatar: "https://i.ibb.co/rMQkxC7/358100874-839190984300475-2168315640853368908-n.jpg",
+                messages: [
+                "Mới về gửi luôn feedback cho bé nó 😘 Tiền nào của nấy thôi mấy bác",
+"Con cac dài vậy ông chắc tới lỗ rún e nó",
+"Cu vậy đụ mấy nhỏ mới la làng",
+"https://i.ibb.co/PQW9xhQ/photo-16-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/ZSQCLwx/photo-16-2024-10-23-11-52-15.jpg",
+"Đi có tiếng về rồi ak ông",
+"Làm xong 2 cái về thôi ông ạ cũng tiếng rưỡi",
+"À gói 90 phút à cũng ngon phết",
+"Um gói đó 2 nháy ok mà",
+                ],
+            },
+            {
+                name: "Vì Em",
+                avatar: "https://i.ibb.co/4p5CGDZ/410274561-926577562228483-5651142562609102213-n.jpg",
+                messages: [
+                "Qua đêm luôn sáng về ngủ nghỉ cho khỏe",
+"Có tiền muốn gì cũng đc 😁",
+"Tưởng mình tôi đi chơi sớm",
+"https://i.ibb.co/Pt99432/photo-15-2024-10-23-11-22-02.jpg",
+"https://i.ibb.co/DrGSf3Y/photo-15-2024-10-23-11-52-30.jpg",
+"Mấy cụ này nứng sớm thế nhỉ",
+"Giờ đéo nào cũng có ông đang đụ",
+"Cái lồn nhìn hồng hào thế húp thôi ông",
+                ],
+            },
+            {
+                name: "A Lek",
+                avatar: "https://i.ibb.co/KrFYSCX/265197999-478573007028943-6441174678854474607-n.jpg",
+                messages: [
+                "Quan trọng gần ôg ko thôi 😂",
+"Mai nghỉ k phải lo bác ạ",
+"Nay được nghỉ sớm tranh thủ đặt phòng đợi ẻm tới",
+"https://i.ibb.co/44ZDr8r/photo-14-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/Jskcg6f/photo-14-2024-10-23-11-52-30.jpg",
+"Đã lên lịch rồi hả bác bọn tôi còn chưa về mà bác đã đc địt r",
+"Bác đi gói nào mà đi sớm v",
+                ],
+            },
+            {
+                name: "Hùng lầy",
+                avatar: "https://i.ibb.co/SRp7bXn/436150779-961127358947273-8444883863744652412-n.jpg",
+                messages: [
+                "Không sao anh ơi nhỏ vậy gặp em bú cho cũng lên à",
+"Em bú cho ah đc k em ơi",
+"Mẹ mới đi hôm qua nay admin mới thông báo cay vl",
+"Anh nào chưa đc em bú thì thử đi nè",
+"https://i.ibb.co/qFmGMc1/photo-12-2024-10-23-11-52-30.jpg",
+"https://i.ibb.co/rZmGvC3/photo-14-2024-10-23-11-51-38.jpg",
+"Giờ này ông nào ông nấy chắc đi làm về hết roi nhỉ",
+"Tầm này an uong r book đào đi chơi thôi",
+                ],
+            },
+            {
+                name: "Nợ 3 tỉ",
+                avatar: "https://i.ibb.co/mRMZ0VR/455712717-1257948285545076-7415265304110521698-n.jpg",
+                messages: [
+                "Nuôt nhỉ thích mấy e mình dây thế nà",
+"Ông nói điều ai cũng biết cả",
+"Càng nuột thì càng bị địt nhiều thôi ong",
+"https://i.ibb.co/wN1BqR3/photo-12-2024-10-23-11-22-02.jpg",
+"https://i.ibb.co/5986MWf/photo-12-2024-10-23-11-52-15.jpg",
+"Tôi thì thích mấy bé vừa vừa ít ai rớ tới 😂",
+"Tranh thủ đi chịch lấy feedback về lấy lại 30% thôi",
+"Đi chung chứ địt chung là ko đc đâu nha",
+                ],
+            },
+            {
+                name: "T Anh",
+                avatar: "https://i.ibb.co/HHV4hcR/464499472-532878919599580-4687002064873479948-n.jpg",
+                messages: [
+                "Địt chung nâng tình cảm anh em lên chứ bác",
+"Tôi đi chiến trc nhé ae. Lên lịch rồi 😁",
+"https://i.ibb.co/7z8qP2r/photo-11-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/fHH0mMJ/photo-11-2024-10-23-11-52-30.jpg",
+"Mấy ông ít nói mới hay đi nhất đấy còn mấy ông rãnh chat chắc tháng đi đc 1 lần",
+"Thì rãnh mới ở đây xàm xàm chứ có tiền đã đi rồi kk",
+"Sn bao nhiêu nhìn bé vậy ông",
+                ],
+            },
+            {
+                name: "Lee San ",
+                avatar: "https://i.ibb.co/T13PkKz/463780581-527298090157663-601024373815710168-n.jpg",
+                messages: [
+                "Sao chịch yếu ớt thế sao e nó sướng đc",
+"Tôi ở nhà hóng video mấy ông thôi",
+"Tôi đang địt mà mấy ông nt hỏi lắm the nhỉ",
+"https://i.ibb.co/Gxt99Mr/photo-10-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/m6m7z4Y/photo-11-2024-10-23-11-22-02.jpg",
+"K đi chịch thì ở nhà coi phim sex thôi",
+"Xem phim đâu có sướng bác",
+                ],
+            },
+            {
+                name: "Vinh",
+                avatar: "https://i.ibb.co/cyvZ0hf/451379936-460814410139365-7975840436709961853-n.jpg",
+                messages: [
+                    "이 게임은 정말 재밌어요, 더 자주 하고 싶어요.",
+                    "조금 더 강한 상대를 만나보고 싶어요.",
+                    "https://i.ibb.co/FsmffJ1/review-of-duy-anh-for-hot-girl-thu-thuy-lan-dau-tien-co-mat-gaito-3166745-original.jpg",
+                    "https://i.ibb.co/hY6jw6T/photo-9-2024-10-23-11-22-02.jpg",
+"https://i.ibb.co/0fTgT8S/photo-9-2024-10-23-11-52-30.jpg",
+                    "다음엔 꼭 이기고 싶어요, 준비가 되어 있어요.",
+                    "이 게임에서 더 많은 것을 배우고 싶어요.",
+                    "여기서 만난 친구들이 모두 정말 대단해요.",
+                ],
+            },
+            {
+                name: "15195 Tuan",
+                avatar: "https://i.ibb.co/nwXtn5L/464029650-3837127556505364-6550903991753869152-n.jpg",
+                messages: [
+                "Ae ay có săn đc em nào chưa",
+"Mấy bữa nay đi chịch nhiều quá giờ hơi đau lưng",
+"Canh muộn muộn đi rồi về ngủ chứ đi sớm về lại mò vào nhóm xem lại thèm",
+"Thèm thì đi tiếp thôi",
+"https://i.ibb.co/7JcNcDN/photo-7-2024-10-23-11-52-30.jpg",
+"https://i.ibb.co/r3yhQ8Z/photo-8-2024-10-23-11-52-15.jpg",
+"Sợ k có tiền chứ sợ gì thèm",
+"Nay tranh thủ thế bác",
+"Trải nghiệm xem ưu đãi mới thế nào ấy mà",
+                ],
+            },
+            {
+                name: "Cu li",
+                avatar: "https://i.ibb.co/VmqdLVg/444501482-3695951817289606-3499758076608988401-n.jpg",
+                messages: [
+                "Tôi còn đang chọn đào mấy bác đã đi về cả rồi",
+"Kết bé kia mà nay ẻm bận k đi đc chán quá",
+"Og sợ thiếu gái hay gi mà k kiếm bé khác",
+"https://i.ibb.co/pJcSpDp/photo-7-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/Q8D8dCG/photo-7-2024-10-23-11-52-15.jpg",
+"Giờ này mấy ông chắc ấp ủ bên mấy e đào cả rồi",
+"K địt trc ngkh địt mất xót lắm",
+"Xinh vỗn cả lài",
+                ],
+            },
+            {
+                name: "Vu Manh Kien",
+                avatar: "https://i.ibb.co/JztdF9T/453721020-122098035392441413-2102100990856763741-n.jpg",
+                messages: [
+                "Đù má ngon vậy kiểu này phải đi sớm",
+"Ai có info e này k xin với",
+"Tôi có tôi cũng giấu chứ cho làm gì kk",
+"Tên đẹp người cũng đẹp xuất sắc quá",
+"https://i.ibb.co/Lhwhq9W/photo-6-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/ZLjP2X8/photo-6-2024-10-23-11-52-30.jpg",
+"Xinh thế này k chịch phí cả cuộc đời",
+"Làm nốt ngày mai rồi đi chưa muộn đâu 😂",
+"Giờ này book về 1 bé còn gì bằng nữa",
+                ],
+            },
+            {
+                name: "Linh Korea",
+                avatar: "https://i.ibb.co/7vwCwD2/465146753-1634609844076820-5036638866219117952-n.jpg",
+                messages: [
+                "Lại ko được ngủ yên rồi",
+"Giờ này book về 1 bé còn gì bằng nữa",
+"https://i.ibb.co/8d7HBkN/photo-80-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/KrZjh4S/photo-81-2024-10-23-11-22-02.jpg",
+"Hôm nay k book mai chắc k còn đào để book luon quá",
+"Đặt lịch trc cho chắc khéo mai hết thật 😂",
+"https://i.ibb.co/9sKrvrr/photo-5-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/jyL34kM/photo-5-2024-10-23-11-52-30.jpg",
+"Lại lên lịch đi chịch thôi chứ sao",
+"Chốt kèo với con e rồi tối tiển thôi",
+"Hẹn mà toàn ông đi trước đi sau ko à",
+                ],
+            },
+            {
+                name: "진호",
+                avatar: "https://i.ibb.co/DWpmDXw/287503735-2569447153190823-6330025235431122917-n.jpg",
+                messages: [
+                "Thằng dưới ăn còn thằng trên nuôi hả bác",
+"Toàn thằng nhỏ đc ăn thằng lớn phải cày cắm đầu",
+"Ông nào rãnh k vào giao lưu với tôi vài game",
+"Đồng môn đây rồi",
+"https://i.ibb.co/yPfqdyy/photo-5-2024-09-28-20-48-55.jpg",
+"https://i.ibb.co/8YftK71/photo-5-2024-10-23-11-22-02.jpg",
+"Rủ nhau chơi game hôm nào rãnh kéo nhau đi địt chung cho vui",
+"Bác nói hợp lý quá nhỉ",
+"Ở bên này chơi game toàn quen mấy e  ở Vn đéo làm ăn gì đc",
+"Chúng nó toàn thánh bào mà bảo 😂",
+                ],
+            },
+            {
+                name: "Nguyen Son",
+                avatar: "https://i.ibb.co/PcGmbtB/464608602-3938705709699464-8297307432761372977-n.jpg",
+                messages: [
+                "Để tiền đi địt gái  sướng hơn",
+"Nay có bé nào mới k nhỉ",
+"https://i.ibb.co/fH5wrK3/photo-81-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/w76YbQ0/photo-82-2024-10-23-11-51-38.jpg",
+"Ông đi đc hết gái ở đây chưa mà đòi mới",
+"Tôi mới đi đc 3 em còn chưa dám than",
+"Con hàng ngon ko mấy ôg",
+"https://i.ibb.co/G353KZZ/photo-3-2024-10-23-11-52-30.jpg",
+"https://i.ibb.co/0Vz9NX4/photo-4-2024-10-23-11-52-30.jpg",
+"Vú này chắc vú thật bóp nhìn đã thế mà",
+"Để tôi bóp thử mới biết thật hay giả",
+                ],
+            },
+            {
+                name: "nam dangg",
+                avatar: "https://i.ibb.co/BBwd7hN/464034358-122095125710589062-5303331676268128522-n.jpg",
+                messages: [
+                "E này dáng đẹp nhỉ thích mấy e kiểu vậy",
+"Tại bác k biết thôi chứ trong này nhiều k thiếu",
+"Này gu tôi này",
+"Tôi cũng thích nhỏ nhắn như này",
+"https://i.ibb.co/r7MTbCV/photo-2-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/3B3B02w/photo-3-2024-10-23-11-22-02.jpg",
+"Húp đê ae review tôi xem",
+"Tôi thích bé này ae để tôi đi trước nhe",
+                ],
+            },
+            {
+                name: "Van Trọng Nguyễn",
+                avatar: "https://i.ibb.co/zGMsbDq/462557509-844680394503016-33425799210985210-n.jpg",
+                messages: [
+                "Có người làm hướng dẫn cho roi ngại gì nua kk",
+"Đỡ tốn 1 khúc rồi mấy bác 😂😂",
+"https://i.ibb.co/pZ4JDPs/photo-1-2024-10-23-11-22-02.jpg",
+"https://i.ibb.co/C7LH58G/photo-1-2024-10-23-11-52-15.jpg",
+"Ông nào cũng bú đc mấy bé vú ngon thế nhỉ",
+"Hay mối quen giấu ăn mình vậy",
+                ],
+            },
+            {
+
+            name: "Nguyễn Thanh",
+                avatar: "https://i.ibb.co/QXDVCMr/462452894-844678954503160-8051059654342602004-n.jpg",
+                messages: [
+                "Đi địt luôn cho máu chả phải hóng của ông nào",
+"Vậy mới là chất chơi làm luôn cho nóng",
+"Nhìn đã quá mà vẫn phải kiềm chế",
+"https://i.ibb.co/GTJKm14/photo-1-2024-09-28-20-48-55.jpg",
+"https://i.ibb.co/G03zXPt/photo-22-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/HhygWWL/photo-22-2024-10-23-11-52-30.jpg",
+"Có con cu để sung sướng sao phải kiềm chế hả bác",
+"Thủ tục sẵn sàng chờ nàng tới nắc",
+                ],
+            },
+            {
+
+
+                name: "mùa thu lá bay tình yêu tôi",
+                avatar: "https://i.ibb.co/ysn0YTm/anh-avatar-trang-nam-11.jpg",
+                messages: [
+                "Vậy mới là chất chơi làm luôn cho nóng",
+        "Nhìn đã quá mà vẫn phải kiềm chế",
+        "https://i.ibb.co/s1kWhJ9/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321646.jpg",
+"https://i.ibb.co/xYWkm7Q/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321645.jpg",
+"https://i.ibb.co/GcQtzym/review-of-cu17cm-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-3263673-original.jpg",
+
+        "Đi địt luôn cho máu chả phải hóng của ông nào",
+        "Thủ tục sẵn sàng chờ nàng tới nắc",
+        "Giờ này vẫn đc đi địt là sướng nhất rồi",
+
+                ],
+            },
+            {
+                name: "Cho 1 nắc",
+                avatar: "https://i.ibb.co/wsVWCV4/Gallery-of-ready-made-prints-from-the-My-Stamp-Ready-online-stamp-maker.jpg",
+                messages: [
+                "Trông ngọt nước nhỉ,phải chi đc ké miếng thì",
+        "Kéo nhau đi hết đi cho đỡ ồn ào",
+        "https://i.ibb.co/s1kWhJ9/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321646.jpg",
+"https://i.ibb.co/xYWkm7Q/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321645.jpg",
+"https://i.ibb.co/GcQtzym/review-of-cu17cm-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-3263673-original.jpg",
+
+        "Mấy ông đi đéo đi suốt ngày hỏi hỏi",
+        "Nhìn dáng mấy e này ngon hết chỗ chê",
+        "Hàng tuyển phải khác hàng dạt rồi",
+
+                ],
+            },
+            {
+                name: "Con cặc",
+                avatar: "https://i.ibb.co/55zr4Jm/kisspng-computer-icons-information-image-logo-symbol-association-michel-voix-l39association-des-ar-5.jpg",
+                messages: [
+                "Giờ này k onl thì chắc chỉ có đi ngủ hoặc đi địt thôi",
+        "Đoán hay quá bác 😂",
+        "https://i.ibb.co/s1kWhJ9/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321646.jpg",
+"https://i.ibb.co/xYWkm7Q/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321645.jpg",
+"https://i.ibb.co/GcQtzym/review-of-cu17cm-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-3263673-original.jpg",
+
+       
+        "Các dân chơi hôm nay thế nào rồi",
+        "Qua mới book 1 em giờ rệu rã hết cả người",
+
+                ],
+            },
+            {
+                name: "Phong Nguyen",
+                avatar: "https://i.ibb.co/0cz42bL/kisspng-helpline-telephone-hotline-customer-service-swimmi-friendly-5b2b1d41705161-09937128152955219.png",
+                messages: [
+                "Phải nói là mấy ẻm khẩu dâm đụ hứng vcc",
+        "Sợ gặp mấy em nằm như cục đá đéo có cảm hứng gì đúng k bác",
+        "https://i.ibb.co/s1kWhJ9/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321646.jpg",
+"https://i.ibb.co/xYWkm7Q/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321645.jpg",
+"https://i.ibb.co/GcQtzym/review-of-cu17cm-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-3263673-original.jpg",
+
+        "Là sao vậy mấy ông ai chỉ tôi với",
+        "Chữ to thế k biết đọc à bác",
+        "Hiểu rồi quả này mấy bố lại đi nhiều hơn cho xem",
+
+                ],
+            },
+            {
+                name: "Dũng",
+                avatar: "https://i.ibb.co/nBPtNBh/korea-money-693949-1280.jpg",
+                messages: [
+                "Phải nói là mấy ẻm khẩu dâm đụ hứng vcc",
+        "Sợ gặp mấy em nằm như cục đá đéo có cảm hứng gì đúng k bác",
+        "https://i.ibb.co/s1kWhJ9/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321646.jpg",
+"https://i.ibb.co/xYWkm7Q/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321645.jpg",
+"https://i.ibb.co/GcQtzym/review-of-cu17cm-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-3263673-original.jpg",
+
+        "Để tôi đi về cho mấy ông làm theo 😂",
+        "Mới đi tối qua giờ được tính ko nhỉ hay tính từ sau thông báo ta",
+        "Bác đui cũng thấy mờ mờ kể từ này hôm nay chứ",
+
+                ],
+            },
+            {
+                name: "Tâm kr",
+                avatar: "https://i.ibb.co/0XFC6pq/avatar-trang-4.jpg",
+                messages: [
+                "Đấy lâu lâu phải thế này cho ae khô máu có tinh thần",
+        "Chào các bác nha bua gio hóng giờ mới có thể vô chat 😝",
+        "https://i.ibb.co/s1kWhJ9/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321646.jpg",
+"https://i.ibb.co/xYWkm7Q/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321645.jpg",
+"https://i.ibb.co/GcQtzym/review-of-cu17cm-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-3263673-original.jpg",
+        "Chúc mừng tham gia hội đồng râm",
+        "Haha thank bác nhiều nhé",
+        "À thì ra mấy nay ông nt hỏi tôi suốt đó à",
+
+                ],
+            },
+            {
+            name: "Vũ anh",
+            avatar: "https://i.ibb.co/0XFC6pq/avatar-trang-4.jpg",
+            messages: [
+              "https://i.ibb.co/R24khgC/photo-2024-11-08-17-50-12.jpg",
+              "https://i.ibb.co/FsmffJ1/review-of-duy-anh-for-hot-girl-thu-thuy-lan-dau-tien-co-mat-gaito-3166745-original.jpg",
+              
+        "Nay buồn quá nhỉ nay có gì vui k anh em",
+        "Tới phòng a đc ko a lười đi ks quá",
+        "Lên tận  giường luôn hả e khoái rồi à nha",
+            ],
+          },
+          {
+            name: "Bebe",
+            avatar:
+              "https://i.ibb.co/x3jTBpZ/109351219-2969029043216925-2295414862108758346-n.jpg",
+            messages: [
+              "Có cụ nào từng gọi 2 em 1 lúc đi chơi chưa",
+              "Hôm nào setup kèo 2 thằng gọi 2 con đi chơi đổi ca nhỉ. hay gọi vào 1 phòng chơi chung",
+              "Đụ má chơi kiểu này hay này",
+              "Đi chơi cho biết chứ cũng mất tiền chơi gái phải thử cái mới các cụ à",
+              "Nào mấy bố đi quay video cho thẩm cái nhé",
+              "Tranh thủ đụ đi mai phải đi làm r",
+              "Nhìn cũng thèm lắm mà mới đi hôm qua k lẽ đi nữa",
+              "Tôi nhập cuộc trước đây mấy cụ hưởng thụ sau nhé đang hứng 😝",
+            ],
+          },
+          {
+            name: "1 TIẾNG MỚI RA",
+            avatar:
+              "https://i.ibb.co/tKwGxxV/98450420-915018178938574-441821537687830528-n.jpg",
+            messages: [
+              "Mấy ông né né em ghệ của tôi ra nhé k tôi xót lắm",
+              "Em nào đụ hết",
+              "https://i.ibb.co/WW6G5zc/photo-25-2024-10-23-11-52-30.jpg",
+"https://i.ibb.co/ZX9kF2P/photo-26-2024-10-23-11-51-38.jpg",
+              "Vkl bác thật nói thế mất tinh cam qua",
+              "Đụ bừa đi quan tâm gì ghệ này ghệ nọ 😆",
+              "https://i.ibb.co/RQ8gD5Y/review-of-jollibee-for-hot-girl-thu-thuy-lan-dau-tien-co-mat-gaito-3222277-original.jpg",
+              "Chơi gái nhiều quá giờ phải ăn cơm vs trứng này",
+              "Còn trứng để ăn là hp đấy",
+              ],
+            },
+            {
+                name: "Duy Quang",
+                avatar: "https://i.ibb.co/hKQCWK5/453380460-2383644118498649-8155721825479697582-n.jpg",
+                messages: [
+                "Nét đấy các ôg mặtt dễ thương phết",
+        "Quan trọng là ai húp trc thôi b 😌",
+        "https://i.ibb.co/8cbkkB6/photo-23-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/KmjBP7Y/photo-23-2024-10-23-11-52-15.jpg",
+        "https://i.ibb.co/dL1g8cg/caption-4.jpg",
+          "Trc hay sau cũng địt dc cả mà lo chi hầy",
+        "Anh e thấy khó quá thì cứ để tôi tôi xơi tuốt",
+        "Ngon qá ae ơi đụ em này ko tiếc tiền đâu",
+                ],
+            },
+            {
+                name: "민석",
+                avatar: "https://i.ibb.co/0XFC6pq/avatar-trang-4.jpg",
+                messages: [
+                "Tức dái lắm đúng k b kk",
+        "Chả thế còn j đang thèm lại còn",
+        "https://i.ibb.co/7nxq2Fn/review-of-nguyen-for-hot-girl-thu-thuy-lan-dau-tien-co-mat-gaito-3265174-original.jpg",
+        "https://i.ibb.co/P9sh7DY/caption-2.jpg",
+        "Không ngon đâu để lại tôi xử lý giúp cho",
+        "Bữa giờ bận quá nay có tgian là húp luôn",
+        "Chủ yếu là để khoe thẻ có đúng k 😆",
+                ],
+            },
+            {
+                name: "Anh Tuấn",
+                avatar: "https://i.ibb.co/kmY3L7V/352382077-3179841912161446-5627824095159964225-n.jpg",
+                messages: [
+        "Để vào việc xem thế nào nóng ruột quá bác ạ",
+        "https://i.ibb.co/RCzDHJT/photo-23-2024-10-23-11-52-30.jpg",
+"https://i.ibb.co/VSDdwBn/photo-24-2024-10-23-11-51-38.jpg",
+        "Ko chén ngay thì lại hết phần đấy chứ đùa 😂",
+        "Bú chưa anh e 😜",
+        "https://i.ibb.co/P65BRCc/caption-5.jpg",
+        "Lại nứng cặc nữa roi đó",
+        "Thèm địt thôi chứ có thèm bú đâu b",
+                ],
+            },
+            {
+                name: "Đi tìm chân ái",
+                avatar: "https://i.ibb.co/3hKwxbX/358139466-2512362152257507-3962504851293990919-n.jpg",
+                messages: [
+                "Làm mấy phát về nghỉ ngơi là khỏe",
+        "Tôi thik mấy em nhiệt tình thế này đây chơi mới cảm giác",
+        "Thế thì phải bo thêm cho mấy em thôi",
+        "https://i.ibb.co/3vtg5wN/caption-6.jpg",
+        "Đơn giản cứ sướng là được 😆",
+        "https://i.ibb.co/PrByBhq/hot-girl-linh-dan-nang-tho-xinh-dep-dang-chuan-nhu-model-3209378-original.png",
+        "Ae cầm 100k qua mình x10 x20 x30 tk rồi đi hát có cả lan can luôn nha 🤣",
+        "Oke xếp cho mình 1 vé đi b kk",
+        "https://i.ibb.co/pr2xt5J/photo-82-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/8DqD10f/photo-83-2024-10-23-11-22-02.jpg",
+        "X10 hay mất x10 thì chưa biết dc gian nan lắm",
+        "B mất tôi cho tiền xe b về k phải lo",
+        "https://i.ibb.co/Qdp0KPg/caption-7.jpg",
+        "Lam giau khong kho nhi,ma giau cho cac bac ay 😂",
+        "Lợi nhuận cao thế cũng hơi lo nha hhh",
+                ],
+            },
+            {
+                name: "Khang Anh",
+                avatar: "https://i.ibb.co/6r0CzTX/452448952-500748632604966-6811140838307509192-n.jpg",
+                messages: [
+                "Làm đâu đấy bác cho xin chân nào",
+        "E ở 오산",
+        "Xa quá xa quá kk",
+        "https://i.ibb.co/PcBrZqH/Untitled-design-33.png",
+        "Mấy em gái đâu thấy cảnh này,địt dc mấy cái nói này nói kia 😂",
+        "Có chak mấy cái ko chứ nge đồn b địt như cái máy đấy",
+        "https://i.ibb.co/tcht2V3/photo-25-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/D9znnts/photo-25-2024-10-23-11-52-15.jpg",
+        "Lời đồn thường không có thật 😑😑",
+        "https://i.ibb.co/gTryjyf/caption-8.jpg",
+        "Thỏa mãn rồi đó các bác thấy sao",
+        "Dm nhất ôg rồi địt vậy mới chân thật dc",
+                ],
+            },
+            {
+                name: "chịch chịch cái nà",
+                avatar: "https://i.ibb.co/JnkFG9b/449981297-2757549737738746-7208353843692482286-n.jpg",
+                messages: [
+                    "Mấy em này biết chơi hết rồi đấy",
+                    "Đúng mốt chơi gái như thế này",
+                    "https://i.ibb.co/7znT3v5/han-baby-nang-dam-nu-dang-dep-mong-to-mat-xinh-3271485-original.jpg",
+                    "Tôi ngủ trc đây ae đi chơi vui vẻ nhé",
+        "Nay có đi làm ko các bác êy",
+        "https://i.ibb.co/dpnmNpg/caption-9.jpg",
+        "Có thất nghiệp đâu mà k cày bố",
+        "Com nc chi chưa onl sớm ri mấy cha",
+                ],
+            },
+            {
+                name: "Phanada",
+                avatar: "https://i.ibb.co/0XFC6pq/avatar-trang-4.jpg",
+                messages: [
+                    "Bỏ qua mấy em nó đi, chơi cái khác thôi",
+                    "Chơi gái không phải chuyện dễ",
+                    "Lồn ngon nhỉ vừa khít con cu luôn 😁",
+        "Nhấp gì yếu ớt thế chưa ăn cơm hả ôg 😂",
+        "https://i.ibb.co/WW6G5zc/photo-25-2024-10-23-11-52-30.jpg",
+"https://i.ibb.co/ZX9kF2P/photo-26-2024-10-23-11-51-38.jpg",
+        "Chắc đag cảm nhận hơi ấm kk",
+        "https://i.ibb.co/nLWHX8g/caption.jpg",
+        "Coi full móc vkl thật 😁",
+        "Vú nó bơm nhưng mà đẹp thật nhỉ",
+        "Coi mấy em show hàng còn nứng hơn mấy bố đụ ấy 🤣",
+        "https://i.ibb.co/4f9ZXQ2/photo-83-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/wg4gy1q/photo-84-2024-10-23-11-51-38.jpg",
+        "Làm ko lo làm xem sex suốt ngày rồi than nghèo 😌😌😌😌",
+        "Tôi làm chắc b biết nhỉ 😒😒",
+
+            ],
+        },
+        {
+          name: "NANA",
+          avatar: "https://i.ibb.co/PrByBhq/hot-girl-linh-dan-nang-tho-xinh-dep-dang-chuan-nhu-model-3209378-original.png",
+          messages: [
+            "Mình đi thôi anh yêu",
+            "E nằm phơi mình đợi anh nè",
+            "Em có thể phục vụ anh bất cứ lúc nào",
+            "Ai muốn em chăm sóc và phục vụ mình nhỉ?",
+            "Thư giãn bên em a sẽ không phải thất vọng đâu",
+            "Hãy để em làm tất cả cho em rất vui khi được phục vụ",
+            "E luôn mong chờ những phút giây bên anh kk",
+            "chỉ cần anh gọi là em có mặt",
+                ],
+            },
+            {
+                name: "Duyquangdang",
+                avatar: "https://i.ibb.co/VQfDRxN/439999497-2323079844555077-1613079290709043637-n.jpg",
+                messages: [
+                    "Mấy em này đúng chuẩn chơi hết rồi",
+                    "Đừng so sánh nữa chơi thôi",
+                    "https://i.ibb.co/HBthCXD/photo-27-2024-10-23-11-22-02.jpg",
+"https://i.ibb.co/8jsvgp8/photo-27-2024-10-23-11-52-15.jpg",
+                    "Nhịn lâu lắm rồi hay sao khổ thế",
+                    "https://i.ibb.co/gMKQs1Q/review-of-kath-nguyen-for-reup-hottu-anh-hot-model-cuc-ky-loi-cuon-va-khong-the-choi-tu-2741787-orig.jpg",
+        "Vã lắm r hả b còn k lo địt đi",
+        "Mông ni doggy đúng cmn bài nhỉ",
+        "Đụ lút cán luôn ấy bác hầy 🤣",
+                ],
+            },
+            {
+                name: "Hoàng phong",
+                avatar: "https://i.ibb.co/4gShwVt/363310097-1450155849152375-8396000734777126-n.jpg",
+                messages: [
+                    "Chơi là phải đúng đỉnh, mấy em này thích hợp",
+                    "Tôi thích mấy em này hơn",
+                    "https://i.ibb.co/yXpRfRY/photo-28-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/W0rJLvD/photo-28-2024-10-23-11-52-30.jpg",
+        "Ước dc nhảy vào phang e này luôn",
+        "https://i.ibb.co/Lt9hmH7/review-of-kath-nguyen-for-reup-hottu-anh-hot-model-cuc-ky-loi-cuon-va-khong-the-choi-tu-2741788-orig.jpg",
+
+        "Xoắn quần lên mà đi chờ đợi j 🥱🥱",
+        "Làm 2 bìu bò này ngủ đến sáng",
+                ],
+            },
+            {
+                name: "Hồng Đăng",
+                avatar: "https://i.ibb.co/HB587n8/44936471-527542047763163-5996408823554768896-n.jpg",
+                messages: [
+                    "Đây là lựa chọn tốt nhất rồi",
+                    "Chơi thử chắc sẽ ok",
+                    "https://i.ibb.co/BPsM4j7/review-of-long-dep-trai-1990-for-reup-hottu-anh-hot-model-cuc-ky-loi-cuon-va-khong-the-choi-tu-28614.jpg",
+                    "Học than theo mấy bác mới có tiền dc kk",
+                    "https://i.ibb.co/BtQVmfs/photo-30-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/cYjPG1x/photo-30-2024-10-23-11-52-15.jpg",
+        "Giờ này chỉ có đi nhậu về nằm hưởng thụ đúng bài",
+        "Để dành qua tháng đi hoài mì tôm k có mà ăn 😆😆",
+        "Ăn vậy lúc nào cũng than khổ vl",
+                ],
+            },
+            {
+                name: "anh muốn địt em",
+                avatar: "https://i.ibb.co/DKSYyrc/48360783-729235107453398-7758860129620983808-n.jpg",
+                messages: [
+                "Book đi đụ phát là biết thật hay bơm chứ đoán già đoán non làm gì",
+                "https://i.ibb.co/yNr8tZj/photo-79-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/N6NKT3c/photo-79-2024-10-23-11-52-15.jpg",
+        "Ngày mô cũng nhậu thế ni hỏng hết",
+        "Đụ dc 5 phút vác dái đi về",
+        "https://i.ibb.co/JFYSB1c/review-of-haotroc-for-re-up-angela-phuong-trinh-nu-hoang-cosplay-massage-fuck-3009171-original.jpg",
+        "Ăn sau lại còn mời vkl",
+        "Ông nào lên lịch tối nay chưa thế",
+        "https://i.ibb.co/2sXtdq0/photo-77-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/GVDRKfG/photo-78-2024-10-23-11-52-15.jpg",
+        "Tôi còn đang cắm đầu làm bác đã đi chơi gái rồi à",
+        "Bác ko đi à sao còn ở đây thế",
+        "https://i.ibb.co/KrGY6n3/review-of-h-saoke-for-re-up-angela-phuong-trinh-nu-hoang-cosplay-massage-fuck-3159348-original.jpg",
+        "Đụ lút cán luôn phê lòi nhỉ 🤣",
+        ],
+        },
+
+        {
+          name: "QUỲNH ANH",
+          avatar: "https://i.ibb.co/hRWg01V/review-of-dau-si-la-ma-for-reup-tieu-vy-xinh-dam-ngoan-3258118-original.jpg",
+          messages: [
+            "Em sẽ khiến a cảm thấy thoải mái luôn",
+            "Đến với em nhen",
+            "Chắc chắn anh sẽ thích thời gian bên e cho mà xem",
+            "Em luôn ở đây để phục vụ anh",
+        
+            "A có muốn dành thời gian thư giãn với e k nè?",
+            "Em hứa sẽ làm anh hài lòng,chỉ cần anh thử thui",
+                ],
+            },
+            {
+                name: "Tuấn An Đỗ",
+                avatar: "https://i.ibb.co/PYd3Gf3/65965425-484218999000145-7695834040057724928-n.jpg",
+                messages: [
+                    "Chắc phải chọn lựa kĩ mới chơi được",
+                    "https://i.ibb.co/5WwmC9V/photo-30-2024-10-23-11-52-30.jpg",
+"https://i.ibb.co/SfFcNJ9/photo-31-2024-10-23-11-52-15.jpg",
+                    "Mấy ôg nhanh thế vừa vào đã húp mất rồi",
+        "Nắc cho vậy mak bảo k sướng nữa thì...",
+        "https://i.ibb.co/k1mfzzG/review-of-vu-nguyen-anh-quan-for-reup-tieu-vy-xinh-dam-ngoan-2711519-original.jpg",
+        "Nhìn nứng cac thế nhỉ tôi mà đc như bác chắc tôi đụ cho bê lồn chạy",
+        "Chịu khó đi nhiều nhiều là biết e nào ngon thôi",
+        "Ngon nên mới phải thử trc chứ",
+                ],
+            },
+            {
+                name: "Tuấn",
+                avatar: "https://i.ibb.co/0XFC6pq/avatar-trang-4.jpg",
+                messages: [
+                    "Chơi thử rồi cảm giác chơi cũng ok",
+                    "Chơi kiểu này vẫn chưa đủ",
+                    "https://i.ibb.co/tZLZbCN/review-of-vung-trom-for-reup-tieu-vy-xinh-dam-ngoan-2831885-original.jpg",
+                    "Lò mò đi đụ sớm vậy tới lắm r à 🤣",
+        "Cu bác vừa dài vừa to bảo sao e ấy k rên cho được",
+        "https://i.ibb.co/dQ5D2GM/photo-31-2024-10-23-11-52-30.jpg",
+"https://i.ibb.co/bJ7btzF/photo-32-2024-10-23-11-51-38.jpg",
+        "Ai đầu tư tiền để tôi đi check cho",
+        "Tranh thủ book lẹ đi k hết đào đấy bạn nhé kk",
+                ],
+            },
+            {
+                name: "NgọcSơnkr",
+                avatar: "https://i.ibb.co/2KJcQ2F/71565859-2330950190358150-5687197424787914752-n.jpg",
+                messages: [
+        "anh em ngồi tâm sự",
+        "Mỗi lần tụ tập ăn uống đều có thêm đồ ăn ngon",
+        "https://i.ibb.co/yXxbpVc/photo-32-2024-10-23-11-52-30.jpg",
+"https://i.ibb.co/syw8M2x/photo-33-2024-10-23-11-52-15.jpg",
+        "Có thêm bạn hiền, chỗ ngồi nhậu nhẹt càng vui",
+        "Cảm giác không thoải mái khi ở cùng bạn có người yêu kk",
+        "Nhìn người đẹp cảm giác như diễn viên nước ngoài",
+        "https://i.ibb.co/C987LV2/photo-84-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/cYF3WLM/photo-85-2024-10-23-11-22-02.jpg",
+        "Nét quá bác ơi mặt này chắc xinh lắm",
+                ],
+            },
+            {
+                name: "ĐôngQuang",
+                avatar: "https://i.ibb.co/2vwZvf5/82220736-1079023835772513-6462290643480739840-n.jpg",
+                messages: [
+                "Đang lên lịch tối nay book 1 e xinh tươi vú hồng",
+        "Lồn hồng mới khó chứ vú hồng bt mà",
+        "https://i.ibb.co/DRd6F1P/photo-34-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/8zV2FzQ/photo-35-2024-10-23-11-52-15.jpg",
+        "Mấy bác đụ nhiệt tình quá khách sạn họ thích lắm",
+        "Nhậu đê các ông say vào mới hứng chơi gái đuoc",
+        "https://i.ibb.co/d5XkbGc/review-of-dai-gia-phuong-nam-for-reup-tieu-vy-xinh-dam-ngoan-2629009-original.jpg",
+        "Tôi thích kiểu chơi này hơn",
+                ],
+            },
+            {
+                name: "BảoLong",
+                avatar: "https://i.ibb.co/8cJZ16g/82334469-1079023799105850-3117550875644526592-n.jpg",
+                messages: [
+                    "Chơi kiểu này chắc cũng ổn",
+                    "Mấy em này có vẻ vừa phải",
+                    "Chơi kiểu này chưa thử bao giờ",
+                    "https://i.ibb.co/xDfnDcm/review-of-tran-le-cong-for-reup-tieu-vy-xinh-dam-ngoan-2856816-original.jpg",
+        "Chơi trong bồn tắm, cảm giác tung tóe nước thú vị",
+        "Đổi không khí ra ban công cũng có cảm giác lạ",
+        "Có người nhắn tin bảo đặt hẹn, hơi nổi da gà",
+        "https://i.ibb.co/x1ccJNy/photo-75-2024-10-23-11-22-02.jpg",
+"https://i.ibb.co/Xt1rVM5/photo-75-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/ZcQKwg2/photo-76-2024-10-23-11-51-38.jpg",
+        "Đồng ý tham gia cho vui",
+        ],
+        },
+
+        {
+          name: "TRÂM ANH",
+          avatar: "https://i.ibb.co/YpfzdNb/reup-tieu-vy-xinh-dam-ngoan-2716893-original.jpg",
+          messages: [
+            "Em luôn sẵn sàng cho các anh",
+            "Có anh nào muốn lên đỉnh cùng em không",
+            "E nhớ các anh lắm rồi đấy baby à",
+            "Các anh đang làm gì đó súng đx lên đạn chưa",
+            "E đang đợi các a gọi đây",
+            "Em sẽ khiến các anh lên mây haha",
+            "Các anh cần em không nè",
+            "E sẽ làm các anh thư giãn nhức nách lun",
+            ],
+            },
+            {
+                name: "Duy An",
+                avatar: "https://i.ibb.co/xSnjJCs/365675002-964747994746987-1739486736806920427-n.jpg",
+                messages: [
+                    "Chơi cũng ok đấy",
+                    "Các em nó chơi có vẻ khéo léo",
+                    "Đang ngồi hóng mấy ông khoe gái đít bự ăn cơm cho dễ nuốt 😁",
+        "Cũng chỉ đụ thôi chứ gì mà màu mè hhh",
+        "https://i.ibb.co/Sy32Kv0/review-of-ga-dau-troc-for-reup-tieu-vy-xinh-dam-ngoan-2717315-original.jpg",
+        "Giờ này dc húp hàu rồi sướng thế",
+        "https://i.ibb.co/qCfxVyM/review-of-sa-de-for-reup-eimi-fukada-body-goi-cam-service-chu-dao-3081515-original.jpg",
+        "đc nắc em này sướng gì bằng nữa",
+        "Hàng ngon thế vú đẹp vl thật",
+                ],
+            },
+            {
+                name: "Anhhuy5341",
+                avatar: "https://i.ibb.co/0XFC6pq/avatar-trang-4.jpg",
+                messages: [
+                "Bú luôn chúc bác vui vẻ nhé",
+        "Tôi giờ vẫn chưa lựa đuọc e nào thấy e nào cũng ngon",
+        "https://i.ibb.co/bgh2gck/photo-35-2024-10-23-11-52-30.jpg",
+"https://i.ibb.co/m4PYmxp/photo-36-2024-10-23-11-52-15.jpg",
+        "Mấy ông có thể đi suốt ngày suốt đêm k hết tiền ak",
+        "Chỉ sợ k có sức mà đi thôi chứ tháng 5 6 lần vẫn dư sức",
+        "https://i.ibb.co/SV88J2T/review-of-dau-si-la-ma-for-reup-tieu-vy-xinh-dam-ngoan-3258117-original.jpg",
+        "Có ông nào đi chơi nhiều quá giờ hết ngổng nổi ko",
+        "Vkl bác dùng thuốc tăng cường sinh lý đi",
+                ],
+            },
+
+            {
+                name: "quankr88",
+                avatar: "https://i.ibb.co/HKLtJsy/91995446-885014241938968-7102376830853709824-n.jpg",
+                messages: [
+                    "Bên này ok không các bác",
+                    "Ai đã book mấy bé bên này chưa",
+                    "https://i.ibb.co/rMh7PKc/review-of-jo-pang-for-reup-eimi-fukada-body-goi-cam-service-chu-dao-3152556-original.jpg",
+                    "Tôi đang tìm phòng thoải mái ai biết chỗ nào không",
+                    "Chỗ mình có phòng đẹp lắm các bác có muốn thử không",
+                    "https://i.ibb.co/PYGCZ0C/photo-36-2024-10-23-11-52-30.jpg",
+"https://i.ibb.co/HDrJ7wf/photo-37-2024-10-23-11-52-30.jpg",
+                    "Liên hệ ngay nếu cần phòng gấp mình sẽ giúp",
+                ],
+            },
+            {
+                name: "anhhuytran",
+                avatar: "https://i.ibb.co/dtz5KBD/94361100-2489325074652782-6359101537343504384-n.jpg",
+                messages: [
+                    "Có em nào rảnh không bên này còn phòng không các bác",
+                    "Tôi đang muốn book phòng ai biết chỗ nào tốt không",
+                    "https://i.ibb.co/d40CFMJ/review-of-jo-pang-for-reup-eimi-fukada-body-goi-cam-service-chu-dao-3152555-original.jpg",
+                    "Ai đã trải nghiệm bên này rồi cho tôi xin lời khuyên",
+                    "Bên này có mấy bé xinh ai thử chưa",
+                    "https://i.ibb.co/GR2ZWSM/photo-38-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/R0wDbK2/photo-38-2024-10-23-11-52-15.jpg",
+                    "Chỗ này đúng chuẩn bác nào cần đặt thì báo mình",
+                ],
+            },
+            {
+                name: "quốc hùng54",
+                avatar: "https://i.ibb.co/tKwGxxV/98450420-915018178938574-441821537687830528-n.jpg",
+                messages: [
+                "Có cụ nào từng gọi 2 em 1 lúc đi chơi chưa",
+        "Hôm nào setup kèo 2 thằng gọi 2 con đi chơi đổi ca nhỉ. hay gọi vào 1 phòng chơi chung",
+        "Đụ má chơi kiểu này hay này",
+        "https://i.ibb.co/pQdcnZJ/rau-sach-be-bong-face-xinh-hang-ngon-nguc-dep-mong-to-3082477-original.jpg",
+"https://i.ibb.co/YPHBH9p/review-of-phich-thu-for-reup-thuy-cherry-nhan-sac-diem-le-than-hinh-sexy-me-hoac-2938628-original.jpg",
+"https://i.ibb.co/mNm6fH7/review-of-long-dep-trai-1990-for-reup-thuy-cherry-nhan-sac-diem-le-than-hinh-sexy-me-hoac-2914807-or.jpg",
+        "Đi chơi cho biết chứ cũng mất tiền chơi gái phải thử cái mới các cụ à",
+        "Nào mấy bố đi quay video cho thẩm cái nhé",
+        "Tranh thủ đụ đi mai phải đi làm r",
+        "https://i.ibb.co/WGs8pVb/photo-85-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/j8vfvgZ/photo-86-2024-10-23-11-22-02.jpg",
+        "Nhìn cũng thèm lắm mà mới đi hôm qua k lẽ đi nữa",
+        "Tôi nhập cuộc trước đây mấy cụ hưởng thụ sau nhé đang hứng 😝",
+                ],
+            },
+            {
+                name: "Tấn lực",
+                avatar: "https://i.ibb.co/x3jTBpZ/109351219-2969029043216925-2295414862108758346-n.jpg",
+                messages: [
+                "Mấy ông né né em ghệ của tôi ra nhé k tôi xót lắm",
+        "Em nào đụ hết",
+        "Vkl bác thật nói thế mất tinh cam qua",
+"https://i.ibb.co/5vJdDBW/review-of-thanh-bui-tien-for-reup-tieu-linh-2k4-xinh-tuoi-dang-nuot-na-vu-dep-bym-non-to-3203402-ori.jpg",
+        "Đụ bừa đi quan tâm gì ghệ này ghệ nọ 😆",
+        "Chơi gái nhiều quá giờ phải ăn cơm vs trứng này",
+        "Còn trứng để ăn là hp đấy",
+                ],
+            },
+            {
+                name: "huyklkk",
+                avatar: "https://i.ibb.co/0XFC6pq/avatar-trang-4.jpg",
+                messages: [
+                "Phải nói là mấy ẻm khẩu dâm đụ hứng vcc",
+        "Sợ gặp mấy em nằm như cục đá đéo có cảm hứng gì đúng k bác",
+        "https://i.ibb.co/s1kWhJ9/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321646.jpg",
+"https://i.ibb.co/xYWkm7Q/review-of-lan-tan-chon-buoi-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-321645.jpg",
+"https://i.ibb.co/GcQtzym/review-of-cu17cm-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-3263673-original.jpg",
+        "Tôi là tôi khoái mấy bé rên rên kiểu vậy đó",
+        "Tui thì chỉ cần là con gái là được 😂",
+        "https://i.ibb.co/XxG4yxw/photo-86-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/QKQCMwh/photo-87-2024-10-23-11-52-15.jpg",
+        "Nay mấy bác rãnh lắm hay sao book mấy e xinh xinh kín lịch hết vậy nhỉ",
+
+                ],
+            },
+            {
+                name: "김민수",
+                avatar: "https://i.ibb.co/2gSvwQ4/vip-emblem-transparent-background-357958-3454-removebg-preview-1.png",
+                messages: [
+                    "여기 서비스 괜찮아요",
+                    "오늘 밤에 예약하려면 어떻게 해야 돼요",
+                    "이곳에서 숙박은 어때요?",
+                    "매우 편안하고 좋았어요",
+                    "https://i.ibb.co/2gm2Pvf/review-of-cu17cm-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-3263676-original.jpg",
+"https://i.ibb.co/YRgXxzb/review-of-quan-minh-for-be-hani-2k-cute-xinh-xan-vu-dep-body-nong-bong-lan-dau-di-lam-3245337-origin.jpg",
+"https://i.ibb.co/4sNBKZ2/review-of-dark-for-reup-huyen-my-nhe-nhang-tinh-cam-yeu-chieu-nhu-nguoi-yeu-3220609-original.jpg",
+                    "이곳에 여러 번 왔어요. 항상 만족합니다",
+                    "여기 직원들이 정말 친절해요",
+                    "방이 깨끗하고 좋았어요",
+                    "이곳을 추천해요",
+                    "https://i.ibb.co/k08rdrM/photo-88-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/6b9PGtD/photo-90-2024-10-23-11-52-15.jpg",
+                    "이용해 본 분 있으면 후기를 알려 주세요",
+                    "오늘도 예약할 건데, 방이 있나요?",
+                ],
+            },
+            {
+                name: "박지훈",
+                avatar: "https://i.ibb.co/QJLcPRh/116521845-755373281884714-3118041706125876316-n.jpg",
+                messages: [
+                    "방이 너무 편안하고 좋아요",
+                    "여기 위치가 좋아서 편해요",
+                    "예약을 어떻게 해야 할지 모르겠어요",
+                    "https://i.ibb.co/kGzjh4t/photo-91-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/nB1D576/photo-92-2024-10-23-11-51-38.jpg",
+                    "저는 이곳을 자주 이용해요",
+                    "매일 이곳에 오는 게 즐거워요",
+                    "가격이 적당해서 만족스러워요",
+                    "https://i.ibb.co/LQ40dnq/photo-72-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/zGkqhv7/photo-73-2024-10-23-11-22-02.jpg",
+"https://i.ibb.co/68Sn0GT/photo-73-2024-10-23-11-52-15.jpg",
+                    "추천해요, 좋은 숙소입니다",
+                    "저도 예약하려고 하는데 방이 있나요?",
+                    "이 서비스는 정말 최고입니다",
+                    "좋은 서비스를 제공하는 곳입니다",
+                    ],
+        },
+
+        {
+          name: "HÀ MY",
+          avatar: "https://i.ibb.co/5vJdDBW/review-of-thanh-bui-tien-for-reup-tieu-linh-2k4-xinh-tuoi-dang-nuot-na-vu-dep-bym-non-to-3203402-ori.jpg",
+          messages: [
+            "Book em đi nào",
+            "Tới đi a ơi",
+            "Thèm lắm rồi à nha",
+            "Lên lịch cho em đi",
+            "Em sẵn sàng làm tất cả để anh cảm thấy thoải mái",
+            "Chắc chắn sẽ không làm anh thất vọng đâu",
+            "Em đang ở đây để làm anh vui vẻ",
+            "Em sẽ làm anh bất ngờ đó",
+            "Để em phục vụ anh nhé",
+                    ],
+            },
+            {
+                name: "이정호",
+                avatar: "https://i.ibb.co/dP0qrn1/117389932-2582842741967681-9001442317230863028-n.jpg",
+                messages: [
+                    "여기 정말 좋네요, 추천합니다",
+                    "오늘도 방 예약하려고 하는데, 괜찮을까요?",
+                    "https://i.ibb.co/M6h9Q86/photo-93-2024-10-23-11-22-02.jpg",
+"https://i.ibb.co/rH5pt2y/photo-95-2024-10-23-11-51-38.jpg",
+                    "위치가 좋고 서비스도 훌륭해요",
+                    "가격이 정말 저렴해요",
+                    "내일 예약하려는데 방이 남아 있나요?",
+                    "https://i.ibb.co/fChx501/photo-70-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/FY3XVyj/photo-71-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/3fWdpNT/photo-71-2024-10-23-11-52-15.jpg",
+                    "방 상태가 매우 깨끗했어요",
+                    "저는 항상 이곳에서 묵어요",
+                    "직원들이 매우 친절하고 전문적이에요",
+                    "이곳을 친구들에게 추천할 거예요",
+                    "서비스가 정말 마음에 들어요",
+                ],
+            },
+            {
+                name: "김수지",
+                avatar: "https://i.ibb.co/dtQh08K/kisspng-clarify-health-solutions-health-care-the-welcome-r-5d2d5a1e013a63-980000501563253278005.png",
+                messages: [
+                    "여기 방이 정말 아늑하고 좋아요",
+                    "가격이 너무 합리적이에요",
+                    "https://i.ibb.co/RHMf0Sb/photo-96-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/c1ZRRpf/photo-97-2024-10-23-11-22-02.jpg",
+                    "이곳에서 자주 묵어요",
+                    "오늘도 예약할 예정인데, 방이 있나요?",
+                    "위치도 편리하고 시설도 훌륭해요",
+                    "https://i.ibb.co/8KyjxBJ/photo-69-2024-10-23-11-22-02.jpg",
+"https://i.ibb.co/0V4LLd7/photo-69-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/Tcwy7ZX/photo-70-2024-10-23-11-22-02.jpg",
+                    "다음에도 꼭 여기서 묵을 거예요",
+                    "서비스가 좋아서 다시 오고 싶어요",
+                    "직원들이 친절하고 helpful해요",
+                    "편안한 숙소에서 좋은 시간 보내고 가요",
+                    "추천할 만한 곳이에요",
+                ],
+            },
+            {
+                name: "임성민",
+                avatar: "https://i.ibb.co/ky7Nr8n/photo-2024-01-04-18-23-44.jpg",
+                messages: [
+                    "방이 너무 깨끗하고 쾌적해요",
+                    "https://i.ibb.co/znQ14n4/photo-97-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/QJYHGfZ/photo-98-2024-10-23-11-22-02.jpg",
+                    "여기 예약하기 정말 편리해요",
+                    "친절한 서비스 덕분에 기분이 좋았어요",
+                    "방이 너무 좋고 분위기도 편안했어요",
+                    "https://i.ibb.co/rF2f6Y1/photo-68-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/rcGHtcM/photo-68-2024-10-23-11-52-15.jpg",
+                    "이곳은 가격이 저렴하고 서비스도 좋아요",
+                    "직원들이 매우 친절하고 도움이 많이 됐어요",
+                    "매번 이곳에 묵게 돼요",
+                    "다음에도 여기서 예약하려고요",
+                    "친구들에게 이곳을 추천할 거예요",
+                    "이 서비스는 정말 훌륭해요",
+
+                    ]
+            },
+
+            {
+                name: "YUMI",
+                avatar: "https://i.ibb.co/SsZ2pgF/g1ixJ3Kw.jpg",
+                messages: [
+                    "Anh muốn thư giãn bên em k",
+                    "Em ở đây đợi các a nãy h đó",
+                    "Thử đi anh",
+                    "Lên lịch cho em đi,em cho anh tới bến",
+                    "Em có thể giúp anh thư giãn,anh nứng là đc",
+                    "Anh cần gì cứ yêu cầu",
+                    "Em rất vui khi được phục vụ anh hihi",
+                    "Ai muốn thư giãn cùng em nào",
+                    "Em sẽ làm anh bất ngờ với dịch vụ của e",
+
+                ],
+            },
+            {
+                name: "오지윤",
+                avatar: "https://i.ibb.co/JHpmmsM/photo-2024-07-27-18-15-49.jpg",
+                messages: [
+                    "이곳에서의 경험은 정말 좋았어요",
+                    "방이 넓고 편안해서 좋았어요",
+                    "가격이 너무 합리적이에요",
+                    "https://i.ibb.co/DYN5XmR/photo-98-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/0c8sQYB/photo-99-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/Tkqq9NX/photo-2024-09-29-18-09-36.jpg",
+                    "직원들이 정말 친절해요",
+                    "위치가 좋고 교통도 편리해요",
+                    "https://i.ibb.co/9cmdkmG/photo-67-2024-10-23-11-22-02.jpg",
+"https://i.ibb.co/t8j6CZj/photo-67-2024-10-23-11-52-15.jpg",
+                    "이곳을 추천하고 싶어요",
+                    "매번 이곳에 묵게 되네요",
+                    "예약은 간단하고 빠르게 완료돼요",
+                    "다음에도 여기서 예약할 생각이에요",
+                    "친구들에게 이곳을 추천할 거예요",
+                ],
+            },
+            {
+                name: "홍지수",
+                avatar: "https://i.ibb.co/HhwKYL2/photo-2024-01-20-01-01-13.jpg",
+                messages: [
+                    "방이 정말 좋고, 가격도 적당해요",
+                    "여기 서비스는 정말 최고예요",
+                    "위치도 좋고 교통도 편리해요",
+                    "추천할 만한 곳이에요",
+                    "https://i.ibb.co/0BLVGRz/photo-40-2024-10-23-11-22-02.jpg",
+"https://i.ibb.co/Qn69PjL/photo-40-2024-10-23-11-51-38.jpg",
+                    "여기 자주 와서 만족스러워요",
+                    "이곳에서 묵을 때마다 좋은 경험을 해요",
+                    "친구들과 함께 오고 싶어요",
+                    "이 서비스는 정말 훌륭해요",
+                    "방이 너무 편안해서 다시 오고 싶어요",
+                    "다음에도 또 예약할 계획이에요",
+                ],
+            },
+            {
+                name: "THIÊN AN",
+                avatar: "https://i.ibb.co/px4G7Z6/review-of-hai-for-reup-huyen-my-nhe-nhang-tinh-cam-yeu-chieu-nhu-nguoi-yeu-3247539-original.jpg",
+                messages: [
+                    "Em luôn sẵn sàng",
+                    "E sẽ khiến a cảm thấy thoải mái nhất có thể",
+                    "Ai muốn tận hưởng khoảnh khắc tuyệt vời cùng e?",
+                    "E đang rảnh chỉ cần a gọi là em có mặt",
+
+                    "E sẵn sàng phục vụ a với tất cả sự nhiệt tình",
+                    "Hãy để e mút chim cho a ha",
+                    "K cần lo lắng e sẽ làm a cảm thấy như ở nhà",
+                    "A sẽ không hối hận khi chọn em đâu",
+                ],
+            },
+             {
+                name: "김지훈",
+                avatar: "https://i.ibb.co/4MqZ1vz/photo-2024-01-05-11-25-44.jpg",
+                messages: [
+                    "여기 너무 좋아요, 자주 오고 싶어요",
+                    "방이 넓고 깨끗해서 편안했어요",
+                    "이곳을 다시 올 거예요",
+                    "여기 가격도 정말 괜찮아요",
+                    "https://i.ibb.co/YdvvQVC/photo-38-2024-10-23-11-52-30.jpg",
+"https://i.ibb.co/ncjgPsG/photo-39-2024-10-23-11-52-30.jpg",
+                    "서비스가 훌륭해요",
+                    "친절한 직원 덕분에 기분 좋았어요",
+                    "추천하고 싶은 숙소예요",
+                    "방이 깨끗하고 정돈되어 있어요",
+                    "다음에도 또 예약하려고 해요",
+                    "위치도 좋고 편리해요",
+                    ],
+                },
+                {
+                name: "anh yêu July",
+                avatar: "https://i.ibb.co/H4hr8C5/119231544-2831857350465762-6729963575003338264-n.jpg",
+                messages: [
+                "Đúng nhờ địt che hết cả lồn hhh",
+        "Gặp tôi phải 3 cái chơi mới thấm dc",
+        "https://i.ibb.co/vDrbVH0/review-of-dam-dam-cong-tu-for-reup-huyen-my-nhe-nhang-tinh-cam-yeu-chieu-nhu-nguoi-yeu-3272192-origi.jpg",
+        "3 cái mỗi cái 5 phút ai chả chơi được 🤣🤣",
+        "Làm gì tệ thế dc ít cũng 10p chứ kk",
+        "https://i.ibb.co/5RZs9QW/review-of-dark-for-reup-huyen-my-nhe-nhang-tinh-cam-yeu-chieu-nhu-nguoi-yeu-3220611-original.jpg",
+"https://i.ibb.co/KFFGQjT/review-of-cuong-hoang-dang-vinh-for-reup-huyen-my-nhe-nhang-tinh-cam-yeu-chieu-nhu-nguoi-yeu-3228232.jpg",
+        "Các bác ăn uống hết chưa ?",
+        "Cả ngày bận bịu giờ mới vào đc",
+        "Book e mô đi chơi chưa các ôg",
+                ]
+            },
+            {
+                name: "nguyenbao",
+                avatar: "https://i.ibb.co/rmK5PCc/352379758-1477320172672258-7072304429330889757-n.jpg",
+                messages: [
+                "Say vào đừng book gái nữa nha b 😁",
+        "Uống dc mấy lắm mà say",
+        "https://i.ibb.co/WBF1cmv/review-of-map-for-rau-sach-be-thao-nhi-non-to-de-thuong-mon-mon-tuoi-moi-lon-3242824-original.jpg",
+"https://i.ibb.co/Bzb4vWd/review-of-map-for-rau-sach-be-thao-nhi-non-to-de-thuong-mon-mon-tuoi-moi-lon-3242822-original.jpg",
+        "Mấy e nhân viên đag chờ sẵn đấy đừng để mấy e thất vọng",
+        "Ns thế ngta đánh giá tôi thì lm s",
+        "https://i.ibb.co/mS9Th4H/photo-66-2024-10-23-11-22-02.jpg",
+"https://i.ibb.co/drpJkD2/photo-66-2024-10-23-11-52-15.jpg",
+        "K địt thì thôi đã địt phải ngon mới vừa lòng",
+        "Cho mình hài lòng chút với nào 😁",
+        ]
+            },
+            {
+                name: "Luongnhat",
+                avatar: "https://i.ibb.co/VpRxPtz/84800118-700943840309899-8909380622955315200-n.jpg",
+                messages: [
+                "Đc 3-4 lần ko được sờ cái là xong hả b",
+                "https://i.ibb.co/xjPDHDw/photo-40-2024-10-23-11-52-15.jpg",
+        "Nhanh lắm chắc định địt hết luôn giờ chắc còn đi",
+"https://i.ibb.co/S0jkb2t/review-of-lang-tu-for-rau-sach-be-lucie-hotteen-mau-anh-non-to-xinh-xan-3152565-original.jpg",
+        "Trc ngày nào đi là đi hết k cơm nước chi đg hả b",
+        "Lần trước đi bị bỏ quên lâu wé kẹo ăn mà chứ",
+                ]
+            },
+            {
+                name: "tronghieu",
+                avatar: "https://i.ibb.co/dmVbPqC/146645217-1840675756092820-270253680374749053-n.jpg",
+                messages: [
+                "Diễn tả nghe nứng cặc thật đấy mấy ông ơi",
+        "Anh e giờ này lâm trận hết cả rồi nhỉ 😆",
+        "https://i.ibb.co/60SbS0p/review-of-the-la-het-for-reup-minh-anh-mat-xinh-da-trang-body-boc-lua-3228179-original.jpg",
+"https://i.ibb.co/hc6ZZ9n/review-of-hao-for-reup-minh-anh-mat-xinh-da-trang-body-boc-lua-3235021-original.jpg",
+        "Còn tôi vs bác đây thây kk",
+        "Mai đi làm rồi chơi bời chi giờ ni",
+        "Sáng đi lm là chuyện của buổi sáng lo gì 🤣🤣",
+                ]
+            },
+            {
+                name: "minhluan",
+                avatar: "https://i.ibb.co/HDzXCcq/215367314-2897466637173500-1538921034047321931-n.jpg",
+                messages: [
+                "Tiền bạc đâu mà ăn vs uống kk",
+        "Hít lắm thế mà vẫn nuốt dc cơ à",
+        "https://i.ibb.co/QcbFmCm/photo-41-2024-10-23-11-51-38.jpg",
+        "Chắc đồ ngon quá đó b 😆",
+        "https://i.ibb.co/dBFppLm/review-of-bungbu12-for-reup-hot-be-thao-vy-baby-nong-bong-xinh-dep-diu-dang-3235218-original.jpg",
+        "Nay húp dc em nào chưa vậy ae",
+        "Nướng khoai sớm thế b",
+                ]
+            },
+            {
+                name: "phucdung97",
+                avatar: "https://i.ibb.co/K5HF4VJ/428230343-2268725836657145-7035186052846929012-n.jpg",
+                messages: [
+                    "Nhiều ae chắc mê body e này lắm nhỉ em này bú quá chuyên nghiệp luôn",
+                    "Đừng gạ gẫm nữa mấy em call mà mấy e cứ móc bướm cho xem sao chịu nổi",
+                    "https://i.ibb.co/sFgN3ff/photo-40-2024-10-23-11-52-30.jpg",
+                    "Mà bé này ở teku đấy ae nào gần thì nhanh test thử",
+                    "https://i.ibb.co/7Kqsbz8/20200403-205530-largejpg.jpg",
+                    "Nhăn tin đặt bảo đặt bé an nhiên nhé bé này nc nôi ae khỏi phải chê đi",
+                ]
+            },
+            {
+                name: "Lehoangbaonam",
+                avatar: "https://i.ibb.co/q0tfwvZ/226491311-3103868136598014-9122348726549110625-n.jpg",
+                messages: [
+                "Nhìn đã vãi loz vú múp thế",
+                    "Kiếm bé nào đi chat sex mấy ông ơi",
+                    "https://i.ibb.co/Gv4XS42/photo-43-2024-10-23-11-22-02.jpg",
+                    "Book mak đụ chat làm j cho nứng",
+                    "https://i.ibb.co/FhpMt3S/dh-naissance-friendly.jpg",
+                    "K phải móc đâu để a đến a đụ cho sướng em ơi",
+                    ]
+            },
+            {
+                name: "SELINA",
+                avatar: "https://i.ibb.co/sRvKkpc/reup-hot-be-thao-vy-baby-nong-bong-xinh-dep-diu-dang-3203116-original.jpg",
+                messages: [
+                "A muốn lên lịch với e chưa",
+        "E đang rảnh để book a đây",
+        "Book e ngay để có cuộc hẹn tuyệt vời nha",
+        "A đã lên lịch chưa hay muốn e phục vụ ngay",
+        "E luôn sẵn sàng cho a khi cần",
+                ]
+            },
+            {
+                name: "tùng dương",
+                avatar: "https://i.ibb.co/TbB9FZP/241280385-2011849205642140-8610168309376988925-n.jpg",
+                messages: [
+                "Dễ thương thế k book thì phí",
+                "https://i.ibb.co/091Nsdr/photo-43-2024-10-23-11-52-15.jpg",
+                    "E nó đang nứng quá đấy bác",
+                    "https://i.ibb.co/CbgMhX5/glue-hotel.jpg",
+                    "Em móc thế hỏng hết hàng họ em ơi",
+                    "Mấy bé hôm nay vắng khách nên nứng quá à",
+                ]
+            },
+            {
+                name: "điệp",
+                avatar: "https://i.ibb.co/54R9nZv/242726891-2058879164272477-4153675998582393962-n.jpg",
+                messages: [
+                "Mấy em hôm nay k ông nào chơi chắc lắm nc lắm đây",
+                "https://i.ibb.co/HgRhj8D/photo-43-2024-10-23-11-52-30.jpg",
+                    "Các em đợi a tối a đến a chiều mấy em cho bớt nứng",
+                    "Chơi ngày đầu tuần này là mấy e nó nhiều nc hơn",
+                    "Ông bạn cái j cũng biết nhỉ",
+                    "https://i.ibb.co/m64NW1j/caption.jpg",
+                    "Nói gì thì nói chứ cái nc lồn này ae nào muốn bú k",
+                    "E này nc dâm thủy thì đúng nhiều luôn vừa động vào cái đã chảy nc rồi",
+                    "Cũng k ăn thua ngày làm ngày nghỉ chỉ đủ ăn thôi",
+                    "Làm mệt về có các em nó tâm sự cũng đỡ mệt các bác ạ",
+                ]
+            },
+            {
+                name: "thachbinh",
+                avatar: "https://i.ibb.co/NCk7t5P/272220237-2110103892483337-2781115009146832995-n.jpg",
+                messages: [
+                "Giờ này ae đang nướng khoai hết r nhỉ",
+                "https://i.ibb.co/fYY996j/photo-44-2024-10-23-11-51-38.jpg",
+        "Chắc k đợi bác nhắc đâu 😆",
+        "Tôi tăng 1 chưa xong mà ae đã tăng 2 tăng 3 rồi ak",
+        "Thôi xong .. combo nay xong ngồi bắn cá thì hết bài",
+        "Mất ngủ. Đến sáng mới tỉnh. Vì. Hít quá. Sâu",
+        "Cuối cùng cũng dc húp 😁",
+        "https://i.ibb.co/x5b94BF/glue-hotel-1.jpg",
+        "Giờ này ae đang nướng khoai hết r nhỉ",
+        "Dáng người đẹp hàng cũng ngon nữa😆",
+        "E này mà bú cu thì đúng sướng lắm đây",
+        "Mấy em gầy gầy này bú cặc giỏi mà đụ cũng sướng nữa",
+        "https://i.ibb.co/7VHyZZS/photo-64-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/y4sDqq2/photo-65-2024-10-23-11-52-15.jpg",
+        "Em này mới đi hôm nọ thấy cũng ok nên rivew cho ae ấy mà",
+        "Call mấy e nó phải call ngay k nhiều ae call liên tục",
+    
+                ]
+            },
+                {
+
+                name: "JULY",
+                avatar: "https://i.ibb.co/QMkTVpc/395590541-1042794623814007-9064456112968543170-n.jpg",
+                messages: [
+                    "A muốn thư giãn cùng em ko nek",
+                    "Em đang rảnh để phục vụ a đây",
+                    "Anh cần gì em có cái đó :V",
+                    "Em sẵn sàng phục vụ a",
+                    "Để em làm anh hài lòng nhen",
+                    "Thư giãn với em đi a",
+                    "A cần em lúc nào cũng được",
+                    "E ở đây để làm anh vui",
+                    "Hãy để em chăm sóc a",
+                    ]
+            },
+            {
+                name: "Minh tuấn",
+                avatar: "https://i.ibb.co/pKmXwrY/272866135-337414368258588-1908917876419985919-n.jpg",
+                messages: [
+                "Thế sao bác ko xơi mak còn ở đây 😆",
+        "Đơn giản thôi. Hết tiền 😐😐",
+        "https://i.ibb.co/pjSHRhc/photo-44-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/WyBRncv/photo-45-2024-10-23-11-22-02.jpg",
+        "Vú này kh ngon thì vú mô ngon nữa",
+        "Đưa tôi bú thử biết liền",
+        "Địt thì địt đi ngon hay dở bọn tôi có ăn dc đâu vl 😐",
+                ]
+            },
+            {
+                name: "khaiminh",
+                avatar: "https://i.ibb.co/g41VJkW/272882107-1743526929177041-8680476091434594245-n.jpg",
+                messages: [
+                "Ae đi cày mà lấy tiền đi đụ đĩ",
+                    "Dễ thương lắm bé ơi",
+                    "Mấy bé chụp hình dễ thương mà ở ngoài còn dễ thương hơn",
+                    "https://i.ibb.co/SvrxbV1/photo-45-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/hCtwGhB/photo-46-2024-10-23-11-52-15.jpg",
+                    "1 lúc mấy e thế kia có mà ngại chết sức đâu mà địt cho nổi",
+                    "Cuộc sống đại gia mới dám chơi kiểu này chứ đi cày bục mặt tiền đâu mà chơi 1 lúc mấy e",
+                    "Chơi để điện ngắm các em cho sướng chứ tắt làm j ông",
+                    "Thôi ae chơi bình dân 1 mình 1 em thôi chơi gì mà mình 3 em có mà đi k nổi",
+                ]
+            },
+            {
+                name: "minhchinh11",
+                avatar: "https://i.ibb.co/D4fNcr1/273051301-4626795057440307-6858749945339263461-n.jpg",
+                messages: [
+                "Làm 2 nháy lô thì dữ tiền đi nên k thành vấn đề",
+                    "Kaka nhiều lúc ae phải thử cảm giác lạ chứ sống mà k thử sau già hối hận đấy",
+                    "Mệt mỏi j có gái nằm đợi sẵn thế kia mỏi đến mấy cũng đè ra đụ cái",
+                    "https://i.ibb.co/ZBL16zc/photo-47-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/F8htkCL/photo-48-2024-10-23-11-22-02.jpg",
+                    "Quá mệt mỏi rồi k biết nên làm gì tiếp đây",
+                    "Mấy bác gọi mấy e nó đến phục vụ đi tầm này là giờ đẹp rồi",
+                    "Bú liếm mà mặt e nó nhìn phê phê",
+                    "Nhìn ngon nhỉ zú căng chắc thủ gọi e nó check hàng phát",
+                ]
+            },
+            {
+                name: "huyduong",
+                avatar: "https://i.ibb.co/L6jL23M/277773094-370824451584246-7873142226701853158-n.jpg",
+                messages: [
+                "Mẹ kiếp lại phải ra khách sạn gọi 1 em đến phục vụ",
+                    "Có ae ở cùng có ng yêu đôi lúc khó chịu phết nhỉ",
+                    "Ae nó có hàng đưa về mừng cho nó chứ",
+                    "Đồ ngon đấy có bạn hiền gái đẹp nữa là ok",
+                    "https://i.ibb.co/47jG43K/photo-49-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/KNDSTNF/photo-50-2024-10-23-11-52-15.jpg",
+                    "Mẹ các bố kiếm gái đi chơi hay j thì nt cho nó đúng ng bố khỉ tự dung có thằng nt đến bảo book e đi chơi nổi da gà",
+                    "Bế e nó ra ban công chơi cho cảm giác lạ",
+                    "Đc đấy nhỉ chơi kiểu này tung tóe nc",
+                    "Chơi e nó trong bồn tắm cảm giác nó phê thì hết chỗ nói",
+                    "Má nó chứ gọi call mấy e tý mà các e nó bận quá",
+                    "https://i.ibb.co/FbGD5wD/photo-62-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/Dg19W52/photo-62-2024-10-23-11-52-15.jpg",
+                    "Bác kết em ngon thế này đúng quá ok",
+                    ] 
+            },
+            {
+                name: "QUỲNH HƯƠNG",
+                avatar: "https://i.ibb.co/1TJpcNr/review-of-hai-thien-for-new-hai-duong-teen-2k-nang-tho-cua-moi-checker-gap-la-me-3268642-original.jpg",
+                messages: [
+                "E rảnh đây có anh nào cần k",
+        "Đêm nay e ở đây chờ các a đặt lịch nhé",
+        "Có muốn lên lịch với e không",
+        "E luôn sẵn sàng đợi a book",
+        "A nào muốn đặt lịch book e chưa",
+                ]
+            },
+            {
+                name: "sangdai2001",
+                avatar: "https://i.ibb.co/4MP92k3/292415446-2231900230303702-1960046090389404713-n.jpg",
+                messages: [
+                "Mối quen mà chơi cho nó bú liếm hehe",
+                    "Mấy e ở đây e nào chả trẻ với ngon mà cứ đặt mấy e hot",
+                    "Thiếu j em ngon đâu bác",
+                    "Có mấy em đang hot trên web kìa ae lên đặt lịch ngay kẻu lại hết phần",
+                    "E nó bảo a ơi bắn vào mồm e nhé",
+                    "https://i.ibb.co/GPhbK9W/photo-51-2024-10-23-11-51-38.jpg",
+"https://i.ibb.co/bgh2gck/photo-35-2024-10-23-11-52-30.jpg",
+                    "Chơi 1 em đã cứng mẹ giò rồi còn đâu mà có sức chơi mấy em 1 lúc hả b",
+                    "Xuất xong e nó bú mà k chịu nổi",
+                    "Má lên chọn mấy e mà thấy e nào cũng ngon",
+                    "Mấy e mái đây cắt tỉa lông lồn gọn gàng nhỉ",
+                    "Đéo như mấy quán hát với massa kia đéo biết làm tình j hết chơi chán vl",
+                    ]
+            },
+            {
+                name: "datlanday",
+                avatar: "https://i.ibb.co/z7xGM2z/301855321-467074835292540-5086007929985430333-n.jpg",
+                messages: [
+                "Mà đéo có gái là con cu nó hỏng",
+        "Mông má nhìn đúng tiêu chuẩn rồi",
+        "https://i.ibb.co/55PGJHx/photo-52-2024-10-23-11-22-02.jpg",
+"https://i.ibb.co/D1b6Ngv/photo-53-2024-10-23-11-22-02.jpg",
+        "Ae thấy e hàng này dáng nuột k",
+        "https://i.ibb.co/sHTf8QH/travelodge-dongadaemun.jpg",
+        "Đã đứng kiểu nMà chơi mấy chị lớn tuổi có khả năng kỹ năng làm tình thì thôi rồi nhỉ hôm nào thử phát lái máy bay xem sao kkkk",
+        ]
+            },
+            {
+                name: "longtu",
+                avatar: "https://i.ibb.co/7tMsbq6/301881035-3391721564479335-5156237668196575911-n.jpg",
+                messages: [
+                "Mấy ae lên web đặt lịch nay t thấy có mấy bé nhìn ngon đòn lắm",
+        "Đúng k có gái là con cu đéo biết xả ở đâu",
+        "https://i.ibb.co/ncjgPsG/photo-39-2024-10-23-11-52-30.jpg",
+"https://i.ibb.co/YPc3hBG/photo-56-2024-10-23-11-22-02.jpg",
+        "Vú này kh ngon thì vú mô ngon nữa",
+        "https://i.ibb.co/7GjkJcg/travelodge-dongadaemun-1.jpg",
+        "Thi thoảng làm tý cho nó thông thái cái đầu óc",
+        "Đặt lịch mấy e đó khó lắm toàn phải đặt trước 2 3 ngày thôi",
+                ]
+            },
+            {
+                name: "Phucquy",
+                avatar: "https://i.ibb.co/HFmN3VJ/307175241-485972230069467-1336353791094509721-n.jpg",
+                messages: [
+                "Hàng mới cập nhật trên web ông bạn k xem à",
+                "https://i.ibb.co/0GmtgRX/photo-61-2024-10-23-11-22-02.jpg",
+"https://i.ibb.co/kGQtzb0/photo-61-2024-10-23-11-52-15.jpg",
+        "T chơi cũng nhiều chỗ rồi mà mấy e ở đây làm tình đúng giỏi",
+        "https://i.ibb.co/mDgpphk/photo-2024-07-17-22-06-53.jpg",
+        "sợ mấy CLB vl giờ mới biết ở đây toàn gái ngon",
+        "Mất thì nghỉ đit có chi đâu",
+                ]
+            },
+            {
+                name: "Đạt09",
+                avatar: "https://i.ibb.co/d0xbBQS/332691797-3517976848448705-7386835105659429453-n.jpg",
+                messages: [
+                "Địt đi rồi review tôi xem phát kk",
+        "Thế đợi hóng nha 😂😂",
+        "Múp máp đấy mà nhậu ít lại nha b 😁",
+        "https://i.ibb.co/yVJ0YX6/photo-56-2024-10-23-11-52-15.jpg",
+"https://i.ibb.co/Dfg6cwr/photo-60-2024-10-23-11-52-15.jpg",
+        "Đụ vào NGÀY THƯỜNG thì tha hồ mà chọn gái ngon",
+          
+            ],
+          },
+        ];
+        function startChat() {
+    userName = document.getElementById("user-name").value;
+    if (!userName || !userAvatar) {
+        alert("Vui lòng nhập tên và chọn ảnh đại diện.");
+        return;
+    }
+    document.getElementById("user-setup").style.display = "none";
+    document.getElementById("chat-container").style.display = "flex";
+}
+
+function loadAvatar(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            userAvatar = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+function getRandomMessage(character) {
+    let message;
+    do {
+        const randomIndex = Math.floor(Math.random() * character.messages.length);
+        message = character.messages[randomIndex];
+    } while (recentMessages.includes(message) && recentMessages.length < maxNoRepeat);
+
+    recentMessages.push(message);
+    if (recentMessages.length > maxNoRepeat) recentMessages.shift();
+
+    return message;
+}
+
+function sendRandomMessage() {
+    const chatBox = document.getElementById("chat-box");
+    const character = characters[Math.floor(Math.random() * characters.length)];
+    const randomMessage = getRandomMessage(character);
+
+    const messageElement = document.createElement("div");
+    messageElement.classList.add("chat-message", "character-message");
+
+    const avatarElement = document.createElement("img");
+    avatarElement.src = character.avatar;
+    avatarElement.classList.add("avatar");
+
+    const messageBubble = document.createElement("div");
+    messageBubble.classList.add("message-bubble");
+
+    const userNameElement = document.createElement("div");
+    userNameElement.classList.add("user-name");
+    userNameElement.textContent = character.name;
+
+    const messageContentElement = document.createElement("div");
+    messageContentElement.classList.add("message-content");
+
+    if (isValidImageUrl(randomMessage)) {
+        const imgElement = document.createElement("img");
+        imgElement.src = randomMessage;
+        imgElement.style.maxWidth = "100%";
+        imgElement.style.height = "auto";
+        messageContentElement.appendChild(imgElement);
+    } else if (isValidVideoUrl(randomMessage)) {
+        const videoElement = document.createElement("video");
+        videoElement.src = randomMessage;
+        videoElement.controls = true;
+        videoElement.style.maxWidth = "100%";
+        videoElement.style.height = "auto";
+
+        // Mute/unmute button for video
+        const muteButton = document.createElement("button");
+        muteButton.textContent = "Mute";
+        muteButton.classList.add("mute-button");
+        muteButton.onclick = function () {
+            videoElement.muted = !videoElement.muted;
+            muteButton.textContent = videoElement.muted ? "Unmute" : "Mute";
+        };
+        messageContentElement.appendChild(muteButton);
+        messageContentElement.appendChild(videoElement);
+    } else {
+        messageContentElement.textContent = randomMessage;
+    }
+
+    const messageStatus = document.createElement("span");
+    messageStatus.classList.add("message-status");
+    messageStatus.textContent = "✓";
+
+    setTimeout(() => {
+        messageStatus.textContent = "✓✓";
+    }, 3000);
+
+    messageBubble.appendChild(userNameElement);
+    messageBubble.appendChild(messageContentElement);
+    messageBubble.appendChild(messageStatus);
+
+    messageElement.appendChild(avatarElement);
+    messageElement.appendChild(messageBubble);
+
+    chatBox.appendChild(messageElement);
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    // Check if the chat box is visible
+    const chatContainer = document.getElementById("chat-container");
+    if (chatContainer.style.display === "none") {
+        newMessagesCount++;
+        document.title = `(${newMessagesCount}) New Message(s)`;
+    }
+
+    const randomInterval = Math.random() * (5000 - 2000) + 2000; // Interval from 2 to 5 seconds
+    setTimeout(sendRandomMessage, randomInterval);
+}
+
+function isValidImageUrl(url) {
+    return url.match(/\.(jpeg|jpg|gif|png|bmp)$/i);
+}
+
+function isValidVideoUrl(url) {
+    return url.match(/\.(mp4|webm|ogg)$/i);
+}
+
+function sendImageMessage(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            createMessageElement(userName, userAvatar, e.target.result, true);
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+function sendVideoMessage(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            createMessageElement(userName, userAvatar, e.target.result, false, true);
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+function sendTextMessage() {
+    const chatInput = document.getElementById("chat-input");
+    const message = chatInput.value.trim();
+    if (message) {
+        createMessageElement(userName, userAvatar, message);
+        chatInput.value = "";
+    }
+}
+
+function createMessageElement(name, avatar, content, isImage = false, isVideo = false) {
+    const chatBox = document.getElementById("chat-box");
+
+    const messageElement = document.createElement("div");
+    messageElement.classList.add("chat-message", "self");
+
+    const avatarElement = document.createElement("img");
+    avatarElement.src = avatar;
+    avatarElement.classList.add("avatar");
+
+    const messageBubble = document.createElement("div");
+    messageBubble.classList.add("message-bubble");
+
+    const userNameElement = document.createElement("div");
+    userNameElement.classList.add("user-name");
+    userNameElement.textContent = name;
+
+    const messageContentElement = document.createElement("div");
+    messageContentElement.classList.add("message-content");
+
+    if (isImage) {
+        const imgElement = document.createElement("img");
+        imgElement.src = content;
+        imgElement.style.maxWidth = "100%";
+        imgElement.style.height = "auto";
+        messageContentElement.appendChild(imgElement);
+    } else if (isVideo) {
+        const videoElement = document.createElement("video");
+        videoElement.src = content;
+        videoElement.controls = true;
+        videoElement.style.maxWidth = "100%";
+        videoElement.style.height = "auto";
+        messageContentElement.appendChild(videoElement);
+    } else {
+        messageContentElement.textContent = content;
+    }
+
+    const messageStatus = document.createElement("span");
+    messageStatus.classList.add("message-status");
+    messageStatus.textContent = "✓";
+
+    setTimeout(() => {
+        messageStatus.textContent = "✓✓";
+    }, 3000);
+
+    messageBubble.appendChild(userNameElement);
+    messageBubble.appendChild(messageContentElement);
+    messageBubble.appendChild(messageStatus);
+
+    messageElement.appendChild(avatarElement);
+    messageElement.appendChild(messageBubble);
+
+    chatBox.appendChild(messageElement);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function toggleChat() {
+    const chatContainer = document.getElementById("chat-container");
+    chatContainer.style.display = chatContainer.style.display === "flex" ? "none" : "flex";
+
+    // Reset new message count when opening chat
+    if (chatContainer.style.display === "flex") {
+        newMessagesCount = 0;
+        document.title = "Chat App";
+    }
+}
+
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+    const chatBox = document.getElementById("chat-container");
+    const isDarkMode = document.body.classList.contains("dark-mode");
+
+    // Change background color of chat box based on dark mode
+    chatBox.style.backgroundColor = isDarkMode ? "#333" : "#fff";
+    chatBox.style.color = isDarkMode ? "#fff" : "#000";
+}
+
+// Start sending random messages
+sendRandomMessage();
+    </script>
+</body>
+</html>
+
 
 <!-- CSS cho các nút phim 18+ -->
 <style>
@@ -998,16 +2775,7 @@ h1 {
 
 <style>
     /* Điều chỉnh kích thước các nút menu */
-    .menu-item {
-        color: #ffffff; /* Màu chữ đen */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Đổ bóng cho chữ */
-        background: #000000;
-        font-size: 15px; /* Kích thước chữ của menu */
-        padding: 5px 5px; /* Khoảng cách bên trong nút */
-        margin: 0 5px; /* Khoảng cách giữa các mục menu */
-        font-weight: 700; /* Chữ đậm nhưng nhẹ hơn */
-        transition: background-color 0.3s ease, transform 0.3s ease; /* Hiệu ứng mượt khi hover */
-}
+   
     
   
     .menu-item:hover {
@@ -1052,30 +2820,19 @@ h1 {
 <div id="support-section" class="content">
     <h2>Hỗ trợ (nhanh 빠른 지원)</h2>
     <p>Để nhận được hỗ trợ nhanh hơn bạn vui lòng liên hệ qua Telegram nhé:</p>
-    <a href="https://t.me/thanhtamyeu01
-    " target="_blank" class="support-button">
+    <a href="https://t.me/luxurygirlbooking" target="_blank" class="support-button">
         <i class="fab fa-telegram-plane"></i> Hỗ trợ tổng
     </a>
-    <a href="https://t.me/maianhyeune2001 target="_blank" class="support-button">
+    <a href="https://t.me/tvvthaoha" target="_blank" class="support-button">
         <i class="fab fa-telegram-plane"></i> Hỗ trợ viên 2
     </a>
-    <a href="https://t.me/haimyne02" target="_blank" class="support-button">
+    <a href="https://t.me/diemk125" target="_blank" class="support-button">
         <i class="fab fa-telegram-plane"></i> Hỗ trợ viên 3
     </a>
     <a href="" target="_blank" class="support-button">
         <i class="fab fa-telegram-plane"></i> Hỗ trợ viên 4
     </a>
     
-    
-    <!-- Khung chat sex -->
-    <div id="chat-box" style="margin-top: 20px;">
-        <div id="messages" style="max-height: 200px; overflow-y: auto; border: 1px solid #ffffff; padding: 10px; background-color: #f9f9f9;">
-            <!-- Tin nhắn sẽ xuất hiện ở đây -->
-        </div>
-        <input type="text" id="nickname" placeholder="Nhập tên Member của bạn..." style="width: 100%; margin-top: 10px; padding: 5px;" />
-        <input type="text" id="chat-input" placeholder="Nhập tin nhắn muốn gửi..." style="width: 100%; margin-top: 10px; padding: 5px;" />
-        <button id="send-btn" style="width: 100%; padding: 10px; background-color: #ff3d00; color: white; border: none; margin-top: 10px; cursor: pointer;">Gửi</button>
-    </div>
 </div>
 
 <!-- JavaScript để quản lý chat -->
@@ -1923,7 +3680,7 @@ function openLinkInNewTab() {
         <button onclick="closeModal('bookingCodeModal')">Đóng</button>
         
         <p>
-            <a href="https://t.me/haimyne02" class="button-link">Lần đầu sử dụng dịch vụ bấm tại đây</a>
+            <a href="https://t.me/sglbhaiyen12" class="button-link">Lần đầu sử dụng dịch vụ bấm tại đây</a>
         </p>
     </div>
 </div>
@@ -1937,14 +3694,14 @@ function openLinkInNewTab() {
 
 <div id="errorNotification" class="success-notification" style="display: none;">
     <p>Mã đặt lịch không chính xác. Vui lòng thử lại.</p>
-    <p>Liên hệ hỗ trợ tại: <a href="https://t.me/haimyne02">đây</a></p>
-    <p><a href="https://t.me/thanhtamyeu01">Trợ giúp trực tuyến</a></p>
+    <p>Liên hệ hỗ trợ tại: <a href="https://t.me/sglbhaiyen12">đây</a></p>
+    <p><a href="https://t.me/luxurygirlbooking">Trợ giúp trực tuyến</a></p>
 </div>
 
 
 <script>
 const correctBookingCode = "88889999";
-const errorRedirectUrl = "https://t.me/maianhyeune2001"; // Thay đổi đường dẫn theo ý bạn
+const errorRedirectUrl = "https://example.com/error"; // Thay đổi đường dẫn theo ý bạn
 // Mở modal nhập thông tin đặt lịch
 function openBookingModal() {
     document.getElementById("bookingInfoModal").style.display = "flex";
@@ -2350,7 +4107,7 @@ function closeNotification() {
                                 font-weight: bold;
                             }
                             .info-button {
-    color: #ffffff; /* Màu chữ vàng */
+    color: #000000; /* Màu chữ vàng */
     padding: 11px 22px;
     border-radius: 20px;
     border: 2px solid #ffffff; /* Viền bạc */
@@ -4664,27 +6421,9 @@ document.querySelectorAll('.review-section').forEach(section => {
     color: #ff3d00; /* Màu hồng cam phù hợp với nền cam đào */
 }
 
-#chat-box {
-    border: 1px solid #000000; /* Màu viền hồng nhạt để hài hòa với nền */
-    padding: 10px;
-    height: 300px;
-    overflow-y: scroll;
-}
 
-#chat-input {
-    width: 80%;
-    padding: 10px;
-    border: 2px solid #C0C0C0; /* Viền bạc */
-}
 
-#send-btn {
-    padding: 10px;
-    background: linear-gradient(135deg, #ff6ec7, #ff1493); /* Nền hồng gradient */
-    color: #ffffff; /* Màu chữ trắng */
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px #000000;
-}
+
 
 .statistics-widget {
     background: linear-gradient(135deg, #f7a7c5, #d14d83); /* Nền hồng gradient */
@@ -4824,79 +6563,8 @@ border-radius: 5px; /* Bo góc ảnh */
         transform: translateX(-100%);
         animation-timing-function: ease-in-out; /* Chuyển động mượt hơn */
     }
-}
 
-    </style>
-    <style>
-    #chat-box {
-        border: 2px solid #000000; /* Viền cam nhạt */
-    padding: 10px;
-    height: 300px;
-    overflow-y: auto;
-    margin-top: 20px;
-    background-color: #000000;
-    border-radius: 10px;
-    color: #fff;
-    box-shadow: 0 4px 8px #000000;
-}
 
-#messages {
-    height: 240px;
-    overflow-y: auto;
-    background-color: #000000;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-#chat-input {
-    width: 80%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 2px solid #000000; /* Viền cam nhạt */
-    margin-right: 10px;
-    box-shadow: 0 4px 8px #000000;
-}
-
-#send-btn {
-    padding: 10px;
-    background-color: #000000;
-    color: #fff;
-    border: 1px solid #C0C0C0;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 2px solid #000000; /* Viền cam nhạt */
-}
-
-#send-btn:hover {
-    background-color: #ffffff; /* Màu nền khi hover */
-}
-
-.message {
-    padding: 5px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    background-color: #000000;
-    color: #fff;
-}
-
-    #telegram-link {
-      color: #ffffff;
-      text-decoration: underline;
-    }
-
-    #toggle-chat-btn {
-      padding: 10px;
-      background: #ffffff;
-      color: #000000;
-      border: 1px solid #C0C0C0; /* Viền cam nhạt */
-      cursor: pointer;
-      margin-top: 20px;
-      border-radius: 5px;
-    }
-
-    #toggle-chat-btn:hover {
-        background: linear-gradient(135deg, #f7a7c5, #d14d83); /* Nền hồng gradient */
     }
     .statistics-widget h4 {
     margin: 0 0 10px 0;
@@ -4928,13 +6596,66 @@ border-radius: 5px; /* Bo góc ảnh */
 </head>
 <body>
 
+ <!-- 4 nút phim 18+ hiển thị sau khi nhấn vào Phim 18+ -->
+ <div id="submenu-phim-18" class="submenu" style="display:none;">
+    <button class="phim-btn" onclick="window.open('https://quatvn.fit/onlyfans-vietnam/', '_blank')">Phim 18+ Việt Nam</button>
+    <button class="phim-btn" onclick="window.open('https://quatvn.fit/cn/', '_blank')">Phim 18+ Trung</button>
+    <button class="phim-btn" onclick="window.open('https://quatvn.fit/us/', '_blank')">Phim 18+ U.S</button>
+    <button class="phim-btn" onclick="window.open('https://quatvn.fit/kr/', '_blank')">Phim 18+ Hàn</button>
+    <button class="phim-btn" onclick="window.open('https://quatvn.fit/jp/', '_blank')">Phim 18+ Nhật Bản (JAV)</button>
+    <button class="phim-btn" onclick="window.open">Gái Việt Du học sinh (Member Vip 💎)</button>
+    <button class="phim-btn" onclick="window.open('https://quatvn.fit/onlyfans-thailand/', '_blank')">Phim 18+ Khác</button>
+</div>
+
+</div>
+<!-- Script để ẩn/hiện 4 nút phim 18+ -->
+<script>
+    function toggleSubmenu() {
+        var submenu = document.getElementById("submenu-phim-18");
+        if (submenu.style.display === "none" || submenu.style.display === "") {
+            submenu.style.display = "flex";
+        } else {
+            submenu.style.display = "none";
+        }
+    }
+</script>
+
+<!-- CSS cho các nút phim 18+ -->
+<style>
+.submenu {
+    display: none;
+    flex-wrap: wrap; /* Cho phép nút xuống hàng khi không đủ không gian */
+    gap: 10px;
+}
+
+.phim-btn {
+    font-size: 13px;
+    padding: 5px 9px;
+    background: #000000;
+    color: #ffffff; /* Chữ đen */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Đổ bóng cho chữ */
+    border-radius: 5px;
+    font-weight: 750; /* Chữ đậm nhưng nhẹ hơn */
+    cursor: pointer;
+    flex-basis: 22%; /* Chiều rộng mỗi nút */
+    text-align: center;
+    box-sizing: border-box;
+    border: 2px solid #C0C0C0; /* Viền bạc */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển đổi */
+}
+
+.phim-btn:hover {
+    background-color: #ffffff; /* Màu nền khi hover */
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+}
+</style>
   
 </body>
 
 <!-- Mục Được Yêu Thích Nhất  -->
 <div class="container">
     <div id="hoa-khoi-section">
-        <h2>XẾP HẠNG HÀNG TUẦN 💋</h2>
+        <h2>PREVIEW 💋</h2>
         <div class="slider">
             <div class="slider-images-wrapper">
             <div class="slider-images">
@@ -5173,6 +6894,8 @@ border-radius: 5px; /* Bo góc ảnh */
     });
 });
 </script>
+</body>
+</html>
 
 
 
@@ -5235,91 +6958,16 @@ border-radius: 5px; /* Bo góc ảnh */
     }, 5000);
 </script>
 
-
-
 </body>
 </html>
 
-
-
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>DIAMOND CLUB - Chat sex</title>
   <style>
     
-      body {
-        font-family: "Poppins", sans-serif;
     
-      margin: 0;
-      padding: 0;
-    }
 
+    
 
-    /* Phần nhập và thông báo chat sex */
-    #chat-sex-section {
-      margin: 10px;
-      padding: 10px;
-      border-radius: 5px;
-      width: 90%;
-      margin: 0 auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Hiệu ứng đổ bóng */
-    border: 1px solid #ffffff; /* Viền vàng */
-      color: #ffffff;/* Màu chữ trắng */
-    }
-
-    #chat-sex-section input {
-      width: 80%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      border: 1px solid #ffffff; /* Viền vàng */
-    }
-
-    #chat-sex-section button {
-      padding: 11px;
-      color: #000000; /* Màu chữ đen */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Đổ bóng cho chữ */
-    background-color: #ffffff; /* Màu nền khi hover */
-      border-radius: 5px;
-      cursor: pointer;
      
-      box-shadow: 0 4px 8px #000000;
-    }
-
-    #chat-sex-section button:hover {
-        background-color: #000000; /* Màu nền khi hover */
-        color: #ffffff;
-    transform: scale(1.05); /* Phóng to nhẹ khi hover */
-    }
-
-    /* Thông báo khi không phải là VIP */
-    #vip-message {
-      display: none;
-      margin-top: 10px;
-      padding: 10px;
-    
-
-      color: #000000; /* Màu chữ đen */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Đổ bóng cho chữ */
-      text-align: center;
-      border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Hiệu ứng đổ bóng */
-    
-    }
-
-    /* Liên kết Telegram trong thông báo */
-    #telegram-link {
-        color: #000000; /* Màu chữ đen */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Đổ bóng cho chữ */
-      text-decoration: underline;
-    
-      border: 2px solid #C0C0C0; /* Viền bạc */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển đổi */
-
-    }
 
     /* Điều chỉnh kích thước cho tất cả các hình ảnh trong phần thông tin */
 .info-image {
@@ -5337,6 +6985,7 @@ body {
     background-color:  #c6c9ba; /* Màu nền nút cam đậm */
     color: #000000; /* Màu chữ trắng */
     margin: 0;
+    border: 2px solid #008cff; /* Viền bạc */
     padding: 0;
     line-height: 1.6;
 
@@ -5348,7 +6997,7 @@ body {
     font-size: 20px; /* Kích thước chữ */
     font-family: "Poppins", sans-serif;       
     font-weight: 700;
-    color: #ffffff;
+    color: #006eff;
     text-transform: uppercase; /* Chữ in hoa */
     letter-spacing: 2px; /* Khoảng cách giữa các chữ */
      border-radius: 10px; /* Bo tròn góc nút */ 
@@ -5371,21 +7020,18 @@ body {
 
 button {
    
-    color: #ffffff; /* Màu chữ vàng */
-  
-    background: #000000;
-    border: 1px solid #ff4800; /* Viền cam nhạt */
-
-    padding: 10px 20px;
-    border-radius: 20px;
+    color: #ff0000; /* Màu chữ vàng */
+    border-radius: 10px;
+    padding: 5px 9px;
+    background-color: #000000;
     font-weight: bold;
-    cursor: pointer;
+   
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     
 }
 button:hover {
-    background-color: #ffffff; /* Màu nền khi hover */
-    color: #ffffff; /* Màu chữ khi hover */
+    background-color: #ff3300; /* Màu nền khi hover */
+    color: #000000 /* Màu chữ khi hover */
     transform: scale(1.05); /* Hiệu ứng phóng to nhẹ khi hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8); /* Hiệu ứng đổ bóng đậm */
 }
@@ -5491,16 +7137,6 @@ img:hover {
 
 
 
-    /* Nút ẩn/hiện khung chat sex */
-    #toggle-chat-btn {
-      display: block;
-      margin-top: 10px
-      color: #000000; /* Màu chữ trắng */
-    
-      border-radius: 5px;
-      cursor: pointer;
-      background-color: #ffffff; /* Màu nền nút cam đậm */
-    }
 
     .fixed-logo {
     position: fixed;   /* Cố định logo */
@@ -5536,7 +7172,8 @@ body {
     font-family: 'Poppins", sans-serif;
     background-color: #000000; /* Màu nền nút cam đậm */
     border: 2px solid #ffffff; /* Viền bạc */
-    margin: 0;
+
+    border-radius: 10px;   
     padding: 0 3%; /* Điều chỉnh padding hai bên cho cả trang */
 }
 
@@ -5559,103 +7196,14 @@ body {
 </head>
 <body>
 
-  <!-- Nút ẩn/hiện khung chat sex -->
-  <button id="toggle-chat-btn">Ẩn Chat sex</button>
- 
-
-  <!-- Khung Chat sex -->
-  <div id="chat-sex-section">
-    <h2>Chat sex (섹스 채팅)</h2>
-    <input type="text" id="user-input" placeholder="Nhập đối tác muốn chat..." />
-    <button id="user-submit-btn">OK</button>
-    <p style="color: #000000;  border: 2px solid #C0C0C0; /* Viền bạc */ text-align: center;  
-     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ cho khối */ padding: 10px;   background: linear-gradient(135deg, #f7a7c5, #d14d83); /* Nền hồng gradient */
- border-radius: 5px;">
-        Chat sex với các đối tác của Web. Member có thể tham gia chat sex trực tiếp với các bé của hệ thống,hoặc đối tác của Web mình mong muốn 💎 
-    </p>
-        <!-- Nút ba gạch -->
-        <button id="menu-btn" class="menu-icon">
-            &#9776; <!-- Biểu tượng ba gạch -->
-        </button>
     
-        <!-- Danh sách phòng chat (ẩn ban đầu) -->
-        <div id="room-list" class="room-list hidden">
-            <button class="room-btn" data-room="Room Vip 1">Room Vip 1</button>
-            <button class="room-btn" data-room="Room Vip 2">Room Vip 2</button>
-            <button class="room-btn" data-room="Room Vip 3">Room Vip 3</button>
-            <button class="room-btn" data-room="Room Vip 4">Room Vip 4</button>
-            <button class="room-btn" data-room="Room Vip 5">Room Vip 5</button>
-            <button class="room-btn" data-room="Room Vip 6">Room Vip 6</button>
-            <button class="room-btn" data-room="Room Vip 7">Room Vip 7</button>
-            <button class="room-btn" data-room="Room Vip 8">Room Vip 8</button>
-            <button class="room-btn" data-room="Room Vip 9">Room Vip 9</button>
-        </div>
-    </div>
+   
     
-</div>
-    
-    <!-- Thông báo khi không phải là VIP -->
-    <div id="vip-message">
-        Bạn chưa đủ điều kiện để truy cập vào các dịch vụ đặc biệt của hệ thống 💎 <br>
-     Liên hệ hỗ trợ hoặc có thể tạm thời vào nhóm chat trên Telegram để giao lưu 💎 :
-      <a href="https://t.me/maianhyeune2001" id="telegram-link" target="_blank">Tham gia nhóm chat</a>
-    </div>
-  </div>
-
+  
   <script>
-    // Xử lý hiển thị thông báo khi người dùng nhập đối tượng và nhấn OK
-    const userSubmitButton = document.getElementById('user-submit-btn');
-    const vipMessage = document.getElementById('vip-message');
-    const userInput = document.getElementById('user-input');
-    const chatSection = document.getElementById('chat-sex-section');
-    const toggleChatButton = document.getElementById('toggle-chat-btn');
-
-    // Hiển thị thông báo nếu không phải là VIP
-    userSubmitButton.addEventListener('click', function() {
-      if (userInput.value.trim() !== "") {
-        vipMessage.style.display = 'block'; // Hiển thị thông báo nếu có đối tượng được nhập
-      } else {
-        alert("Vui lòng nhập đối tượng muốn chat."); // Cảnh báo nếu không nhập đối tượng
-      }
-    });
-
-    // Ẩn/hiện khung chat sex
-    toggleChatButton.addEventListener('click', function() {
-      if (chatSection.style.display === 'none') {
-        chatSection.style.display = 'block';
-        toggleChatButton.textContent = 'Ẩn Chat sex';
-      } else {
-        chatSection.style.display = 'none';
-        toggleChatButton.textContent = 'Hiện Chat sex';
-      }
-    });
-
-    document.querySelector('form').addEventListener('submit', function(e) {
-    e.preventDefault();
     
-    const formData = new FormData(this);
-    
-    fetch('/upload', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert("Tải lên thành công!");
-            // Thêm hình ảnh mới vào danh sách đã tải lên
-            const img = document.createElement('img');
-            img.src = data.imageUrl; // URL của hình ảnh sau khi tải lên thành công
-            document.getElementById('uploaded-images').appendChild(img);
-        } else {
-            alert("Tải lên thất bại!");
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert("Đã xảy ra lỗi!");
-    });
-});
+
+
 
     function toggleContent(region, type) {
     // Tạo danh sách các phần tử cần quản lý
@@ -5675,19 +7223,7 @@ body {
 
 
 
-const multer = require('multer');
-const upload = multer({ dest: 'uploads/' });
 
-app.post('/upload', upload.single('uploadedImage'), (req, res) => {
-    if (req.file) {
-        res.json({ success: true, imageUrl: `/uploads/${req.file.filename}` });
-    } else {
-        res.json({ success: false });
-    }
-});
-
-console.log('Đã vào hàm toggleContent');
-console.log(region, type); // In giá trị của region và type
 
   </script>
 
@@ -5787,19 +7323,17 @@ document.getElementById('timezone').innerHTML = "Múi giờ: Asia/Seoul";
 
      <style>  
 .copyright-section {
-  width: 380px;
+
   border-radius: 10px; /* Bo tròn góc nút */ 
   color: #000000; /* Màu chữ đen */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Đổ bóng cho chữ */
 
     text-align: center; /* Canh giữa nội dung */
-    padding: 10px; /* Khoảng cách trong khung */
     font-size: 15px; /* Kích thước chữ nhỏ vừa */
-    margin-top: 20px; /* Khoảng cách phía trên */
+    
     font-family: 'Poppins", sans-serif; /* Đặt font đơn giản */
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Hiệu ứng đổ bóng */
- 
+  
 }
 
 
@@ -5975,3 +7509,469 @@ document.getElementById('timezone').innerHTML = "Múi giờ: Asia/Seoul";
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Hỗ trợ 24/24</title>
+    <style>
+      .support-icon {
+        position: fixed;
+        top: 70px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 50%;
+        background-image: url("https://i.ibb.co/XFYWHm5/pngtree-support-icon-modern-png-image-10723665.png"); /* Thay thế thành đường dẫn ảnh avatar */
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+        z-index: 999; /* Ensure the icon is above other elements */
+      }
+
+      .support-chat {
+        display: none;
+        position: fixed;
+        top: 75px;
+        right: 80px;
+        width: 300px;
+        height: 500px;
+        background-color: linear-gradient(45deg, #ff7eb9, #ff65a3);
+        border: 3px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        flex-direction: column;
+        font-family: Poppins', sans-serif;
+      }
+      .support-chat-header {
+        background-color: linear-gradient(45deg, #ff7eb9, #ff65a3);
+        color: #ccc;
+        font-size: 30px;
+        font-weight: 700; /* Chữ đậm hơn */
+        border-radius: 8px 8px 0 0;
+        text-align: center;
+      }
+
+      .support-chat-messages {
+        flex: 1;
+     
+        top: 30px;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-y: auto;
+        font-size: 14px;
+      }
+
+      .support-chat-input {
+        display: flex;
+        border-top: 1px solid #ccc;
+        padding: 10px;
+        justify-content: space-between;
+      }
+
+      .support-icon img {
+        width: 100%;
+        border-radius: 50%;
+      }
+
+      .support-chat-buttons {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .support-chat-input input {
+        flex: 1;
+        margin-bottom: 5px;
+        padding: 10px;
+        border-top: 2px solid #ccc;
+        border-radius: 10px;
+      }
+      .support-chat-buttons button,
+      .support-chat-buttons input[type="file"] {
+        color: #ffffff; /* Màu chữ vàng */
+        padding: 1px 9px;
+        border-radius: 10px;
+        display: inline-flex;
+        align-items: center;
+        font-weight: 600; /* Chữ đậm hơn */
+        cursor: pointer;
+        justify-content: center;
+        text-align: center;
+        font-size: 12px;
+      }
+
+      .ban-message {
+        background-color: #e1e1e1;
+        padding: 10px;
+        margin: 5px;
+        font-weight: 600; /* Chữ đậm hơn */
+        border-radius: 8px;
+        text-align: right; /* Tin nhắn người dùng nằm bên phải */
+      }
+
+      .user-avatar {
+        align-self: flex-end; /* Align avatar to the right */
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-left: 10px;
+      }
+
+      .ho-tro-message {
+        background-color: #a8ebff;
+        font-weight: 600;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin: 5px;
+        border-radius: 8px;
+        align-self: flex-start; /* Align AI message to the left */
+      }
+
+      .file-input-label {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .file-input-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+      }
+
+      .file-input-wrapper input[type="file"] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Support icon and chat structure -->
+    <div
+      class="support-icon"
+      id="supportIcon"
+      onclick="toggleSupportChat()"
+    ></div>
+    <div class="support-chat" id="supportChat">
+      <div class="support-chat-header">Support Chat</div>
+      <div class="support-chat-messages" id="supportMessages"></div>
+      <div class="support-chat-input">
+        <input
+          type="text"
+          id="supportInput"
+          placeholder="Type your message..."
+          onkeydown="handleInput(event)"
+        />
+      </div>
+      <!-- Buttons placed below the input field -->
+      <div class="support-chat-buttons">
+        <button onclick="sendSupportMessage()">Send</button>
+        <button onclick="sendImageToTelegram()">Send Image</button>
+        <input type="file" id="imageInput" />
+      </div>
+    </div>
+    <script>
+      let isDragging = false;
+      let offsetX, offsetY;
+      const supportIcon = document.getElementById("supportIcon");
+
+      // Start dragging when mouse is pressed on the icon
+      function startDrag(event) {
+        isDragging = true;
+        offsetX = event.clientX - supportIcon.offsetLeft;
+        offsetY = event.clientY - supportIcon.offsetTop;
+        document.addEventListener("mousemove", dragIcon);
+        document.addEventListener("mouseup", stopDrag);
+      }
+
+      // Drag the icon around the page
+      function dragIcon(event) {
+        if (isDragging) {
+          const x = event.clientX - offsetX;
+          const y = event.clientY - offsetY;
+          supportIcon.style.left = x + "px";
+          supportIcon.style.top = y + "px";
+        }
+      }
+
+      // Stop dragging the icon
+      function stopDrag() {
+        isDragging = false;
+        document.removeEventListener("mousemove", dragIcon);
+        document.removeEventListener("mouseup", stopDrag);
+      }
+
+      // Function to toggle the visibility of the chat window
+      function toggleSupportChat() {
+        const supportChat = document.getElementById("supportChat");
+        supportChat.style.display =
+          supportChat.style.display === "flex" ? "none" : "flex";
+      }
+
+      let dulieubot = {
+  chat_responses: {
+    greeting: {
+      user: "Chào em",
+      bot: "Dạ, em chào anh yêu ạ! Em có thể giúp gì cho anh yêu hôm nay không? Anh yêu muốn tìm hiểu dịch vụ hay có thắc mắc gì cần em giải đáp không ạ?",
+    },
+    book_girl: {
+      user: "Anh muốn book gái",
+      bot: "Dạ, em hiểu rồi, anh yêu muốn book gái. Anh yêu cần em tư vấn thêm về khu vực, giá cả, hay loại hình dịch vụ cụ thể nào không ạ?",
+    },
+    location: {
+      user: "Ở khu vực nào có?",
+      bot: "Dạ, hệ thống hiện có các bé ở nhiều khu vực khác nhau để phục vụ anh yêu ạ! Anh yêu có thể cho em biết mình đang ở khu vực nào không, để em giới thiệu các bé gần anh nhất nhé?",
+    },
+    price: {
+      user: "Giá cả thế nào?",
+      bot: `Dạ, em xin giới thiệu các gói dịch vụ hiện có để anh yêu dễ chọn hoặc anh có thể xem ở mục bảng giá cho chi tiết nhé:
+      \n\n**Gói Thường**: 100,000 won
+      Thời gian: 90 phút
+      Dịch vụ: Tắm chung, massage thư giãn, HJ & BJ chuyên nghiệp, quan hệ 2 lần
+      \n\n**Gói VIP**:145,000 won
+      Thời gian: 180 phút
+      Dịch vụ: Massage kết hợp, HJ & BJ nóng/lạnh, quan hệ 3 lần, quay lại khoảnh khắc
+      \n\n**Gói Luxury**:335,000 won
+      Thời gian: 16 giờ
+      Dịch vụ: Tắm chung, đồ chơi cao cấp, massage Nuru, quan hệ không giới hạn
+      \n\n**Gói VIP Tour**:1,900,000 won
+      Thời gian: 3 ngày
+      Dịch vụ: Phục vụ toàn diện, quay khoảnh khắc, phục vụ tận tình như người yêu
+      \n\nAnh yêu có thể chọn gói nào phù hợp, hoặc nếu cần thêm thông tin, cứ báo em nhé!`,
+    },
+    payment: {
+      user: "Nếu anh chuyển khoản trước mà bị mất thì sao?",
+      bot: "Dạ, em rất hiểu nỗi lo này. Hệ thống luôn cam kết minh bạch với tất cả các khoản thanh toán. Khoản phí 19,000 won chỉ là phí đăng ký mã đặt lịch và sẽ được tính vào chi phí dịch vụ của anh yêu. Nếu anh không sử dụng nữa, khoản này có thể hoàn lại hoặc dùng làm tín dụng cho lần đặt lịch sau. Anh cứ yên tâm nhé!",
+    },
+    registration_process: {
+      user: "Làm sao để đăng ký?",
+      bot: "Dạ, để đăng ký, anh yêu cần thực hiện các bước sau:\n1. Đăng ký tài khoản trên hệ thống.\n2. Thanh toán khoản phí đăng ký 19,000 won.\n3. Nhận mã đặt lịch sau khi thanh toán thành công. Mã này sẽ được dùng để xác nhận và dễ dàng đặt lịch với các bé.",
+    },
+    phone_number: {
+      user: "Cho anh số điện thoại bé được không?",
+      bot: "Dạ, để đảm bảo quyền riêng tư và sự an toàn cho cả anh và các bé, bên em không cung cấp trực tiếp số điện thoại. Sau khi anh hoàn tất đăng ký mã đặt lịch, anh có thể liên hệ trực tiếp qua hệ thống Telegram. Anh yêu cứ yên tâm, em sẽ hỗ trợ anh hết mình!",
+    },
+  },
+  process: {
+    step1: {
+      description: "Khách hàng thanh toán khoản phí đăng ký 19,000 won để nhận mã đặt lịch.",
+      action: "Khách hàng gửi chứng từ thanh toán (ảnh chụp màn hình hoặc thông tin giao dịch) cho hệ thống.",
+    },
+    step2: {
+      description: "Xác nhận thanh toán.",
+      action: "Hệ thống sẽ xác nhận thanh toán của khách hàng và lưu lại thông tin giao dịch.",
+    },
+    step3: {
+      description: "Cung cấp mã đặt lịch.",
+      action: "Sau khi thanh toán được xác nhận, hệ thống sẽ gửi mã đặt lịch qua một kênh riêng tư.",
+    },
+    step4: {
+      description: "Sử dụng mã đặt lịch.",
+      action: "Khách hàng dùng mã đặt lịch để chọn bé yêu thích, gói dịch vụ và hoàn tất lịch hẹn.",
+    },
+  },
+  payment_methods: {
+    bank_accounts: {
+      hana_bank: {
+        account_number: "51291072352007",
+        account_holder: "Pham Van Trung",
+      },
+      tpbank: {
+        account_number: "00006001701",
+        account_holder: "Bùi Thị Mỹ An",
+      },
+      shb: {
+        account_number: "1023606558",
+        account_holder: "Bùi Thị Mỹ An",
+      },
+    },
+    payment_instruction: "Sau khi thanh toán, anh yêu gửi ảnh xác nhận để hệ thống kích hoạt mã đặt lịch.",
+  },
+  links: {
+    registration_link: "https://girlluxury.club",
+    referral_code: "369268",
+  },
+  privacy_and_security: {
+    disclosure: "Mọi thông tin và mã đặt lịch sẽ được bảo mật tuyệt đối. Anh yêu không cần lo lắng về việc lộ thông tin cá nhân.",
+  },
+  important_notes: {
+    note1: "Khoản phí 19,000 won không phải là phí dịch vụ mà là phí đăng ký mã đặt lịch.",
+    note2: "Sau khi nhận mã, anh yêu có thể đặt lịch cho bất kỳ bé nào trong hệ thống mà không cần đăng ký lại.",
+  },
+};
+
+
+// Hàm tải dữ liệu từ chatbot_update.json
+async function loadChatbotData() {
+  try {
+    const response = await fetch("chatbot_update.json");
+    if (!response.ok) {
+      throw new Error("Không thể tải chatbot_update.json");
+    }
+    const data = await response.json();
+    dulieubot.chat_responses = data.chat_responses;
+    dulieubot.process = data.process;
+    console.log("Dữ liệu JSON đã được tải:", dulieubot);
+  } catch (error) {
+    console.error("Lỗi khi tải chatbot_update.json:", error);
+  }
+}
+
+// Gọi loadChatbotData khi trang được tải
+window.onload = loadChatbotData;
+
+
+      // Toggle the support chat visibility
+      function toggleSupportChat() {
+        const supportChat = document.getElementById("supportChat");
+        supportChat.style.display =
+          supportChat.style.display === "flex" ? "none" : "flex";
+      }
+
+      function displayMessage(sender, message) {
+        const messages = document.getElementById("supportMessages");
+        const messageElement = document.createElement("div");
+
+        // Add custom CSS class based on sender (user or AI)
+        messageElement.classList.add(
+          sender === "Bạn" ? "ban-message" : "ho-tro-message"
+        );
+
+        messageElement.textContent = `${sender}: ${message}`;
+        messages.appendChild(messageElement);
+        messages.scrollTop = messages.scrollHeight; // Auto-scroll to the latest message
+      }
+
+      function handleInput(event) {
+        if (event.key === "Enter") {
+          sendSupportMessage();
+        }
+      }
+
+      // Kiểm tra câu hỏi và trả lời từ dulieubot.json hoặc sử dụng OpenAI API
+      async function sendSupportMessage() {
+        const input = document.getElementById("supportInput");
+        const message = input.value.trim();
+        if (!message) return;
+
+        // Hiển thị tin nhắn của người dùng
+        displayMessage("Bạn", message);
+        input.value = "";
+
+
+        // Trả lời từ dulieubot.json nếu có từ khóa
+        let responseMessage = "";
+
+        // Các câu hỏi từ dulieubot.json
+        if (message.toLowerCase().includes("giá")) {
+          responseMessage = dulieubot["chat_responses"]["price"]["bot"];
+        } else if (message.toLowerCase().includes("book gái")) {
+          responseMessage = dulieubot["chat_responses"]["book_girl"]["bot"];
+        } else if (message.toLowerCase().includes("chào em")) {
+          responseMessage = dulieubot["chat_responses"]["greeting"]["bot"];
+        } else {
+          // Nếu không có từ khóa, gửi yêu cầu tới OpenAI API
+          try {
+            const response = await fetch(
+              "https://api.openai.com/v1/chat/completions",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization:
+                    "Bearer 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", // Thay bằng key của bạn
+                },
+                body: JSON.stringify({
+                  model: "gpt-4",
+                  messages: [
+                    {
+                      role: "system",
+                      content:
+                        "Bạn là một trợ lý hỗ trợ khách hàng trong lĩnh vực dịch vụ book gái gọi.Khách muốn thông tin các bé thì bắt buộc xin địa chỉ trước.Khi khách gửi địa chỉ thì yêu cầu khách vào mục gần đây để check thông tin các bé. Dịch vụ tại Hàn quốc chỉ có các cô gái Việt nam không có các quốc giá khác,đa số là du học sinh hay thực tập sinh.Chỉ được chào anh yêu 1 lần không được lặp lại, trả lời đúng trọng tâm,Tên hệ thống là Luxury Girl Booking hoạt động 3 năm, Hạn chế gọi Luxury Girl Booking tránh làm phiền khách hàng.Bạn phải luôn xưng 'em' với khách hàng và 'anh yêu' với người dùng.Không bao giờ được xưng tôi dù trường hợp nào, hãy quan tâm hỏi han khách hàng như tình nhân ăn uống hay công việc nhưng không được lộ liễu,phải thật ngọt ngào,hạn chế chào nhiều lần lặp lại,",
+                    },
+                    {
+                      role: "user",
+                      content: message,
+                    },
+                  ],
+                }),
+              }
+            );
+
+            const data = await response.json();
+            if (!response.ok) {
+              throw new Error(
+                "API request failed with status " + response.status
+              );
+            }
+
+            // Trả lời từ OpenAI nếu không có trong dulieubot.json
+            responseMessage = data.choices[0].message.content;
+          } catch (error) {
+            console.error("Error:", error);
+            responseMessage = "Dạ anh yêu";
+          }
+        }
+
+        // Hiển thị câu trả lời từ Hỗ Trợ
+        displayMessage("Hỗ Trợ", responseMessage);
+      }
+      // Send image to Telegram
+      async function sendImageToTelegram() {
+        const fileInput = document.getElementById("imageInput");
+        const imageFile = fileInput.files[0];
+
+        if (!imageFile) {
+          alert("Please select an image file first.");
+          return;
+        }
+
+        const chatId = "8097050355"; // Replace with recipient's chat ID
+        const botToken = "7957918125:AAG6hRCr5FMfq8sPSL44WF93qxvQRs_oQSw"; // Replace with your bot's token
+
+        const formData = new FormData();
+        formData.append("chat_id", chatId);
+        formData.append("photo", imageFile);
+
+        try {
+          const response = await fetch(
+            `https://api.telegram.org/bot${botToken}/sendPhoto`,
+            {
+              method: "POST",
+              body: formData,
+            }
+          );
+
+          const result = await response.json();
+          if (result.ok) {
+            console.log("Image sent successfully!");
+            // Confirm receipt to the user
+            displayMessage(
+              "Hỗ Trợ",
+              "Hóa đơn của anh đã được nhận và đang xử lý."
+            );
+          } else {
+            console.error("Failed to send image:", result);
+          }
+        } catch (error) {
+          console.error("Error sending image:", error);
+        }
+      }
+    </script>
+  </body>
+</html>
+
