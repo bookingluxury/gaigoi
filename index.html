@@ -7890,7 +7890,7 @@ window.onload = loadChatbotData;
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, // Đảm bảo API Key được lấy từ môi trường
+            Authorization: `Bearer ${process.env.OPENAPI_KEY}`, // Đảm bảo API Key được lấy từ môi trường
         },
         body: JSON.stringify({
             model: "gpt-4",
