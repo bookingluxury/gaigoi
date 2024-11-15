@@ -7886,20 +7886,19 @@ window.onload = loadChatbotData;
         } else {
           // Nếu không có từ khóa, gửi yêu cầu tới OpenAI API
           try {
-            const response = await fetch(
-              "https://api.openai.com/v1/chat/completions",
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                  Authorization:
-                    "Bearer ", // Thay bằng key của bạn
-                },
-                body: JSON.stringify({
-                  model: "gpt-4",
-                  messages: [
-                    {
-                      role: "system",
+      const response = await fetch(
+  "https://api.openai.com/v1/chat/completions",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, // Sử dụng biến môi trường
+    },
+    body: JSON.stringify({
+      model: "gpt-4",
+      messages: [
+        {
+          role: "system",
                       content:
                         "Bạn là một trợ lý hỗ trợ khách hàng trong lĩnh vực dịch vụ book gái gọi.Khách muốn thông tin các bé thì bắt buộc xin địa chỉ trước.Khi khách gửi địa chỉ thì yêu cầu khách vào mục gần đây để check thông tin các bé. Dịch vụ tại Hàn quốc chỉ có các cô gái Việt nam không có các quốc giá khác,đa số là du học sinh hay thực tập sinh.Chỉ được chào anh yêu 1 lần không được lặp lại, trả lời đúng trọng tâm,Tên hệ thống là Luxury Girl Booking hoạt động 3 năm, Hạn chế gọi Luxury Girl Booking tránh làm phiền khách hàng.Bạn phải luôn xưng 'em' với khách hàng và 'anh yêu' với người dùng.Không bao giờ được xưng tôi dù trường hợp nào, hãy quan tâm hỏi han khách hàng như tình nhân ăn uống hay công việc nhưng không được lộ liễu,phải thật ngọt ngào,hạn chế chào nhiều lần lặp lại,",
                     },
